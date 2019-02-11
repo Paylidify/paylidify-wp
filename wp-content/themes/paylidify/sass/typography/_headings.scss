@@ -19,6 +19,7 @@ h2,
 
 h3,
 .site-content .elementor-widget-heading h3.elementor-heading-title {
+	font-weight: 400;
 	font-size: 2rem;
 	line-height: 1.4;
 	color: $color_dark-blue;
@@ -44,4 +45,13 @@ h6,
 	font-size: .75rem;
 	line-height: 1.3;
 	color: $color_gray;
+}
+
+.elementor-widget-colored-heading .elementor-heading-title {
+	padding: 30px;
+	color: #fff;
+}
+
+.elementor-widget-colored-heading .elementor-widget-container {
+	background-color: $color_blue;
 }

@@ -160,3 +160,73 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+/**
+ * Custom Elementor Widgets
+ */
+// if ( defined( '\Elementor\Widget_Base' ) ) {
+// 
+// use Elementor\Widget_Base;
+//
+// 	abstract class Elementor_Colored_Heading_Widget extends \Elementor\Widget_Base {
+//
+// 		public function get_name() {
+// 			return 'Colored Heading';
+// 		}
+//
+// 		public function get_title() {
+// 			return __( 'Colored Heading', 'plugin-name' );
+// 		}
+//
+// 		public function get_icon() {
+// 			return 'fa fa-code';
+// 		}
+//
+// 		public function get_categories() {
+// 			return [ 'basic' ];
+// 		}
+//
+// 		protected function _register_controls() {
+//
+// 			$this->start_controls_section(
+// 				'content_section',
+// 				[
+// 					'label' => __( 'Content', 'plugin-name' ),
+// 					'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+// 				]
+// 			);
+//
+// 			$this->add_control(
+// 				'url',
+// 				[
+// 					'label' => __( 'URL to embed', 'plugin-name' ),
+// 					'type' => \Elementor\Controls_Manager::TEXT,
+// 					'input_type' => 'url',
+// 					'placeholder' => __( 'https://your-link.com', 'plugin-name' ),
+// 				]
+// 			);
+//
+// 			$this->end_controls_section();
+// 		}
+//
+// 		protected function render() {
+//
+// 			$settings = $this->get_settings_for_display();
+//
+// 			$html = $settings['url'];
+//
+// 			echo '<div class="oembed-elementor-widget">';
+//
+// 			echo ( $html ) ? $html : $settings['url'];
+//
+// 			echo '</div>';
+//
+// 		}
+// 	}
+//
+// 	// public function register_widgets() {
+//
+// 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Elementor_Colored_Heading_Widget() );
+//
+// 	// }
+// // }

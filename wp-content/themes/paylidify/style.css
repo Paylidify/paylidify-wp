@@ -388,6 +388,7 @@ h2,
 
 h3,
 .site-content .elementor-widget-heading h3.elementor-heading-title {
+  font-weight: 400;
   font-size: 2rem;
   line-height: 1.4;
   color: #00476e; }
@@ -410,6 +411,13 @@ h6,
   font-size: .75rem;
   line-height: 1.3;
   color: #81868e; }
+
+.elementor-widget-colored-heading .elementor-heading-title {
+  padding: 30px;
+  color: #fff; }
+
+.elementor-widget-colored-heading .elementor-widget-container {
+  background-color: #006aff; }
 
 p {
   margin-bottom: 1.5em; }
