@@ -1,4 +1,19 @@
-$font__main: sans-serif;
+@font-face {
+  font-family: Ubuntu;
+  src: url('fonts/Ubuntu-Regular.ttf');
+}
+@font-face {
+  font-family: UbuntuBold;
+  src: url('fonts/Ubuntu-Bold.ttf');
+}
+@font-face {
+  font-family: UbuntuLight;
+  src: url('fonts/Ubuntu-Light.ttf');
+}
+
+$font__main: Ubuntu, sans-serif;
+$font__bold: UbuntuBold, sans-serif;
+$font__light: UbuntuLight, sans-serif;
 $font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", Courier, monospace;
 $font__line-height-body: 1.5;

@@ -1,22 +1,44 @@
 button,
+a.elementor-button,
+.site-content .elementor-button.elementor-size-md,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 1px solid;
-	border-color: $color__border-button;
-	border-radius: 3px;
-	background: $color__background-button;
-	color: rgba(0, 0, 0, .8);
-	@include font-size(0.75);
-	line-height: 1;
-	padding: .6em 1em .4em;
+	border: none;
+	border-color: $color__button-border;
+	border-radius: 100px;
+	background: $color__button-background;
+	color: $color__button-text;
+	line-height: 2.25;
+	padding: .4em 3em;
 
 	&:hover {
-		border-color: $color__border-button-hover;
+		border-color: $color__button-border-hover;
 	}
 
 	&:active,
 	&:focus {
-		border-color: $color__border-button-focus;
+		border-color: $color__button-border-focus;
 	}
+}
+
+.site-content .elementor-button.elementor-size-lg {
+	@include font-size(1.25);
+	padding: .5em 3em;
+	border-radius: 100px;
+}
+
+.site-content .elementor-button.elementor-size-sm {
+	@include font-size(0.85);
+	line-height: 1.75;
+	padding: .5em 2.5em;
+	border-radius: 100px;
+}
+
+
+.site-content .elementor-button.elementor-size-xs {
+	@include font-size(0.85);
+	line-height: 1.5;
+	padding: .4em 2.5em;
+	border-radius: 100px;
 }

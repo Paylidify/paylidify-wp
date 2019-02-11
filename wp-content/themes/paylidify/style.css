@@ -41,6 +41,15 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
+@font-face {
+  font-family: Ubuntu;
+  src: url("fonts/Ubuntu-Regular.ttf"); }
+@font-face {
+  font-family: UbuntuBold;
+  src: url("fonts/Ubuntu-Bold.ttf"); }
+@font-face {
+  font-family: UbuntuLight;
+  src: url("fonts/Ubuntu-Light.ttf"); }
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -352,14 +361,55 @@ input,
 select,
 optgroup,
 textarea {
-  color: #404040;
-  font-family: sans-serif;
+  color: #696969;
+  font-family: Ubuntu, sans-serif;
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5; }
 
+.color__light {
+  color: #fff; }
+
 h1, h2, h3, h4, h5, h6 {
+  font-family: Ubuntu, sans-serif;
   clear: both; }
+
+h1,
+.site-content .elementor-widget-heading h1.elementor-heading-title {
+  font-size: .75rem;
+  line-height: 1.4;
+  color: #00476e; }
+
+h2,
+.site-content .elementor-widget-heading h2.elementor-heading-title {
+  font-size: 2.5rem;
+  line-height: 1.4;
+  color: #00476e; }
+
+h3,
+.site-content .elementor-widget-heading h3.elementor-heading-title {
+  font-size: 2rem;
+  line-height: 1.4;
+  color: #00476e; }
+
+h4,
+.site-content .elementor-widget-heading h4.elementor-heading-title {
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: #696969; }
+
+h5,
+.site-content .elementor-widget-heading h5.elementor-heading-title {
+  font-size: .83rem;
+  line-height: 1.3;
+  color: #81868e; }
+
+h6,
+.site-content .elementor-widget-heading .elementor-heading-title h6 {
+  font-size: .75rem;
+  line-height: 1.3;
+  color: #81868e; }
 
 p {
   margin-bottom: 1.5em; }
@@ -460,24 +510,30 @@ table {
 # Forms
 --------------------------------------------------------------*/
 button,
+a.elementor-button,
+.site-content .elementor-button.elementor-size-md,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  border: 1px solid;
+  border: none;
   border-color: #ccc #ccc #bbb;
-  border-radius: 3px;
-  background: #e6e6e6;
-  color: rgba(0, 0, 0, 0.8);
-  font-size: 12px;
-  font-size: 0.75rem;
-  line-height: 1;
-  padding: .6em 1em .4em; }
+  border-radius: 100px;
+  background: #006aff;
+  color: #fff;
+  line-height: 2.25;
+  padding: .4em 3em; }
   button:hover,
+  a.elementor-button:hover,
+  .site-content .elementor-button.elementor-size-md:hover,
   input[type="button"]:hover,
   input[type="reset"]:hover,
   input[type="submit"]:hover {
     border-color: #ccc #bbb #aaa; }
   button:active, button:focus,
+  a.elementor-button:active,
+  a.elementor-button:focus,
+  .site-content .elementor-button.elementor-size-md:active,
+  .site-content .elementor-button.elementor-size-md:focus,
   input[type="button"]:active,
   input[type="button"]:focus,
   input[type="reset"]:active,
@@ -485,6 +541,26 @@ input[type="submit"] {
   input[type="submit"]:active,
   input[type="submit"]:focus {
     border-color: #aaa #bbb #bbb; }
+
+.site-content .elementor-button.elementor-size-lg {
+  font-size: 20px;
+  font-size: 1.25rem;
+  padding: .5em 3em;
+  border-radius: 100px; }
+
+.site-content .elementor-button.elementor-size-sm {
+  font-size: 13.6px;
+  font-size: 0.85rem;
+  line-height: 1.75;
+  padding: .5em 2.5em;
+  border-radius: 100px; }
+
+.site-content .elementor-button.elementor-size-xs {
+  font-size: 13.6px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  padding: .4em 2.5em;
+  border-radius: 100px; }
 
 input[type="text"],
 input[type="email"],
@@ -537,11 +613,11 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-  color: royalblue; }
+  color: #00476e; }
   a:visited {
     color: purple; }
   a:hover, a:focus, a:active {
-    color: midnightblue; }
+    color: #006aff; }
   a:focus {
     outline: thin dotted; }
   a:hover, a:active {
@@ -630,7 +706,7 @@ a {
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
     clip: auto !important;
     clip-path: none;
-    color: #21759b;
+    color: #696969;
     display: block;
     font-size: 14px;
     font-size: 0.875rem;
@@ -707,6 +783,38 @@ a {
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
+#page {
+  width: 90%;
+  max-width: 1140px;
+  margin: 0 auto; }
+
+header {
+  padding: 10px; }
+
+.content-area {
+  float: left;
+  margin: 0 -25% 0 0;
+  width: 100%; }
+
+.site-main {
+  margin: 0 25% 0 0; }
+
+.site-content .widget-area {
+  float: right;
+  overflow: hidden;
+  width: 25%; }
+
+.site-footer {
+  clear: both;
+  width: 100%; }
+
+.no-sidebar .content-area {
+  float: none;
+  margin-left: auto;
+  margin-right: auto; }
+.no-sidebar .site-main {
+  margin-right: 0; }
+
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
