@@ -75,7 +75,6 @@ wp-content/mysql.sql
 # large/disallowed file types
 # a CDN should be used for these
 *.hqx
-*.bin
 *.exe
 *.dll
 *.deb
