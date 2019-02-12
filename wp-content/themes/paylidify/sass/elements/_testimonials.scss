@@ -1,0 +1,33 @@
+.elementor-widget-custom-testimonial {
+	border-radius: 8px;
+	padding: 50px;
+	box-shadow: $box-shadow__large-box;
+	background-color: $color_blue;
+	color: #fff;
+}
+
+.elementor-widget-custom-testimonial .elementor-testimonial-details {
+	color: #fff;
+}
+
+.elementor-widget-custom-testimonial .elementor-testimonial-wrapper .elementor-testimonial-name {
+	line-height: 2;
+}
+
+.elementor-widget-custom-testimonial .elementor-testimonial-wrapper .elementor-testimonial-job {
+	font-family: $font__light;
+	line-height: 2;
+}
+
+.elementor-widget-custom-testimonial .elementor-testimonial-wrapper .elementor-testimonial-content {
+	padding: 0 20px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+.elementor-widget-custom-testimonial .elementor-testimonial-wrapper .elementor-testimonial-content:before {
+	content: open-quote;
+	position: relative;
+	top: -8px;
+	left: -30px;
+	@include font-size(3);
+	font-style: italic;
+}

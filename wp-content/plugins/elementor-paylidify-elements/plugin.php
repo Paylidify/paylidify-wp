@@ -235,12 +235,13 @@ final class Elementor_Paylidify_Elements {
 	public function init_widgets() {
 
 		// Include Widget files
-		require_once( __DIR__ . '/widgets/test-widget.php' );
 		require_once( __DIR__ . '/widgets/colored-heading-widget.php' );
+		require_once( __DIR__ . '/widgets/custom-testimonial-widget.php' );
 
 		// Register widget
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Colored_Heading_Widget() );
-		// \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Elementor_Test_Widget() );
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Custom_Testimonial_Widget() );
+
 
 	}
 
