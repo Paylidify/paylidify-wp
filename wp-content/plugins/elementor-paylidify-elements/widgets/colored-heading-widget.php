@@ -33,7 +33,7 @@ class Colored_Heading_Widget extends \Elementor\Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Colored Heading', 'plugin-name' );
+		return __( 'Paylidify Colored Heading', 'plugin-name' );
 	}
 
 	/**
@@ -196,6 +196,10 @@ class Colored_Heading_Widget extends \Elementor\Widget_Base {
 			[
 				'label' => __( 'Text Color', 'elementor' ),
 				'type' => \Elementor\Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => \Elementor\Scheme_Color::get_type(),
+					'value' => \Elementor\Scheme_Color::COLOR_2,
+				],
 				'selectors' => [
 					// Stronger selector to avoid section style from overwriting
 					'{{WRAPPER}}.elementor-widget-heading .elementor-heading-title .elementor-colored-heading-title' => 'color: {{VALUE}};',

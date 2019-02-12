@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
 Theme Name: paylidify
 Theme URI: http://underscores.me/
@@ -387,7 +388,8 @@ h2,
   color: #00476e; }
 
 h3,
-.site-content .elementor-widget-heading h3.elementor-heading-title {
+.site-content .elementor-widget-heading h3.elementor-heading-title,
+.site-content .elementor-widget-image-box .elementor-image-box-content h3.elementor-image-box-title {
   font-weight: 400;
   font-size: 2rem;
   line-height: 1.4;
@@ -513,6 +515,44 @@ figure {
 table {
   margin: 0 0 1.5em;
   width: 100%; }
+
+.elementor-image-box-wrapper {
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 8px 15px 25px rgba(200, 200, 200, 0.5), 0px 5px 25px rgba(200, 200, 200, 0.2); }
+
+.site-content .elementor-widget-image-box .elementor-image-box-content .elementor-image-box-description {
+  color: #696969; }
+
+.elementor-widget-custom-testimonial {
+  border-radius: 8px;
+  padding: 50px;
+  box-shadow: 8px 15px 25px rgba(200, 200, 200, 0.5), 0px 5px 25px rgba(200, 200, 200, 0.2);
+  background-color: #006aff;
+  color: #fff; }
+
+.elementor-widget-custom-testimonial .elementor-testimonial-details {
+  color: #fff; }
+
+.elementor-widget-custom-testimonial .elementor-testimonial-wrapper .elementor-testimonial-name {
+  line-height: 2; }
+
+.elementor-widget-custom-testimonial .elementor-testimonial-wrapper .elementor-testimonial-job {
+  font-family: UbuntuLight, sans-serif;
+  line-height: 2; }
+
+.elementor-widget-custom-testimonial .elementor-testimonial-wrapper .elementor-testimonial-content {
+  padding: 0 20px;
+  quotes: "“" "”" "‘" "’"; }
+
+.elementor-widget-custom-testimonial .elementor-testimonial-wrapper .elementor-testimonial-content:before {
+  content: open-quote;
+  position: relative;
+  top: -8px;
+  left: -30px;
+  font-size: 48px;
+  font-size: 3rem;
+  font-style: italic; }
 
 /*--------------------------------------------------------------
 # Forms
