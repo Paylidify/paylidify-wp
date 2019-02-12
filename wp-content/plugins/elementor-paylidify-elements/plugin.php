@@ -237,11 +237,12 @@ final class Elementor_Paylidify_Elements {
 		// Include Widget files
 		require_once( __DIR__ . '/widgets/colored-heading-widget.php' );
 		require_once( __DIR__ . '/widgets/custom-testimonial-widget.php' );
+		require_once( __DIR__ . '/widgets/icon-circle-widget.php' );
 
 		// Register widget
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Colored_Heading_Widget() );
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Custom_Testimonial_Widget() );
-
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Icon_Circle_Widget() );
 
 	}
 
