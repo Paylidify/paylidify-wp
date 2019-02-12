@@ -41,7 +41,7 @@ class Post extends Condition_Base {
 
 	public function get_all_label() {
 		/* translators: %s: Post type label. */
-		return sprintf( __( 'All %s', 'elementor-pro' ), $this->post_type->label );
+		return $this->post_type->label;
 	}
 
 	public function check( $args ) {

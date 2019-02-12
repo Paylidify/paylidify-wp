@@ -7,7 +7,6 @@ use ElementorPro\Modules\Forms\Classes\Form_Record;
 use ElementorPro\Modules\Forms\Controls\Fields_Map;
 use ElementorPro\Modules\Forms\Classes\Action_Base;
 use MailPoet\API\API;
-use MailPoet\Models\Setting;
 use MailPoet\Models\Subscriber;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -53,14 +52,12 @@ class Mailpoet3 extends Action_Base {
 			]
 		);
 
-		$mailpoet3_confirmation = Setting::getValue( 'signup_confirmation' );
-
 		$widget->add_control(
 			'mailpoet3_auto_confirm',
 			[
 				'label' => __( 'Auto Confirm', 'elementor-pro' ),
 				'type' => Controls_Manager::SWITCHER,
-				'default' => empty( $mailpoet3_confirmation['enabled'] ) ? 'yes' : '',
+				'default' => 'yes',
 			]
 		);
 

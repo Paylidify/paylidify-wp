@@ -1,4 +1,4 @@
-/*! elementor - v2.4.5 - 30-01-2019 */
+/*! elementor - v2.4.6 - 11-02-2019 */
 @charset "UTF-8";
 *, :before, :after {
   margin: 0;
@@ -2514,6 +2514,8 @@ select {
 
 .wp-picker-container .iris-picker {
   border: none; }
+  .wp-picker-container .iris-picker .iris-picker-inner {
+    width: 100%; }
 
 .wp-picker-container:not(.wp-picker-active) {
   float: left; }
@@ -2529,7 +2531,7 @@ select {
 
 .wp-picker-container input[type="text"].wp-color-picker {
   float: left;
-  width: 100px;
+  width: 120px;
   max-width: 136px;
   -webkit-border-radius: 0 3px 3px 0;
           border-radius: 0 3px 3px 0;

@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.4.3 - 30-01-2019 */
+/*! elementor-pro - v2.4.4 - 11-02-2019 */
 .wrap.elementor-admin-page-license form.elementor-license-box {
   max-width: 600px;
   background: white;
@@ -208,12 +208,16 @@ span.font-variations-count {
     padding: 20px 40px;
     margin: 0 -20px; }
     .elementor-metabox-content .repeater-content .repeater-content-bottom .elementor-field {
-      background-color: #ffffff;
-      padding: 10px 20px;
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      background-color: #ffffff;
+      padding: 10px 20px;
       margin-bottom: 10px;
       -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
               box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05); }
@@ -318,7 +322,10 @@ span.font-variations-count {
     margin-right: 5px; }
 
 .elementor-metabox-content input.button.add-repeater-row {
-  margin-top: 18px; }
+  margin-top: 18px;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none; }
 
 .elementor-metabox-content .elementor-repeater-tool-btn {
   color: #a4afb7;

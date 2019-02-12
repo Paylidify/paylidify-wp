@@ -356,21 +356,31 @@ class Upload extends Field_Base {
 
 		wp_mkdir_p( $path );
 
-		//'base' => $upload_dir['basedir'] . '/elementor/forms',
 		$files = [
 			[
 				'file' => 'index.php',
-				'content' => '<?php' . PHP_EOL . '// Silence is golden.',
+				'content' => [
+					'<?php',
+					'// Silence is golden.',
+				],
 			],
 			[
 				'file' => '.htaccess',
-				'content' => 'Options -Indexes' . PHP_EOL . '<Files *.*>' . PHP_EOL . 'Header set Content-Disposition attachment' . PHP_EOL . '</Files>',
+				'content' => [
+					'Options -Indexes',
+					'<ifModule mod_headers.c>',
+					'	<Files *.*>',
+					'       Header set Content-Disposition attachment',
+					'	</Files>',
+					'</IfModule>',
+				],
 			],
 		];
 
 		foreach ( $files as $file ) {
 			if ( ! file_exists( trailingslashit( $path ) . $file['file'] ) ) {
-				@ file_put_contents( trailingslashit( $path ) . $file['file'], $file['content'] );
+				$content = implode( PHP_EOL, $file['content'] );
+				@ file_put_contents( trailingslashit( $path ) . $file['file'], $content );
 			}
 		}
 

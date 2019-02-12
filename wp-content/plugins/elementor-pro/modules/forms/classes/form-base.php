@@ -55,7 +55,9 @@ abstract class Form_Base extends Base_Widget {
 			$this->add_required_attribute( 'textarea' . $item_index );
 		}
 
-		return '<textarea ' . $this->get_render_attribute_string( 'textarea' . $item_index ) . '></textarea>';
+		$value = empty( $item['field_value'] ) ? '' : $item['field_value'];
+
+		return '<textarea ' . $this->get_render_attribute_string( 'textarea' . $item_index ) . '>' . $value . '</textarea>';
 	}
 
 	protected function make_select_field( $item, $i ) {

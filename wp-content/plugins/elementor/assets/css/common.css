@@ -1,4 +1,4 @@
-/*! elementor - v2.4.5 - 30-01-2019 */
+/*! elementor - v2.4.6 - 11-02-2019 */
 .dialog-widget-content {
   background-color: #fff;
   position: absolute;
@@ -79,7 +79,8 @@
   width: 100%; }
 
 .dialog-prevent-scroll {
-  overflow: hidden; }
+  overflow: hidden;
+  max-height: 100vh; }
 
 @media (max-width: 767px) {
   .dialog-close-button {
