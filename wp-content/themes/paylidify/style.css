@@ -580,6 +580,7 @@ table {
 button,
 a.elementor-button,
 .site-content .elementor-button.elementor-size-md,
+.main-navigation .menu-main-navigation-container > ul > li:last-child,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
@@ -590,9 +591,18 @@ input[type="submit"] {
   color: #fff;
   line-height: 2.25;
   padding: .4em 3em; }
+  button:visited,
+  a.elementor-button:visited,
+  .site-content .elementor-button.elementor-size-md:visited,
+  .main-navigation .menu-main-navigation-container > ul > li:last-child:visited,
+  input[type="button"]:visited,
+  input[type="reset"]:visited,
+  input[type="submit"]:visited {
+    color: #fff; }
   button:hover,
   a.elementor-button:hover,
   .site-content .elementor-button.elementor-size-md:hover,
+  .main-navigation .menu-main-navigation-container > ul > li:last-child:hover,
   input[type="button"]:hover,
   input[type="reset"]:hover,
   input[type="submit"]:hover {
@@ -602,6 +612,8 @@ input[type="submit"] {
   a.elementor-button:focus,
   .site-content .elementor-button.elementor-size-md:active,
   .site-content .elementor-button.elementor-size-md:focus,
+  .main-navigation .menu-main-navigation-container > ul > li:last-child:active,
+  .main-navigation .menu-main-navigation-container > ul > li:last-child:focus,
   input[type="button"]:active,
   input[type="button"]:focus,
   input[type="reset"]:active,
@@ -629,6 +641,17 @@ input[type="submit"] {
   line-height: 1.5;
   padding: .4em 2.5em;
   border-radius: 100px; }
+
+.main-navigation .menu-main-navigation-container > ul > li:last-child {
+  margin-left: 50px;
+  line-height: 2;
+  padding: 0;
+  border-radius: 100px; }
+  .main-navigation .menu-main-navigation-container > ul > li:last-child a {
+    color: #fff;
+    padding: .5em 2.5em; }
+    .main-navigation .menu-main-navigation-container > ul > li:last-child a:visited {
+      color: #fff; }
 
 input[type="text"],
 input[type="email"],
@@ -696,16 +719,15 @@ a {
 --------------------------------------------------------------*/
 .main-navigation {
   clear: both;
-  display: block;
-  float: left;
-  width: 100%; }
+  display: inline-block;
+  float: right; }
   .main-navigation ul {
     display: none;
     list-style: none;
     margin: 0;
     padding-left: 0; }
     .main-navigation ul ul {
-      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+      box-shadow: 8px 10px 20px rgba(200, 200, 200, 0.4), 0px 10px 20px rgba(200, 200, 200, 0.2);
       float: left;
       position: absolute;
       top: 100%;
@@ -714,16 +736,29 @@ a {
       .main-navigation ul ul ul {
         left: -999em;
         top: 0; }
-      .main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
-        left: 100%; }
+      .main-navigation ul ul li {
+        margin-left: 1.5em;
+        padding: 5px 0; }
+        .main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
+          left: 100%; }
       .main-navigation ul ul a {
         width: 200px; }
     .main-navigation ul li:hover > ul,
     .main-navigation ul li.focus > ul {
-      left: auto; }
+      left: auto;
+      background: #fff;
+      border-radius: 8px; }
   .main-navigation li {
     float: left;
-    position: relative; }
+    position: relative;
+    margin-left: 2em; }
+    .main-navigation li a {
+      padding: 12px 5px 12px; }
+    .main-navigation li.menu-item-has-children:after {
+      content: "\02C7";
+      position: absolute;
+      top: 40%;
+      right: -10px; }
   .main-navigation a {
     display: block;
     text-decoration: none; }
@@ -886,6 +921,12 @@ header {
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
+.site-header {
+  margin-top: 30px; }
+
+.site-branding {
+  display: inline-block; }
+
 .sticky {
   display: block; }
 

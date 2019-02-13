@@ -1,8 +1,7 @@
 .main-navigation {
 	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
+	display: inline-block;
+	float: right;
 
 	ul {
 		display: none;
@@ -11,7 +10,7 @@
 		padding-left: 0;
 
 		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+			box-shadow: $box-shadow__menu-items;
 			float: left;
 			position: absolute;
 			top: 100%;
@@ -24,6 +23,9 @@
 			}
 
 			li {
+				margin-left: 1.5em;
+				padding: 5px 0;
+
 				&:hover > ul,
 				&.focus > ul {
 					left: 100%;
@@ -46,15 +48,29 @@
 		li:hover > ul,
 		li.focus > ul {
 			left: auto;
+			background: #fff;
+			border-radius: 8px;
 		}
 	}
 
 	li {
 		float: left;
 		position: relative;
+		margin-left: 2em;
+
+		a {
+			padding: 12px 5px 12px;
+		}
 
 		&:hover > a,
 		&.focus > a {
+		}
+
+		&.menu-item-has-children:after {
+			content: "\02C7";
+			position: absolute;
+			top: 40%;
+			right: -10px;
 		}
 	}
 

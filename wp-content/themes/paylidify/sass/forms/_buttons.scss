@@ -1,6 +1,7 @@
 button,
 a.elementor-button,
 .site-content .elementor-button.elementor-size-md,
+.main-navigation .menu-main-navigation-container > ul > li:last-child,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
@@ -11,6 +12,10 @@ input[type="submit"] {
 	color: $color__button-text;
 	line-height: 2.25;
 	padding: .4em 3em;
+
+	&:visited {
+		color: $color__button-text;
+	}
 
 	&:hover {
 		border-color: $color__button-border-hover;
@@ -35,10 +40,26 @@ input[type="submit"] {
 	border-radius: 100px;
 }
 
-
 .site-content .elementor-button.elementor-size-xs {
 	@include font-size(0.85);
 	line-height: 1.5;
 	padding: .4em 2.5em;
 	border-radius: 100px;
+}
+
+.main-navigation .menu-main-navigation-container > ul > li:last-child {
+	margin-left: 50px;
+	line-height: 2;
+	padding: 0;
+	border-radius: 100px;
+
+	a {
+		color: $color__button-text;
+		padding: .5em 2.5em;
+
+
+		&:visited {
+			color: $color__button-text;
+		}
+	}
 }
