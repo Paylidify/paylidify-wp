@@ -752,14 +752,14 @@ a {
   .main-navigation li {
     float: left;
     position: relative;
-    margin-left: 2em; }
+    margin-left: 1.5em; }
     .main-navigation li a {
       padding: 12px 5px 12px; }
     .main-navigation li.menu-item-has-children:after {
       content: "\02C7";
       position: absolute;
       top: 40%;
-      right: -8px; }
+      right: -5px; }
   .main-navigation > button.menu-toggle {
     width: 50px;
     height: 50px;
