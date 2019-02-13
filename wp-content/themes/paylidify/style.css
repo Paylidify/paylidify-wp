@@ -377,12 +377,14 @@ h1, h2, h3, h4, h5, h6 {
 
 h1,
 .site-content .elementor-widget-heading h1.elementor-heading-title {
+  font-weight: 400;
   font-size: .75rem;
   line-height: 1.4;
   color: #00476e; }
 
 h2,
 .site-content .elementor-widget-heading h2.elementor-heading-title {
+  font-weight: 400;
   font-size: 2.5rem;
   line-height: 1.4;
   color: #00476e; }
@@ -722,7 +724,6 @@ a {
   display: inline-block;
   float: right; }
   .main-navigation ul {
-    display: none;
     list-style: none;
     margin: 0;
     padding-left: 0; }
@@ -758,22 +759,92 @@ a {
       content: "\02C7";
       position: absolute;
       top: 40%;
-      right: -10px; }
+      right: -8px; }
+  .main-navigation > button.menu-toggle {
+    width: 50px;
+    height: 50px;
+    float: right;
+    background-color: transparent;
+    background-image: url(inc/mobile-menu-icon.png);
+    background-repeat: no-repeat;
+    background-size: 35px 20px;
+    background-position: center;
+    text-indent: -9999px; }
   .main-navigation a {
     display: block;
     text-decoration: none; }
 
+@media screen and (max-width: 62em) {
+  .site-branding .custom-logo-link img {
+    max-width: 80%; }
+
+  .main-navigation .menu-main-navigation-container ul li {
+    margin-left: 1em; }
+    .main-navigation .menu-main-navigation-container ul li.menu-item-has-children:after {
+      right: -5px; }
+
+  .main-navigation .menu-main-navigation-container > ul > li:last-child {
+    margin-left: 1.2em; }
+    .main-navigation .menu-main-navigation-container > ul > li:last-child a {
+      padding: .5em 1.5em; } }
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
   display: block; }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 53em) {
   .menu-toggle {
     display: none; }
 
   .main-navigation ul {
     display: block; } }
+@media screen and (max-width: 53em) {
+  .main-navigation {
+    width: 100%;
+    position: absolute;
+    top: 10px;
+    right: 0; }
+    .main-navigation ul.nav-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease-out;
+      display: block; }
+
+  .main-navigation.toggled {
+    z-index: 20; }
+    .main-navigation.toggled .menu-main-navigation-container {
+      background-color: #006aff;
+      border-radius: 10px;
+      padding-top: 50px; }
+      .main-navigation.toggled .menu-main-navigation-container ul.nav-menu {
+        max-height: inherit;
+        overflow: auto;
+        transition: max-height 0.25s ease-out;
+        display: block; }
+        .main-navigation.toggled .menu-main-navigation-container ul.nav-menu > li {
+          font-weight: 400;
+          font-size: 20.8px;
+          font-size: 1.3rem; }
+          .main-navigation.toggled .menu-main-navigation-container ul.nav-menu > li:last-child {
+            margin-left: auto;
+            line-height: auto;
+            padding: auto; }
+        .main-navigation.toggled .menu-main-navigation-container ul.nav-menu ul {
+          float: none;
+          position: relative;
+          background: auto;
+          left: auto; }
+          .main-navigation.toggled .menu-main-navigation-container ul.nav-menu ul li {
+            font-family: UbuntuLight, sans-serif;
+            font-size: 16px;
+            font-size: 1rem; }
+          .main-navigation.toggled .menu-main-navigation-container ul.nav-menu ul ul {
+            left: auto; }
+    .main-navigation.toggled > button.menu-toggle {
+      background-size: 25px 25px;
+      background-image: url(inc/mobile-menu-icon-open.png); }
+    .main-navigation.toggled a {
+      color: #fff; } }
 .site-main .comment-navigation,
 .site-main .posts-navigation,
 .site-main .post-navigation {
@@ -922,7 +993,18 @@ header {
 ## Posts and pages
 --------------------------------------------------------------*/
 .site-header {
-  margin-top: 30px; }
+  margin-top: 30px;
+  position: relative; }
+  .site-header:after {
+    display: block;
+    position: absolute;
+    top: -19em;
+    left: -50%;
+    height: 700px;
+    width: 2000px;
+    background: #effcff;
+    z-index: -10;
+    transform: rotate(-12deg); }
 
 .site-branding {
   display: inline-block; }

@@ -31,7 +31,9 @@
 	}
 
 	button.onclick = function() {
+    console.log('click');
 		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
+      console.log('found toggled');
 			container.className = container.className.replace( ' toggled', '' );
 			button.setAttribute( 'aria-expanded', 'false' );
 			menu.setAttribute( 'aria-expanded', 'false' );

@@ -27,3 +27,16 @@
 @mixin column-width($numberColumns: 3) {
 	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
+
+// Light blue angled background
+@mixin blue-angled-background($top: -19em, $height: 500px) {
+	display: block;
+	position: absolute;
+	top: $top;
+	left: -50%;
+	height: $height;
+	width: 2000px;
+	background: $color__light-blue;
+	z-index: -10;
+  transform: rotate(-12deg);
+}

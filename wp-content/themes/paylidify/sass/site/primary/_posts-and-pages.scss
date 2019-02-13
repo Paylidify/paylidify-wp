@@ -1,5 +1,10 @@
 .site-header {
 	margin-top: 30px;
+	position: relative;
+
+	&:after {
+		@include blue-angled-background(-19em, 700px);
+	}
 }
 
 .site-branding {

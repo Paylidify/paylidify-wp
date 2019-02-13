@@ -5,16 +5,18 @@ h1, h2, h3, h4, h5, h6 {
 
 h1,
 .site-content .elementor-widget-heading h1.elementor-heading-title {
+	font-weight: 400;
 	font-size: .75rem;
 	line-height: 1.4;
-	color: $color_dark-blue;
+	color: $color__dark-blue;
 }
 
 h2,
 .site-content .elementor-widget-heading h2.elementor-heading-title {
+	font-weight: 400;
 	font-size: 2.5rem;
 	line-height: 1.4;
-	color: $color_dark-blue;
+	color: $color__dark-blue;
 }
 
 h3,
@@ -23,7 +25,7 @@ h3,
 	font-weight: 400;
 	font-size: 2rem;
 	line-height: 1.4;
-	color: $color_dark-blue;
+	color: $color__dark-blue;
 }
 
 h4,
@@ -31,21 +33,21 @@ h4,
 	font-weight: 400;
 	font-size: 1.25rem;
 	line-height: 1.4;
-	color: $color_dark-gray;
+	color: $color__dark-gray;
 }
 
 h5,
 .site-content .elementor-widget-heading h5.elementor-heading-title {
 	font-size: .83rem;
 	line-height: 1.3;
-	color: $color_gray;
+	color: $color__gray;
 }
 
 h6,
 .site-content .elementor-widget-heading .elementor-heading-title h6 {
 	font-size: .75rem;
 	line-height: 1.3;
-	color: $color_gray;
+	color: $color__gray;
 }
 
 .elementor-widget-colored-heading .elementor-heading-title {
@@ -54,5 +56,5 @@ h6,
 }
 
 .elementor-widget-colored-heading .elementor-widget-container {
-	background-color: $color_blue;
+	background-color: $color__blue;
 }
