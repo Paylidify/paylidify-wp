@@ -582,7 +582,7 @@ table {
 button,
 a.elementor-button,
 .site-content .elementor-button.elementor-size-md,
-.main-navigation .menu-main-navigation-container > ul > li:last-child,
+.main-navigation ul#primary-menu > li:last-child,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
@@ -596,7 +596,7 @@ input[type="submit"] {
   button:visited,
   a.elementor-button:visited,
   .site-content .elementor-button.elementor-size-md:visited,
-  .main-navigation .menu-main-navigation-container > ul > li:last-child:visited,
+  .main-navigation ul#primary-menu > li:last-child:visited,
   input[type="button"]:visited,
   input[type="reset"]:visited,
   input[type="submit"]:visited {
@@ -604,7 +604,7 @@ input[type="submit"] {
   button:hover,
   a.elementor-button:hover,
   .site-content .elementor-button.elementor-size-md:hover,
-  .main-navigation .menu-main-navigation-container > ul > li:last-child:hover,
+  .main-navigation ul#primary-menu > li:last-child:hover,
   input[type="button"]:hover,
   input[type="reset"]:hover,
   input[type="submit"]:hover {
@@ -614,8 +614,8 @@ input[type="submit"] {
   a.elementor-button:focus,
   .site-content .elementor-button.elementor-size-md:active,
   .site-content .elementor-button.elementor-size-md:focus,
-  .main-navigation .menu-main-navigation-container > ul > li:last-child:active,
-  .main-navigation .menu-main-navigation-container > ul > li:last-child:focus,
+  .main-navigation ul#primary-menu > li:last-child:active,
+  .main-navigation ul#primary-menu > li:last-child:focus,
   input[type="button"]:active,
   input[type="button"]:focus,
   input[type="reset"]:active,
@@ -644,15 +644,15 @@ input[type="submit"] {
   padding: .4em 2.5em;
   border-radius: 100px; }
 
-.main-navigation .menu-main-navigation-container > ul > li:last-child {
+.main-navigation ul#primary-menu > li:last-child {
   margin-left: 50px;
   line-height: 2;
   padding: 0;
   border-radius: 100px; }
-  .main-navigation .menu-main-navigation-container > ul > li:last-child a {
+  .main-navigation ul#primary-menu > li:last-child a {
     color: #fff;
     padding: .5em 2.5em; }
-    .main-navigation .menu-main-navigation-container > ul > li:last-child a:visited {
+    .main-navigation ul#primary-menu > li:last-child a:visited {
       color: #fff; }
 
 input[type="text"],
@@ -781,14 +781,14 @@ a {
   .site-branding .custom-logo-link img {
     max-width: 80%; }
 
-  .main-navigation .menu-main-navigation-container ul li {
+  .main-navigation ul li {
     margin-left: 1em; }
-    .main-navigation .menu-main-navigation-container ul li.menu-item-has-children:after {
+    .main-navigation ul li.menu-item-has-children:after {
       right: -5px; }
 
-  .main-navigation .menu-main-navigation-container > ul > li:last-child {
+  .main-navigation div > ul > li:last-child {
     margin-left: 1.2em; }
-    .main-navigation .menu-main-navigation-container > ul > li:last-child a {
+    .main-navigation div > ul > li:last-child a {
       padding: .5em 1.5em; } }
 /* Small menu. */
 .menu-toggle,
@@ -815,33 +815,33 @@ a {
 
   .main-navigation.toggled {
     z-index: 20; }
-    .main-navigation.toggled .menu-us-header-navigation-container {
+    .main-navigation.toggled .menu-us-header-navigation-container, .main-navigation.toggled .menu-ca-header-navigation-container {
       background-color: #006aff;
       border-radius: 10px;
       padding-top: 50px; }
-      .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu {
+      .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu, .main-navigation.toggled .menu-ca-header-navigation-container ul.nav-menu {
         max-height: inherit;
         overflow: auto;
         transition: max-height 0.25s ease-out;
         display: block; }
-        .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu > li {
+        .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu > li, .main-navigation.toggled .menu-ca-header-navigation-container ul.nav-menu > li {
           font-weight: 400;
           font-size: 20.8px;
           font-size: 1.3rem; }
-          .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu > li:last-child {
+          .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu > li:last-child, .main-navigation.toggled .menu-ca-header-navigation-container ul.nav-menu > li:last-child {
             margin-left: auto;
             line-height: auto;
             padding: auto; }
-        .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu ul {
+        .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu ul, .main-navigation.toggled .menu-ca-header-navigation-container ul.nav-menu ul {
           float: none;
           position: relative;
           background: auto;
           left: auto; }
-          .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu ul li {
+          .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu ul li, .main-navigation.toggled .menu-ca-header-navigation-container ul.nav-menu ul li {
             font-family: UbuntuLight, sans-serif;
             font-size: 16px;
             font-size: 1rem; }
-          .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu ul ul {
+          .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu ul ul, .main-navigation.toggled .menu-ca-header-navigation-container ul.nav-menu ul ul {
             left: auto; }
     .main-navigation.toggled > button.menu-toggle {
       background-size: 25px 25px;
@@ -1087,7 +1087,8 @@ header {
   margin: 0 0 1.5em; }
 
 .site-footer .elementor-row {
-  margin: 2.5em 0 .5em; }
+  margin: 2.5em 0 .5em;
+  clear: both; }
 
 .footer-logo {
   width: 20%;

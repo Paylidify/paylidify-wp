@@ -1,7 +1,7 @@
 button,
 a.elementor-button,
 .site-content .elementor-button.elementor-size-md,
-.main-navigation .menu-main-navigation-container > ul > li:last-child,
+.main-navigation ul#primary-menu > li:last-child,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
@@ -47,7 +47,7 @@ input[type="submit"] {
 	border-radius: 100px;
 }
 
-.main-navigation .menu-main-navigation-container > ul > li:last-child {
+.main-navigation ul#primary-menu > li:last-child {
 	margin-left: 50px;
 	line-height: 2;
 	padding: 0;

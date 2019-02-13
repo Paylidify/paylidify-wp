@@ -107,7 +107,7 @@
 		max-width: 80%;
 	}
 
-	.main-navigation .menu-main-navigation-container ul li {
+	.main-navigation ul li {
 		margin-left: 1em;
 
 		&.menu-item-has-children:after {
@@ -115,7 +115,7 @@
 		}
 	}
 
-	.main-navigation .menu-main-navigation-container > ul > li:last-child {
+	.main-navigation div > ul > li:last-child {
 		margin-left: 1.2em;
 
 		a {
@@ -157,7 +157,7 @@
 	.main-navigation.toggled {
 		z-index: 20;
 
-		.menu-us-header-navigation-container {
+		.menu-us-header-navigation-container, .menu-ca-header-navigation-container {
 			background-color: $color__blue;
 			border-radius: 10px;
 			padding-top: 50px;
