@@ -743,7 +743,7 @@ a {
         .main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
           left: 100%; }
       .main-navigation ul ul a {
-        width: 200px; }
+        width: 250px; }
     .main-navigation ul li:hover > ul,
     .main-navigation ul li.focus > ul {
       left: auto;
@@ -755,6 +755,9 @@ a {
     margin-left: 1.5em; }
     .main-navigation li a {
       padding: 12px 5px 12px; }
+    .main-navigation li a,
+    .main-navigation li a:visited {
+      color: #00476e; }
     .main-navigation li.menu-item-has-children:after {
       content: "\02C7";
       position: absolute;
@@ -812,33 +815,33 @@ a {
 
   .main-navigation.toggled {
     z-index: 20; }
-    .main-navigation.toggled .menu-main-navigation-container {
+    .main-navigation.toggled .menu-us-header-navigation-container {
       background-color: #006aff;
       border-radius: 10px;
       padding-top: 50px; }
-      .main-navigation.toggled .menu-main-navigation-container ul.nav-menu {
+      .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu {
         max-height: inherit;
         overflow: auto;
         transition: max-height 0.25s ease-out;
         display: block; }
-        .main-navigation.toggled .menu-main-navigation-container ul.nav-menu > li {
+        .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu > li {
           font-weight: 400;
           font-size: 20.8px;
           font-size: 1.3rem; }
-          .main-navigation.toggled .menu-main-navigation-container ul.nav-menu > li:last-child {
+          .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu > li:last-child {
             margin-left: auto;
             line-height: auto;
             padding: auto; }
-        .main-navigation.toggled .menu-main-navigation-container ul.nav-menu ul {
+        .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu ul {
           float: none;
           position: relative;
           background: auto;
           left: auto; }
-          .main-navigation.toggled .menu-main-navigation-container ul.nav-menu ul li {
+          .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu ul li {
             font-family: UbuntuLight, sans-serif;
             font-size: 16px;
             font-size: 1rem; }
-          .main-navigation.toggled .menu-main-navigation-container ul.nav-menu ul ul {
+          .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu ul ul {
             left: auto; }
     .main-navigation.toggled > button.menu-toggle {
       background-size: 25px 25px;
@@ -858,6 +861,61 @@ a {
   text-align: right;
   width: 50%; }
 
+.footer-navigation {
+  clear: both;
+  display: inline-block;
+  float: right;
+  width: 79%; }
+  .footer-navigation ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0; }
+    .footer-navigation ul > li {
+      width: 25%;
+      float: left;
+      font-weight: 500;
+      font-size: 2rem;
+      line-height: 1.8;
+      color: #00476e; }
+      .footer-navigation ul > li a,
+      .footer-navigation ul > li a:hover,
+      .footer-navigation ul > li a:visited {
+        color: #00476e; }
+    .footer-navigation ul ul li {
+      width: 80%;
+      clear: both;
+      margin-left: 0;
+      padding: 5px 0;
+      font-family: UbuntuLight, sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #696969; }
+      .footer-navigation ul ul li a,
+      .footer-navigation ul ul li a:visited {
+        color: #00476e; }
+      .footer-navigation ul ul li a:hover {
+        color: #006aff; }
+  .footer-navigation li {
+    position: relative; }
+  .footer-navigation a {
+    display: block;
+    text-decoration: none; }
+
+@media screen and (max-width: 62em) {
+  .footer-navigation ul#footer-menu > li {
+    font-size: 1.5rem;
+    line-height: 1.6; }
+
+  .footer-navigation ul ul > li {
+    font-size: .9rem;
+    line-height: 1.2; } }
+@media screen and (max-width: 767px) {
+  .footer-navigation {
+    width: 100%; }
+
+  .footer-navigation ul#footer-menu > li {
+    width: 50%;
+    margin-bottom: 1em; } }
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
@@ -1028,6 +1086,47 @@ header {
   clear: both;
   margin: 0 0 1.5em; }
 
+.site-footer .elementor-row {
+  margin: 2.5em 0 .5em; }
+
+.footer-logo {
+  width: 20%;
+  display: inline-block;
+  padding-top: .5em; }
+  .footer-logo img {
+    width: 60%; }
+
+.country-flag {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 44px 44px;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 1.5em; }
+
+.country-flag-us {
+  background-image: url("inc/us-flag.png"); }
+
+.country-flag-ca {
+  background-image: url("inc/ca-flag.png"); }
+
+@media screen and (min-width: 767px) {
+  .site-footer .widget {
+    margin: 0;
+    vertical-align: bottom; }
+  .site-footer .simple-social-icons {
+    position: absolute;
+    right: 0; }
+    .site-footer .simple-social-icons ul li {
+      margin-bottom: 0 !important; } }
+@media screen and (max-width: 767px) {
+  .site-footer .simple-social-icons {
+    position: relative;
+    right: auto; }
+
+  .footer-logo {
+    width: 100%;
+    margin-bottom: 1em; } }
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/

@@ -1,0 +1,102 @@
+.footer-navigation {
+	clear: both;
+	display: inline-block;
+	float: right;
+	width: 79%;
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+
+		> li {
+			width: 25%;
+			float: left;
+			font-weight: 500;
+			font-size: 2rem;
+			line-height: 1.8;
+			color: $color__dark-blue;
+
+			a,
+			a:hover,
+			a:visited {
+				color: $color__dark-blue;
+			}
+		}
+
+		ul {
+			li {
+				width: 80%;
+				clear: both;
+				margin-left: 0;
+				padding: 5px 0;
+				font-family: $font__light;
+				font-size: 1rem;
+				line-height: 1.6;
+				color: $color__dark-gray;
+
+				a,
+				a:visited {
+					color: $color__dark-blue;
+				}
+
+				a:hover {
+					color: $color__blue;
+				}
+			}
+
+			a {
+				// width: 200px;
+			}
+
+			:hover > a,
+			.focus > a {
+			}
+
+			a:hover,
+			a.focus {
+			}
+		}
+	}
+
+	li {
+		position: relative;
+		// margin-left: 1.5em;
+
+		a {
+			// padding: 12px 5px 12px;
+		}
+
+		&:hover > a,
+		&.focus > a {
+		}
+	}
+
+	a {
+		display: block;
+		text-decoration: none;
+	}
+}
+
+@media screen and (max-width: 62em) {
+	.footer-navigation ul#footer-menu > li {
+		font-size: 1.5rem;
+		line-height: 1.6;
+	}
+
+	.footer-navigation ul ul > li {
+		font-size: .9rem;
+		line-height: 1.2;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.footer-navigation {
+		width: 100%;
+	}
+	
+	.footer-navigation ul#footer-menu > li {
+		width: 50%;
+		margin-bottom: 1em;
+	}
+}

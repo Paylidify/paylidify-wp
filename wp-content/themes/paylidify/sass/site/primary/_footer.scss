@@ -1,0 +1,60 @@
+.site-footer .elementor-row {
+  margin: 2.5em 0 .5em;
+}
+
+.footer-logo {
+	width: 20%;
+	display: inline-block;
+	padding-top: .5em;
+
+	img {
+		width: 60%;
+	}
+}
+
+.country-flag {
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 44px 44px;
+	width: 44px;
+	height: 44px;
+	margin-bottom: 1.5em;
+}
+
+.country-flag-us {
+	background-image: url("inc/us-flag.png");
+}
+
+.country-flag-ca {
+	background-image: url("inc/ca-flag.png");
+}
+
+@media screen and (min-width: 767px) {
+	.site-footer {
+		.widget {
+			margin: 0;
+			vertical-align: bottom;
+		}
+
+		.simple-social-icons {
+			position: absolute;
+			right: 0;
+
+			ul li {
+				margin-bottom: 0 !important;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.site-footer .simple-social-icons {
+		position: relative;
+		right: auto;
+	}
+
+	.footer-logo {
+		width: 100%;
+		margin-bottom: 1em;
+	}
+}
