@@ -44,7 +44,10 @@ if ( ! function_exists( 'paylidify_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'paylidify' ),
+			'header-menu-us' => esc_html__( 'Header US', 'paylidify' ),
+			'header-menu-ca' => esc_html__( 'Header CA', 'paylidify' ),
+			'footer-menu-us' => esc_html__( 'Footer US', 'paylidify' ),
+			'footer-menu-ca' => esc_html__( 'Footer CA', 'paylidify' ),
 		) );
 
 		/*
@@ -165,7 +168,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Custom Elementor Widgets
  */
 // if ( defined( '\Elementor\Widget_Base' ) ) {
-// 
+//
 // use Elementor\Widget_Base;
 //
 // 	abstract class Elementor_Colored_Heading_Widget extends \Elementor\Widget_Base {

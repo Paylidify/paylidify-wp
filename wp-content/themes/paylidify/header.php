@@ -47,10 +47,20 @@
 		<nav id="site-navigation" class="main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'paylidify' ); ?></button>
 			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
+			// Show CA menu if on CA-EN version
+			global $wp;
+			$current_url = home_url( $wp->request );
+			if (strpos($current_url, 'ca-en') !== false) {
+				wp_nav_menu( array(
+					'theme_location' => 'header-menu-ca',
+					'menu_id'        => 'primary-menu',
+				) );
+			} else {
+				wp_nav_menu( array(
+					'theme_location' => 'header-menu-us',
+					'menu_id'        => 'primary-menu',
+				) );
+			}
 			?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->

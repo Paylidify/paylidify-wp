@@ -14,6 +14,24 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
+		<nav id="footer-navigation" class="footer-navigation">
+			<?php
+			// Show CA menu if on CA-EN version
+			global $wp;
+			$current_url = home_url( $wp->request );
+			if (strpos($current_url, 'ca-en') !== false) {
+				wp_nav_menu( array(
+					'theme_location' => 'footer-menu-ca',
+					'menu_id'        => 'footer-menu',
+				) );
+			} else {
+				wp_nav_menu( array(
+					'theme_location' => 'footer-menu-us',
+					'menu_id'        => 'footer-menu',
+				) );
+			}
+			?>
+		</nav>
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'paylidify' ) ); ?>">
 				<?php
