@@ -8,7 +8,8 @@
  *
  * @package paylidify
  */
-
+	global $wp;
+	$current_url = home_url( $wp->request );
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -27,7 +28,17 @@
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
 			<?php
-			the_custom_logo();
+
+			// show white logo for reseller page
+
+			if (strpos($current_url, 'reseller-partners') !== false) { ?>
+				<a href="/" class="custom-logo-link" rel="home" itemprop="url">
+					<img width="204" height="69" src="/wp-content/uploads/2019/02/paylidify-logo-white.png" class="custom-logo" alt="Paylidify" itemprop="logo">
+				</a>
+			<?php } else {
+				the_custom_logo();
+			}
+
 			if ( is_front_page() && is_home() ) :
 				?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
@@ -48,8 +59,6 @@
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'paylidify' ); ?></button>
 			<?php
 			// Show CA menu if on CA-EN version
-			global $wp;
-			$current_url = home_url( $wp->request );
 			if (strpos($current_url, 'ca-en') !== false) {
 				wp_nav_menu( array(
 					'theme_location' => 'header-menu-ca',
