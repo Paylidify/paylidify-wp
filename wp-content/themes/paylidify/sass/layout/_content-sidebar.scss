@@ -29,4 +29,8 @@ header {
 	width: $size__site-main;
 }
 
+.flex .elementor-widget-wrap, .flex .elementor-widget-container, .flex .elementor-element {
+	display: flex;
+}
+
 @import "no-sidebar";

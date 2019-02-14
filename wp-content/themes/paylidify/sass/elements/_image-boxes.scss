@@ -2,6 +2,11 @@
 	border-radius: 8px;
 	padding: 30px;
 	box-shadow: $box-shadow__large-box;
+
+	.elementor-image-box-img {
+		// override random percentage widths set by elementor for some unknown reason
+		width: auto !important;
+	}
 }
 
 .site-content .elementor-widget-image-box .elementor-image-box-content .elementor-image-box-description {

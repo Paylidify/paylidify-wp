@@ -30,6 +30,7 @@
 
 // Light blue angled background
 @mixin blue-angled-background($top: -19em, $height: 500px) {
+	content: "";
 	display: block;
 	position: absolute;
 	top: $top;
@@ -39,4 +40,8 @@
 	background: $color__light-blue;
 	z-index: -10;
   transform: rotate(-12deg);
+}
+
+.blue-angled-background:after {
+	@include blue-angled-background(0, 520px);
 }

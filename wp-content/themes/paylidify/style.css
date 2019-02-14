@@ -51,6 +51,18 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @font-face {
   font-family: UbuntuLight;
   src: url("fonts/Ubuntu-Light.ttf"); }
+.blue-angled-background:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -50%;
+  height: 520px;
+  width: 2000px;
+  background: #effcff;
+  z-index: -10;
+  transform: rotate(-12deg); }
+
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -522,6 +534,8 @@ table {
   border-radius: 8px;
   padding: 30px;
   box-shadow: 8px 15px 25px rgba(200, 200, 200, 0.5), 0px 5px 25px rgba(200, 200, 200, 0.2); }
+  .elementor-image-box-wrapper .elementor-image-box-img {
+    width: auto !important; }
 
 .site-content .elementor-widget-image-box .elementor-image-box-content .elementor-image-box-description {
   color: #696969; }
@@ -1040,6 +1054,9 @@ header {
   clear: both;
   width: 100%; }
 
+.flex .elementor-widget-wrap, .flex .elementor-widget-container, .flex .elementor-element {
+  display: flex; }
+
 .no-sidebar .content-area {
   float: none;
   margin-left: auto;
@@ -1054,6 +1071,7 @@ header {
   margin-top: 30px;
   position: relative; }
   .site-header:after {
+    content: "";
     display: block;
     position: absolute;
     top: -19em;
