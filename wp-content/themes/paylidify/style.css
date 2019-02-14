@@ -1032,7 +1032,8 @@ a {
 #page {
   width: 90%;
   max-width: 1140px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  overflow: hidden; }
 
 header {
   padding: 10px; }
