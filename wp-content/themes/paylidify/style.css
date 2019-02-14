@@ -757,7 +757,7 @@ a {
         .main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
           left: 100%; }
       .main-navigation ul ul a {
-        width: 250px; }
+        width: 270px; }
     .main-navigation ul li:hover > ul,
     .main-navigation ul li.focus > ul {
       left: auto;
@@ -792,17 +792,17 @@ a {
     text-decoration: none; }
 
 @media screen and (max-width: 62em) {
-  .site-branding .custom-logo-link img {
-    max-width: 80%; }
+  .site-branding {
+    max-width: 10em; }
 
   .main-navigation ul li {
     margin-left: 1em; }
     .main-navigation ul li.menu-item-has-children:after {
       right: -5px; }
 
-  .main-navigation div > ul > li:last-child {
-    margin-left: 1.2em; }
-    .main-navigation div > ul > li:last-child a {
+  .main-navigation ul#primary-menu > li:last-child {
+    margin-left: 15px; }
+    .main-navigation ul#primary-menu > li:last-child a {
       padding: .5em 1.5em; } }
 /* Small menu. */
 .menu-toggle,
