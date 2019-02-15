@@ -599,7 +599,8 @@ table {
   left: -30px;
   font-size: 48px;
   font-size: 3rem;
-  font-style: italic; }
+  font-style: italic;
+  line-height: 1em; }
 
 .elementor-widget-custom-icon-circle .elementor-icon-box-wrapper {
   width: 100%;
