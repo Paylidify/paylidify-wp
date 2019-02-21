@@ -30,15 +30,16 @@ h3,
 
 h4,
 .site-content .elementor-widget-heading h4.elementor-heading-title {
-	font-weight: 400;
-	font-size: 1.25rem;
+	font-family: $font__light;
+	font-weight: 300;
+	font-size: 1.75rem;
 	line-height: 1.4;
 	color: $color__dark-gray;
 }
 
 h5,
 .site-content .elementor-widget-heading h5.elementor-heading-title {
-	font-size: .83rem;
+	font-size: .1rem;
 	line-height: 1.3;
 	color: $color__gray;
 }
