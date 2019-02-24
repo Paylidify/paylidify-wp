@@ -1078,6 +1078,12 @@ header {
 .elementor-section.elementor-section-boxed > .elementor-container {
   width: 100%; }
 
+@media screen and (max-width: 767px) {
+  #page {
+    width: 100%; }
+
+  .elementor-column-gap-default > .elementor-row > .elementor-column > .elementor-element-populated {
+    padding: 10px 15px; } }
 .no-sidebar .content-area {
   float: none;
   margin-left: auto;

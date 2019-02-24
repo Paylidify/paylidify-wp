@@ -41,4 +41,13 @@ header {
 	width: 100%; //set so vw font sizes work correctly
 }
 
+
+@media screen and (max-width: 767px) {
+	#page {
+		width: $size__site-full-mobile;
+	}
+	.elementor-column-gap-default>.elementor-row>.elementor-column>.elementor-element-populated {
+		padding: 10px 15px;
+	}
+}
 @import "no-sidebar";
