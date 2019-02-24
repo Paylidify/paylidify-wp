@@ -37,52 +37,8 @@ header {
 	display: flex;
 }
 
-
-.max-width-500 {
-	max-width: 500px;
-	margin: 0 auto;
-}
-
-.max-width-450 {
-	max-width: 450px;
-	margin: 0 auto;
-}
-
-.max-width-400 {
-	max-width: 400px;
-	margin: 0 auto;
-}
-
-.max-width-350 {
-	max-width: 350px;
-	margin: 0 auto;
-}
-
-.max-width-300 {
-	max-width: 300px;
-	margin: 0 auto;
-}
-
-.max-width-250 {
-	max-width: 250px;
-	margin: 0 auto;
-}
-
-.max-width-200 {
-	max-width: 200px;
-	margin: 0 auto;
-}
-
-@media screen and (max-width: 767px) {
-	.max-width-500,
-	.max-width-450,
-	.max-width-400,
-	.max-width-350,
-	.max-width-300,
-	.max-width-250,
-	.max-width-200 {
-		max-width: auto;
-	}
+.elementor-section.elementor-section-boxed>.elementor-container {
+	width: 100%; //set so vw font sizes work correctly
 }
 
 @import "no-sidebar";

@@ -1,53 +1,61 @@
-h1, h2, h3, h4, h5, h6 {
-	font-family: $font__main;
+h1, h2, h3, h4, h5, h6,
+.site-content .elementor-widget-heading h1.elementor-heading-title,
+.site-content .elementor-widget-heading h2.elementor-heading-title,
+.site-content .elementor-widget-heading h3.elementor-heading-title,
+.site-content .elementor-widget-heading h4.elementor-heading-title,
+.site-content .elementor-widget-heading h5.elementor-heading-title,
+.site-content .elementor-widget-heading h6.elementor-heading-title {
+	line-height: 1.3;
 	clear: both;
+	margin-bottom: 1em;
 }
 
 h1,
 .site-content .elementor-widget-heading h1.elementor-heading-title {
+	font-family: $font__bold;
 	font-weight: 400;
-	font-size: 2.75rem;
-	line-height: 1.4;
+	font-size: 2.85em;
 	color: $color__dark-blue;
 }
 
 h2,
 .site-content .elementor-widget-heading h2.elementor-heading-title {
+	font-family: $font__bold;
 	font-weight: 400;
-	font-size: 2.5rem;
-	line-height: 1.4;
+	font-size: 2.5em;
 	color: $color__dark-blue;
 }
 
 h3,
 .site-content .elementor-widget-heading h3.elementor-heading-title,
 .site-content .elementor-widget-image-box .elementor-image-box-content h3.elementor-image-box-title {
-	font-weight: 400;
-	font-size: 2rem;
-	line-height: 1.4;
-	color: $color__dark-blue;
+	font-family: $font__light;
+	font-weight: 300;
+	font-size: 1.9em;
+	color: $color__dark-gray;
 }
 
 h4,
 .site-content .elementor-widget-heading h4.elementor-heading-title {
 	font-family: $font__light;
 	font-weight: 300;
-	font-size: 1.9rem;
-	line-height: 1.4;
+	font-size: 1.65em;
 	color: $color__dark-gray;
 }
 
 h5,
 .site-content .elementor-widget-heading h5.elementor-heading-title {
-	font-size: .1rem;
-	line-height: 1.3;
+	font-family: $font__light;
+	font-weight: 300;
+	font-size: 1.35em;
 	color: $color__gray;
 }
 
 h6,
 .site-content .elementor-widget-heading .elementor-heading-title h6 {
-	font-size: .75rem;
-	line-height: 1.3;
+	font-family: $font__light;
+	font-weight: 300;
+	font-size: .8em;
 	color: $color__gray;
 }
 
@@ -58,44 +66,4 @@ h6,
 
 .elementor-widget-colored-heading .elementor-widget-container {
 	background-color: $color__blue;
-}
-
-
-@media screen and (max-width: 767px) {
-	h1,
-	.site-content .elementor-widget-heading h1.elementor-heading-title {
-		font-size: 2rem;
-		line-height: 1.4;
-	}
-
-	h2,
-	.site-content .elementor-widget-heading h2.elementor-heading-title {
-		font-size: 1.5rem;
-		line-height: 1.4;
-	}
-
-	h3,
-	.site-content .elementor-widget-heading h3.elementor-heading-title,
-	.site-content .elementor-widget-image-box .elementor-image-box-content h3.elementor-image-box-title {
-		font-size: 1.25rem;
-		line-height: 1.3;
-	}
-
-	h4,
-	.site-content .elementor-widget-heading h4.elementor-heading-title {
-		font-size: .83rem;
-		line-height: 1.3;
-	}
-
-	h5,
-	.site-content .elementor-widget-heading h5.elementor-heading-title {
-		font-size: .75rem;
-		line-height: 1.3;
-	}
-
-	h6,
-	.site-content .elementor-widget-heading .elementor-heading-title h6 {
-		font-size: .6rem;
-		line-height: 1.3;
-	}
 }

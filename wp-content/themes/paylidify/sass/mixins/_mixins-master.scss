@@ -45,3 +45,15 @@
 .blue-angled-background:after {
 	@include blue-angled-background(0, 520px);
 }
+
+@mixin blue-background() {
+	content: "";
+	display: block;
+	position: absolute;
+	top: $top;
+	left: -50%;
+	height: $height;
+	width: 2000px;
+	background: $color__light-blue;
+	z-index: -10;
+}

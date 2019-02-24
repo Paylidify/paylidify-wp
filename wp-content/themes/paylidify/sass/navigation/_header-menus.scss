@@ -58,6 +58,9 @@
 		margin-left: 1.5em;
 
 		a {
+			font-family: $font__bold;
+			font-weight: 400;
+			@include font-size(1);
 			padding: 12px 5px 12px;
 		}
 
@@ -130,7 +133,7 @@
 	display: block;
 }
 
-@media screen and (min-width: 53em) {
+@media screen and (min-width: 55em) {
 	.menu-toggle {
 		display: none;
 	}
@@ -139,7 +142,7 @@
 	}
 }
 
-@media screen and (max-width: 53em) {
+@media screen and (max-width: 55em) {
 	.main-navigation {
 		width: 100%;
 		position: absolute;
@@ -170,7 +173,7 @@
 
 				> li {
 					font-weight: 400;
-					@include font-size(1.3);
+					// @include font-size(1);
 
 					&:last-child {
 						margin-left: auto;
@@ -187,7 +190,7 @@
 
 					li {
 						font-family: $font__light;
-						@include font-size(1);
+						// @include font-size(0.85);
 					}
 
 					ul {
