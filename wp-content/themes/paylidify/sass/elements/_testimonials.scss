@@ -23,12 +23,25 @@
 	padding: 0 20px;
   quotes: "\201C""\201D""\2018""\2019";
 }
-.elementor-widget-custom-testimonial .elementor-testimonial-wrapper .elementor-testimonial-content:before {
-	content: open-quote;
+
+.elementor-widget-custom-testimonial .elementor-testimonial-wrapper .elementor-testimonial-content:before,
+.elementor-widget-testimonial-carousel .elementor-testimonial__text:before {
+	content: "\201C";
 	position: relative;
-	top: -8px;
-	left: -30px;
+	top: -5px;
+	left: -10px;
 	@include font-size(3);
 	font-style: italic;
   line-height: 1em;
+}
+
+// Reverse flex for testimonials
+.flex-column-reverse .elementor-testimonial {
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+.flex-column-reverse .elementor-testimonial .elementor-testimonial__footer {
+	margin-top: 0;
+	margin-bottom: 25px;
 }

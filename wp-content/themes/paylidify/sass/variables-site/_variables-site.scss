@@ -3,10 +3,9 @@
 @import "structure";
 @import "columns";
 
-$box-shadow__large-box: 8px 15px 25px rgba(200,200,200,0.5), 0px 5px 25px rgba(200,200,200,0.2);
+$box-shadow__large-box: 8px 15px 25px rgba(200, 200, 200, 0.6), 0px 5px 25px rgba(200, 200, 200, 0.2);
 $box-shadow__menu-items: 8px 10px 20px rgba(200,200,200,0.4), 0px 10px 20px rgba(200,200,200,0.2);
 
 .box-shadow-boxes {
-  border-radius: 10px;
   box-shadow: $box-shadow__large-box;
 }
