@@ -57,6 +57,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 .floating-image-animation img {
   animation: float 9s ease-in-out infinite; }
 
+.floating-image-animation__delayed img {
+  animation: float 9s ease-in-out infinite;
+  animation-delay: 3s; }
+
 @keyframes float {
   0% {
     transform: translatey(0px) scale(1); }

@@ -13,7 +13,12 @@ $box-shadow__menu-items: 8px 10px 20px rgba(200,200,200,0.4), 0px 10px 20px rgba
 }
 
 .floating-image-animation img {
-  animation: float 9s ease-in-out infinite
+  animation: float 9s ease-in-out infinite;
+}
+
+.floating-image-animation__delayed img {
+  animation: float 9s ease-in-out infinite;
+  animation-delay: 3s;
 }
 
 
