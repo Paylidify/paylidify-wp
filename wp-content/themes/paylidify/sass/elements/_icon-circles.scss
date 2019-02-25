@@ -17,9 +17,22 @@
 .elementor-widget-custom-icon-circle .elementor-icon-box-icon {
   margin-top: -25%;
 }
+
+.elementor .custom-image-circle {
+  margin: 30px;
+}
+
 .elementor .custom-image-circle.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img {
   display: block;
-  margin-top: -20%;
+  margin-top: -25%;
+}
+
+.elementor .custom-image-circle figure.elementor-image-box-img {
+  height: 40px;
+}
+
+.elementor .custom-image-circle figure.elementor-image-box-img img {
+  max-height: 40px !important;
 }
 
 .elementor-widget-custom-icon-circle .elementor-icon-box-icon .elementor-icon {
