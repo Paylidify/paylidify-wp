@@ -6,6 +6,25 @@
 $box-shadow__large-box: 8px 15px 25px rgba(200, 200, 200, 0.6), 0px 5px 25px rgba(200, 200, 200, 0.2);
 $box-shadow__menu-items: 8px 10px 20px rgba(200,200,200,0.4), 0px 10px 20px rgba(200,200,200,0.2);
 
+// classes used on elementor elements
+
 .box-shadow-boxes {
   box-shadow: $box-shadow__large-box;
+}
+
+.floating-image-animation img {
+  animation: float 9s ease-in-out infinite
+}
+
+
+@keyframes float {
+	0% {
+		transform: translatey(0px) scale(1);
+	}
+	50% {
+		transform: translatey(-20px) scale(1.2);
+	}
+	100% {
+		transform: translatey(0px) scale(1);
+	}
 }
