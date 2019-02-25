@@ -600,6 +600,9 @@ table {
   color: #fff;
   text-align: center; }
 
+.custom-image-circle__white .elementor-image-box-wrapper {
+  background-color: #fff; }
+
 .elementor-widget-custom-icon-circle .elementor-icon-box-icon {
   margin-top: -25%; }
 
