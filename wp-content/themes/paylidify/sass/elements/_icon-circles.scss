@@ -1,4 +1,5 @@
-.elementor-widget-custom-icon-circle .elementor-icon-box-wrapper {
+.elementor-widget-custom-icon-circle .elementor-icon-box-wrapper,
+.custom-image-circle .elementor-image-box-wrapper {
   width: 100%;
   height: 0;
   padding: 50% 0;
@@ -12,12 +13,20 @@
 .elementor-widget-custom-icon-circle .elementor-icon-box-icon {
   margin-top: -25%;
 }
+.elementor .custom-image-circle.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img {
+  display: block;
+  margin-top: -20%;
+}
 
 .elementor-widget-custom-icon-circle .elementor-icon-box-icon .elementor-icon {
   color: #fff;
 }
 
-.elementor-widget-custom-icon-circle .elementor-icon-box-wrapper .elementor-icon-box-title {
+.elementor-widget-custom-icon-circle .elementor-icon-box-wrapper .elementor-icon-box-title,
+.custom-image-circle .elementor-image-box-title {
   margin-top: 15px;
+}
+
+.elementor-widget-custom-icon-circle .elementor-icon-box-wrapper .elementor-icon-box-title {
   color: #fff;
 }
