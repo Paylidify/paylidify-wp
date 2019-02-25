@@ -579,7 +579,7 @@ table {
   content: "\201C";
   position: relative;
   top: -5px;
-  left: -10px;
+  left: -20px;
   font-size: 48px;
   font-size: 3rem;
   font-style: italic;
@@ -588,10 +588,6 @@ table {
 .flex-column-reverse .elementor-testimonial {
   display: flex;
   flex-direction: column-reverse; }
-
-.flex-column-reverse .elementor-testimonial .elementor-testimonial__footer {
-  margin-top: 0;
-  margin-bottom: 25px; }
 
 .elementor-widget-custom-icon-circle .elementor-icon-box-wrapper,
 .custom-image-circle .elementor-image-box-wrapper {
