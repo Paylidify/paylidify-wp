@@ -750,6 +750,47 @@ input[type="submit"] {
     .main-navigation ul#primary-menu > li:last-child a:visited {
       color: #fff; }
 
+.bordered-button.elementor-widget-button button,
+.bordered-button.elementor-widget-button a.elementor-button,
+.bordered-button.elementor-widget-button .site-content .elementor-button.elementor-size-md,
+.bordered-button.elementor-widget-button .main-navigation ul#primary-menu > li:last-child,
+.bordered-button.elementor-widget-button input[type="button"],
+.bordered-button.elementor-widget-button input[type="reset"],
+.bordered-button.elementor-widget-button input[type="submit"] {
+  background: #fff;
+  color: #006aff;
+  border: 2px solid #006aff; }
+  .bordered-button.elementor-widget-button button:visited,
+  .bordered-button.elementor-widget-button a.elementor-button:visited,
+  .bordered-button.elementor-widget-button .site-content .elementor-button.elementor-size-md:visited,
+  .bordered-button.elementor-widget-button .main-navigation ul#primary-menu > li:last-child:visited,
+  .bordered-button.elementor-widget-button input[type="button"]:visited,
+  .bordered-button.elementor-widget-button input[type="reset"]:visited,
+  .bordered-button.elementor-widget-button input[type="submit"]:visited {
+    color: #006aff; }
+  .bordered-button.elementor-widget-button button:hover,
+  .bordered-button.elementor-widget-button a.elementor-button:hover,
+  .bordered-button.elementor-widget-button .site-content .elementor-button.elementor-size-md:hover,
+  .bordered-button.elementor-widget-button .main-navigation ul#primary-menu > li:last-child:hover,
+  .bordered-button.elementor-widget-button input[type="button"]:hover,
+  .bordered-button.elementor-widget-button input[type="reset"]:hover,
+  .bordered-button.elementor-widget-button input[type="submit"]:hover {
+    border-color: #00476e; }
+  .bordered-button.elementor-widget-button button:active, .bordered-button.elementor-widget-button button:focus,
+  .bordered-button.elementor-widget-button a.elementor-button:active,
+  .bordered-button.elementor-widget-button a.elementor-button:focus,
+  .bordered-button.elementor-widget-button .site-content .elementor-button.elementor-size-md:active,
+  .bordered-button.elementor-widget-button .site-content .elementor-button.elementor-size-md:focus,
+  .bordered-button.elementor-widget-button .main-navigation ul#primary-menu > li:last-child:active,
+  .bordered-button.elementor-widget-button .main-navigation ul#primary-menu > li:last-child:focus,
+  .bordered-button.elementor-widget-button input[type="button"]:active,
+  .bordered-button.elementor-widget-button input[type="button"]:focus,
+  .bordered-button.elementor-widget-button input[type="reset"]:active,
+  .bordered-button.elementor-widget-button input[type="reset"]:focus,
+  .bordered-button.elementor-widget-button input[type="submit"]:active,
+  .bordered-button.elementor-widget-button input[type="submit"]:focus {
+    border-color: #00476e; }
+
 input[type="text"],
 input[type="email"],
 input[type="url"],

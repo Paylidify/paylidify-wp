@@ -63,3 +63,30 @@ input[type="submit"] {
 		}
 	}
 }
+
+.bordered-button.elementor-widget-button {
+	button,
+	a.elementor-button,
+	.site-content .elementor-button.elementor-size-md,
+	.main-navigation ul#primary-menu > li:last-child,
+	input[type="button"],
+	input[type="reset"],
+	input[type="submit"] {
+		background: #fff;
+		color: $color__blue;
+		border: 2px solid $color__blue;
+
+		&:visited {
+		color: $color__blue;
+		}
+
+		&:hover {
+			border-color: $color__dark-blue;
+		}
+
+		&:active,
+		&:focus {
+			border-color: $color__dark-blue;
+		}
+	}
+}
