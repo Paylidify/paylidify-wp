@@ -64,6 +64,14 @@
   bottom: 62%;
 }
 
+.elementor .custom-image-circle.custom-image-circle__center.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img {
+  margin-bottom: -28%;
+
+  img {
+    width: 60%
+  }
+}
+
 .elementor-widget-custom-icon-circle .elementor-icon-box-icon .elementor-icon {
   color: #fff;
 }
