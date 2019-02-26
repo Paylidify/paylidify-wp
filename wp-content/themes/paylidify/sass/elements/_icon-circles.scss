@@ -1,16 +1,22 @@
 .elementor-widget-custom-icon-circle .elementor-icon-box-wrapper,
-.custom-image-circle .elementor-image-box-wrapper {
+.custom-image-circle .elementor-image-box-wrapper,
+.custom-image-box .elementor-image-box-wrapper {
   width: 100%;
   height: 0;
   padding: 50% 0;
-  border-radius: 50%;
   box-shadow: $box-shadow__large-box;
   background-color: $color__blue;
   color: #fff;
   text-align: center;
 }
 
-.custom-image-circle__white .elementor-image-box-wrapper {
+.elementor-widget-custom-icon-circle .elementor-icon-box-wrapper,
+.custom-image-circle .elementor-image-box-wrapper {
+  border-radius: 50%;
+}
+
+.custom-image-circle__white .elementor-image-box-wrapper,
+.custom-image-box__white .elementor-image-box-wrapper {
   background-color: #fff;
 }
 
@@ -19,19 +25,27 @@
   margin-top: -25%;
 }
 
-.elementor-widget-image-box.custom-image-circle .elementor-image-box-content {
+.elementor-widget-image-box.custom-image-circle .elementor-image-box-content,
+.elementor-widget-image-box.custom-image-box .elementor-image-box-content {
   width: 80%;
   display: inline-block;
+}
+
+.elementor-widget-image-box.custom-image-circle .elementor-image-box-content {
   margin: 2% auto;
+}
+
+.elementor-widget-image-box.custom-image-box .elementor-image-box-content {
+  margin: -5% auto 2%;
 }
 
 .elementor-widget-image-box.custom-image-circle .elementor-image-box-content h5 {
   margin-top: 5px;
 }
 
-.elementor .custom-image-circle.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img {
+.elementor .custom-image-circle.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img,
+.elementor .custom-image-box.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img {
   position: absolute;
-  bottom: 50%;
   left: 0;
   margin-bottom: 0;
   width: 100% !important;
@@ -41,12 +55,21 @@
   justify-content: center;
 }
 
+.elementor .custom-image-circle.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img {
+  bottom: 50%;
+}
+
+.elementor .custom-image-box.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img {
+  bottom: 60%;
+}
+
 .elementor-widget-custom-icon-circle .elementor-icon-box-icon .elementor-icon {
   color: #fff;
 }
 
 .elementor-widget-custom-icon-circle .elementor-icon-box-wrapper .elementor-icon-box-title,
-.custom-image-circle .elementor-image-box-title {
+.custom-image-circle .elementor-image-box-title,
+.custom-image-box .elementor-image-box-title {
   margin-top: 15px;
 }
 
