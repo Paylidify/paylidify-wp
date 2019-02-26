@@ -635,7 +635,8 @@ table {
 .elementor-widget-image-box.custom-image-box .elementor-image-box-content {
   margin: 2% auto; }
 
-.elementor-widget-image-box.custom-image-circle .elementor-image-box-content h5 {
+.elementor-widget-image-box.custom-image-circle .elementor-image-box-content h5,
+.custom-image-box .elementor-image-box-title {
   margin-top: 5px; }
 
 .elementor .custom-image-circle.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img,
@@ -659,8 +660,7 @@ table {
   color: #fff; }
 
 .elementor-widget-custom-icon-circle .elementor-icon-box-wrapper .elementor-icon-box-title,
-.custom-image-circle .elementor-image-box-title,
-.custom-image-box .elementor-image-box-title {
+.custom-image-circle .elementor-image-box-title {
   margin-top: 15px; }
 
 .elementor-widget-custom-icon-circle .elementor-icon-box-wrapper .elementor-icon-box-title {
