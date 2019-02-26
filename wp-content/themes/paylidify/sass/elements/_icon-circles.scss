@@ -22,16 +22,19 @@
 .elementor-widget-image-box.custom-image-circle .elementor-image-box-content {
   width: 80%;
   display: inline-block;
-  margin: 0 auto;
+  margin: 2% auto;
 }
 
 .elementor .custom-image-circle.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img {
   position: absolute;
-  top: 25%;
+  bottom: 50%;
   left: 0;
+  margin-bottom: 0;
   width: 100% !important;
-  text-align: center;
-  display: block;
+  height: 40%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .elementor-widget-custom-icon-circle .elementor-icon-box-icon .elementor-icon {
