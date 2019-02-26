@@ -1,7 +1,3 @@
-footer.site-footer {
-
-}
-
 .footer-navigation {
 	clear: both;
 	display: inline-block;
@@ -103,4 +99,12 @@ footer.site-footer {
 		width: 50%;
 		margin-bottom: 1em;
 	}
+}
+
+.page-get-started .site-footer,
+.page-partner-with-paylidify .site-footer
+.page-partner-with-paylidify-2 .site-footer,
+.page-us-developer-api .site-footer,
+.page-ca-developer-api .site-footer {
+	display: none;
 }
