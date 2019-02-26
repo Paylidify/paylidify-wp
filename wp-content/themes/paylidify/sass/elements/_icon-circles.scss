@@ -19,6 +19,21 @@
   margin-top: -25%;
 }
 
+.elementor-widget-image-box.custom-image-circle .elementor-image-box-content {
+  width: 80%;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.elementor .custom-image-circle.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img {
+  position: absolute;
+  top: 25%;
+  left: 0;
+  width: 100% !important;
+  text-align: center;
+  display: block;
+}
+
 .elementor-widget-custom-icon-circle .elementor-icon-box-icon .elementor-icon {
   color: #fff;
 }
