@@ -54,7 +54,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 .box-shadow-boxes {
   box-shadow: 8px 15px 25px rgba(200, 200, 200, 0.6), 0px 5px 25px rgba(200, 200, 200, 0.2); }
 
-.box-shadow-boxes__column .elementor-column-wrap {
+.box-shadow-boxes__column > .elementor-column-wrap {
   box-shadow: 8px 15px 25px rgba(200, 200, 200, 0.6), 0px 5px 25px rgba(200, 200, 200, 0.2); }
 
 .floating-image-animation img {
