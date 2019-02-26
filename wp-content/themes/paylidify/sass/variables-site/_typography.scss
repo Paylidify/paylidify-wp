@@ -16,6 +16,6 @@ $font__bold: Ubuntu, sans-serif;
 $font__light: UbuntuLight, sans-serif;
 $font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", Courier, monospace;
-$font__size-body: calc(14px + (22 - 16) * ((100vw - 300px) / (1600 - 300)));
+$font__size-body: calc(14px + (20 - 16) * ((100vw - 300px) / (1600 - 300)));
 $font__line-height-body: calc(1.4em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
 $font__line-height-pre: calc(1.4em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));

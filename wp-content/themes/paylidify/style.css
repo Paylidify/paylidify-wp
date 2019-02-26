@@ -398,7 +398,7 @@ p,
 .elementor-widget-text-editor {
   color: #81868e;
   font-family: UbuntuLight, sans-serif;
-  font-size: calc(14px + (22 - 16) * ((100vw - 300px) / (1600 - 300)));
+  font-size: calc(14px + (20 - 16) * ((100vw - 300px) / (1600 - 300)));
   line-height: calc(1.4em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300))); }
 
 .color__light {
