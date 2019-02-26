@@ -25,6 +25,10 @@
   margin: 2% auto;
 }
 
+.elementor-widget-image-box.custom-image-circle .elementor-image-box-content h5 {
+  margin-top: 5px;
+}
+
 .elementor .custom-image-circle.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img {
   position: absolute;
   bottom: 50%;
