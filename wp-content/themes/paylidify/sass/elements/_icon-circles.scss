@@ -31,9 +31,12 @@
   display: inline-block;
 }
 
-.elementor-widget-image-box.custom-image-circle .elementor-image-box-content,
-.elementor-widget-image-box.custom-image-box .elementor-image-box-content {
+.elementor-widget-image-box.custom-image-circle .elementor-image-box-content {
   margin: 2% auto;
+}
+
+.elementor-widget-image-box.custom-image-box .elementor-image-box-content {
+  margin: -5% auto 2%;
 }
 
 .elementor-widget-image-box.custom-image-circle .elementor-image-box-content h5,
