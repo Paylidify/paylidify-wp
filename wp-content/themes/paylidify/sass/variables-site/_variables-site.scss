@@ -38,15 +38,13 @@ $box-shadow__menu-items: 8px 10px 20px rgba(200,200,200,0.4), 0px 10px 20px rgba
 }
 
 // Features subpage nav
-.elementor-sticky .ps2id {
+.elementor-sticky a.ps2id,
+.elementor-sticky .ps2id a {
 	width: 100%;
 	height: 100%;
-	display: block;
-	position: absolute;
-	border-radius: 100%;
+	display: inline-block;
 	top: 0;
 	left: 0;
-	line-height: 0;
 	background: rgba(256,256,256,0.4);
 
 	&:focus {
@@ -61,4 +59,19 @@ $box-shadow__menu-items: 8px 10px 20px rgba(200,200,200,0.4), 0px 10px 20px rgba
 	&.mPS2id-clicked {
 		background: none;
 	}
+}
+
+.elementor-sticky .custom-image-circle .ps2id {
+	border-radius: 100%;
+}
+
+.elementor-sticky a.ps2id {
+	position: absolute;
+}
+
+
+.elementor-sticky .ps2id a {
+	position: relative;
+	height: 4em;
+	padding: 1em;
 }

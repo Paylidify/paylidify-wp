@@ -71,23 +71,35 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
     transform: translatey(-20px) scale(1.2); }
   100% {
     transform: translatey(0px) scale(1); } }
-.elementor-sticky .ps2id {
+.elementor-sticky a.ps2id,
+.elementor-sticky .ps2id a {
   width: 100%;
   height: 100%;
-  display: block;
-  position: absolute;
-  border-radius: 100%;
+  display: inline-block;
   top: 0;
   left: 0;
-  line-height: 0;
   background: rgba(255, 255, 255, 0.4); }
-  .elementor-sticky .ps2id:focus {
+  .elementor-sticky a.ps2id:focus,
+  .elementor-sticky .ps2id a:focus {
     border: none;
     outline: none; }
-  .elementor-sticky .ps2id:hover {
+  .elementor-sticky a.ps2id:hover,
+  .elementor-sticky .ps2id a:hover {
     background: rgba(255, 255, 255, 0.2); }
-  .elementor-sticky .ps2id.mPS2id-clicked {
+  .elementor-sticky a.ps2id.mPS2id-clicked,
+  .elementor-sticky .ps2id a.mPS2id-clicked {
     background: none; }
+
+.elementor-sticky .custom-image-circle .ps2id {
+  border-radius: 100%; }
+
+.elementor-sticky a.ps2id {
+  position: absolute; }
+
+.elementor-sticky .ps2id a {
+  position: relative;
+  height: 4em;
+  padding: 1em; }
 
 .blue-angled-background:after {
   content: "";
