@@ -442,7 +442,7 @@ h4,
   font-family: UbuntuLight, sans-serif;
   font-weight: 300;
   font-size: 1.65em;
-  color: #00476e; }
+  color: #696969; }
 
 h5,
 .site-content .elementor-widget-heading h5.elementor-heading-title {
@@ -662,9 +662,9 @@ table {
   bottom: 62%; }
 
 .elementor .custom-image-circle.custom-image-circle__center.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img {
-  margin-bottom: -28%; }
+  margin-bottom: -20%; }
   .elementor .custom-image-circle.custom-image-circle__center.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img img {
-    width: 60%; }
+    width: 40%; }
 
 .elementor-widget-custom-icon-circle .elementor-icon-box-icon .elementor-icon {
   color: #fff; }
