@@ -49,10 +49,10 @@ $in_canada = ( strpos($current_url, 'ca-en' ) !== false);
 				<div class="elementor-column elementor-col-33">
 					<?php if ( $in_canada ) { ?>
 						<div class="country-flag country-flag-us"><a href="/us-en"></a></div>
-						<div class="country-flag country-flag-ca"><a class="active" href="/ca-en"></div>
+						<div class="country-flag country-flag-ca"><a class="active" href="/ca-en"></a></div>
 					<?php } else { ?>
 						<div class="country-flag country-flag-us"><a class="active" href="/us-en"></a></div>
-						<div class="country-flag country-flag-ca"><a href="/ca-en"></div>
+						<div class="country-flag country-flag-ca"><a href="/ca-en"></a></div>
 					<?php } ?>
 
 					<?php if ( is_active_sidebar( 'footer-left' ) ) { ?>
