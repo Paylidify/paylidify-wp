@@ -23,6 +23,13 @@ if ( $in_canada ) {
 			<div class="elementor-row">
 				<div class="footer-logo">
 					<?php the_custom_logo(); ?>
+					<div class="copyright">
+						<?php if ( is_active_sidebar( 'footer-copyright' ) ) { ?>
+							<div id="footer-copyright" class="widget-area">
+								<?php dynamic_sidebar( 'footer-copyright' ); ?>
+							</div>
+						<?php } ?>
+					</div>
 				</div>
 
 				<nav id="footer-navigation" class="footer-navigation">

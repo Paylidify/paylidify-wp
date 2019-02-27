@@ -31,13 +31,14 @@
 				margin-left: 0;
 				padding: 5px 0;
 				font-family: $font__light;
+				font-weight: 300;
 				font-size: 1rem;
 				line-height: 1.6;
 				color: $color__dark-gray;
 
 				a,
 				a:visited {
-					color: $color__dark-blue;
+					color: $color__dark-gray;
 				}
 
 				a:hover {
@@ -80,7 +81,7 @@
 
 @media screen and (max-width: 62em) {
 	.footer-navigation ul#footer-menu > li {
-		font-size: 1.5rem;
+		font-size: 1.2rem;
 		line-height: 1.6;
 	}
 
