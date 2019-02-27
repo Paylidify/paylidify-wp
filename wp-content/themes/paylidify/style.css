@@ -662,7 +662,8 @@ table {
   bottom: 62%; }
 
 .elementor .custom-image-circle.custom-image-circle__center.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img {
-  margin-bottom: -20%; }
+  margin-bottom: -25%;
+  padding: 10%; }
   .elementor .custom-image-circle.custom-image-circle__center.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img img {
     width: 40%; }
 
