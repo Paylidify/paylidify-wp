@@ -9,20 +9,20 @@ $box-shadow__menu-items: 8px 10px 20px rgba(200,200,200,0.4), 0px 10px 20px rgba
 // classes used on elementor elements
 
 .box-shadow-boxes {
-  box-shadow: $box-shadow__large-box;
+	box-shadow: $box-shadow__large-box;
 }
 
 .box-shadow-boxes__column > .elementor-column-wrap {
-  box-shadow: $box-shadow__large-box;
+	box-shadow: $box-shadow__large-box;
 }
 
 .floating-image-animation img {
-  animation: float 9s ease-in-out infinite;
+	animation: float 9s ease-in-out infinite;
 }
 
 .floating-image-animation__delayed img {
-  animation: float 9s ease-in-out infinite;
-  animation-delay: 3s;
+	animation: float 9s ease-in-out infinite;
+	animation-delay: 3s;
 }
 
 @keyframes float {
@@ -34,5 +34,31 @@ $box-shadow__menu-items: 8px 10px 20px rgba(200,200,200,0.4), 0px 10px 20px rgba
 	}
 	100% {
 		transform: translatey(0px) scale(1);
+	}
+}
+
+// Features subpage nav
+.elementor-sticky .ps2id {
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: absolute;
+	border-radius: 100%;
+	top: 0;
+	left: 0;
+	line-height: 0;
+	background: rgba(256,256,256,0.4);
+
+	&:focus {
+		border: none;
+		outline: none;
+	}
+
+	&:hover {
+		background: rgba(256,256,256,0.2);
+	}
+
+	&.mPS2id-clicked {
+		background: none;
 	}
 }
