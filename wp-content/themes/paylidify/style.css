@@ -1314,18 +1314,35 @@ header {
     width: 60%; }
 
 .country-flag {
+  display: inline-block;
+  margin-right: 1.5em;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 44px 44px;
   width: 44px;
   height: 44px;
   margin-bottom: 1.5em; }
+  .country-flag a {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.6); }
+    .country-flag a:hover {
+      background: rgba(255, 255, 255, 0.1); }
+    .country-flag a.active {
+      background: none; }
 
 .country-flag-us {
   background-image: url("inc/us-flag.png"); }
 
 .country-flag-ca {
   background-image: url("inc/ca-flag.png"); }
+
+#footer-copyright {
+  padding-right: 1em; }
+  #footer-copyright p {
+    font-size: 0.7em;
+    margin-bottom: 0.7em; }
 
 @media screen and (min-width: 767px) {
   .site-footer .widget {

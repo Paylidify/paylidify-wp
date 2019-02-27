@@ -14,12 +14,29 @@
 }
 
 .country-flag {
+  display: inline-block;
+  margin-right: 1.5em;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: 44px 44px;
 	width: 44px;
 	height: 44px;
 	margin-bottom: 1.5em;
+
+  a {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background: rgba(256, 256, 256, 0.6);
+
+    &:hover {
+      background: rgba(256, 256, 256, 0.1);
+    }
+
+    &.active {
+      background: none;
+    }
+  }
 }
 
 .country-flag-us {
@@ -28,6 +45,15 @@
 
 .country-flag-ca {
 	background-image: url("inc/ca-flag.png");
+}
+
+#footer-copyright {
+	padding-right: 1em;
+
+	p {
+		font-size: 0.7em;
+		margin-bottom: 0.7em
+	}
 }
 
 @media screen and (min-width: 767px) {

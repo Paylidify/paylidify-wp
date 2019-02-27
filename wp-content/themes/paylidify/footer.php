@@ -11,11 +11,6 @@
 global $wp;
 $current_url = home_url( $wp->request );
 $in_canada = ( strpos($current_url, 'ca-en' ) !== false);
-if ( $in_canada ) {
-	$country_flag_class = "ca";
-} else {
-	$country_flag_class = "us";
-}
 ?>
 
 		</div><!-- #content -->
@@ -52,7 +47,13 @@ if ( $in_canada ) {
 
 			<div class="elementor-row">
 				<div class="elementor-column elementor-col-33">
-					<div class="country-flag country-flag-<?php echo $country_flag_class; ?>"></div>
+					<?php if ( $in_canada ) { ?>
+						<div class="country-flag country-flag-us"><a href="/us-en"></a></div>
+						<div class="country-flag country-flag-ca"><a class="active" href="/ca-en"></div>
+					<?php } else { ?>
+						<div class="country-flag country-flag-us"><a class="active" href="/us-en"></a></div>
+						<div class="country-flag country-flag-ca"><a href="/ca-en"></div>
+					<?php } ?>
 
 					<?php if ( is_active_sidebar( 'footer-left' ) ) { ?>
 						<div id="footer-widget" class="widget-area">
