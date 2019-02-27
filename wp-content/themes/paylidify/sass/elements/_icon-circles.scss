@@ -39,6 +39,10 @@
   margin: -5% auto 2%;
 }
 
+.elementor-widget-image-box.custom-image-box__one-header .elementor-image-box-content {
+  margin: 10% auto 2%;
+}
+
 .elementor-widget-image-box.custom-image-circle .elementor-image-box-content h5,
 .custom-image-box .elementor-image-box-title {
   margin-top: 5px;
@@ -62,6 +66,10 @@
 
 .elementor .custom-image-box.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img {
   bottom: 62%;
+}
+
+.elementor .custom-image-box__one-header.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img {
+  bottom: 50%;
 }
 
 .elementor .custom-image-circle.custom-image-circle__center.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img {
