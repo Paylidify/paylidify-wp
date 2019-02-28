@@ -816,6 +816,7 @@ input[type="submit"] {
   .bordered-button.elementor-widget-button input[type="button"]:hover,
   .bordered-button.elementor-widget-button input[type="reset"]:hover,
   .bordered-button.elementor-widget-button input[type="submit"]:hover {
+    color: #00476e;
     border-color: #00476e; }
   .bordered-button.elementor-widget-button button:active, .bordered-button.elementor-widget-button button:focus,
   .bordered-button.elementor-widget-button a.elementor-button:active,
