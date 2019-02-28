@@ -715,6 +715,10 @@ table {
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
+.elementor-widget-form .elementor-message {
+  margin-top: 40px;
+  text-align: center; }
+
 button,
 a.elementor-button,
 .site-content .elementor-button.elementor-size-md,
