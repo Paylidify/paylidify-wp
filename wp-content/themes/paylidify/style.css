@@ -837,6 +837,29 @@ input[type="submit"] {
   .bordered-button.elementor-widget-button input[type="submit"]:focus {
     border-color: #00476e; }
 
+.white-button.elementor-widget-button button,
+.white-button.elementor-widget-button a.elementor-button,
+.white-button.elementor-widget-button .site-content .elementor-button.elementor-size-md,
+.white-button.elementor-widget-button input[type="button"],
+.white-button.elementor-widget-button input[type="reset"],
+.white-button.elementor-widget-button input[type="submit"] {
+  background: #fff;
+  color: #006aff; }
+  .white-button.elementor-widget-button button:visited,
+  .white-button.elementor-widget-button a.elementor-button:visited,
+  .white-button.elementor-widget-button .site-content .elementor-button.elementor-size-md:visited,
+  .white-button.elementor-widget-button input[type="button"]:visited,
+  .white-button.elementor-widget-button input[type="reset"]:visited,
+  .white-button.elementor-widget-button input[type="submit"]:visited {
+    color: #006aff; }
+  .white-button.elementor-widget-button button:hover,
+  .white-button.elementor-widget-button a.elementor-button:hover,
+  .white-button.elementor-widget-button .site-content .elementor-button.elementor-size-md:hover,
+  .white-button.elementor-widget-button input[type="button"]:hover,
+  .white-button.elementor-widget-button input[type="reset"]:hover,
+  .white-button.elementor-widget-button input[type="submit"]:hover {
+    color: #00476e; }
+
 input[type="text"],
 input[type="email"],
 input[type="url"],

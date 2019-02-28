@@ -91,3 +91,23 @@ input[type="submit"] {
 		}
 	}
 }
+
+.white-button.elementor-widget-button {
+	button,
+	a.elementor-button,
+	.site-content .elementor-button.elementor-size-md,
+	input[type="button"],
+	input[type="reset"],
+	input[type="submit"] {
+		background: #fff;
+		color: $color__blue;
+
+		&:visited {
+		color: $color__blue;
+		}
+
+		&:hover {
+			color: $color__dark-blue;
+		}
+	}
+}
