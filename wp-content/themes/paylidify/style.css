@@ -1279,11 +1279,15 @@ header {
   height: 44em;
   background-attachment: fixed; }
 
-.page-reseller-partners .site-header:after {
+.page-reseller-partners .site-header:after,
+.page-careers .site-header:after {
   background: none;
   transform: rotate(0); }
 .page-reseller-partners .main-navigation ul#primary-menu > li > a,
-.page-reseller-partners .main-navigation ul#primary-menu > li > a:visited, .page-reseller-partners .main-navigation ul#primary-menu > li.menu-item-has-children:after {
+.page-reseller-partners .main-navigation ul#primary-menu > li > a:visited, .page-reseller-partners .main-navigation ul#primary-menu > li.menu-item-has-children:after,
+.page-careers .main-navigation ul#primary-menu > li > a,
+.page-careers .main-navigation ul#primary-menu > li > a:visited,
+.page-careers .main-navigation ul#primary-menu > li.menu-item-has-children:after {
   color: #fff; }
 
 .site-branding {
