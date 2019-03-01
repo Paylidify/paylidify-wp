@@ -1272,9 +1272,9 @@ header {
 .elementor-section.elementor-section-boxed > .elementor-container {
   width: 100%; }
 
-.flex-reverse .elementor-row {
-  flex-direction: column-reverse; }
-
+@media screen and (max-width: 55em) {
+  .flex-reverse .elementor-row {
+    flex-direction: column-reverse; } }
 @media screen and (max-width: 767px) {
   #page {
     width: 100%; }

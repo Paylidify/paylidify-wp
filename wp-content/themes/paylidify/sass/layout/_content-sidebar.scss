@@ -41,10 +41,11 @@ header {
 	width: 100%; //set so vw font sizes work correctly
 }
 
-.flex-reverse .elementor-row {
-	flex-direction: column-reverse;
+@media screen and (max-width: 55em) {
+	.flex-reverse .elementor-row {
+		flex-direction: column-reverse;
+	}
 }
-
 
 @media screen and (max-width: 767px) {
 	#page {
