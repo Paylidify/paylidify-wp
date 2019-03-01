@@ -1054,14 +1054,19 @@ a {
           position: relative;
           background: auto;
           left: auto; }
-          .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu ul li, .main-navigation.toggled .menu-ca-header-navigation-container ul.nav-menu ul li {
-            font-family: UbuntuLight, sans-serif; }
+          .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu ul li a, .main-navigation.toggled .menu-ca-header-navigation-container ul.nav-menu ul li a {
+            font-family: UbuntuLight, sans-serif;
+            font-size: 1em;
+            font-weight: 300; }
           .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu ul ul, .main-navigation.toggled .menu-ca-header-navigation-container ul.nav-menu ul ul {
             left: auto; }
     .main-navigation.toggled > button.menu-toggle {
       background-size: 25px 25px;
       background-image: url(inc/mobile-menu-icon-open.png); }
     .main-navigation.toggled li a {
+      font-family: Ubuntu, sans-serif;
+      font-weight: 600;
+      font-size: 1.2em;
       color: #fff; } }
 .site-main .comment-navigation,
 .site-main .posts-navigation,

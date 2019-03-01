@@ -189,8 +189,11 @@
 					left: auto;
 
 					li {
-						font-family: $font__light;
-						// @include font-size(0.85);
+						a {
+							font-family: $font__light;
+							font-size: 1em;
+							font-weight: 300;
+						}
 					}
 
 					ul {
@@ -208,6 +211,9 @@
 
 		li {
 			a {
+				font-family: $font__bold;
+				font-weight: 600;
+				font-size: 1.2em;
 				color: #fff;
 			}
 		}
