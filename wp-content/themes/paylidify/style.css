@@ -1048,7 +1048,11 @@ a {
           .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu > li:last-child, .main-navigation.toggled .menu-ca-header-navigation-container ul.nav-menu > li:last-child {
             margin-left: auto;
             line-height: auto;
-            padding: auto; }
+            padding: auto;
+            clear: both !important;
+            margin-left: 1em !important; }
+            .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu > li:last-child a, .main-navigation.toggled .menu-ca-header-navigation-container ul.nav-menu > li:last-child a {
+              padding-left: 5px !important; }
         .main-navigation.toggled .menu-us-header-navigation-container ul.nav-menu ul, .main-navigation.toggled .menu-ca-header-navigation-container ul.nav-menu ul {
           float: none;
           position: relative;
@@ -1067,6 +1071,7 @@ a {
       font-family: Ubuntu, sans-serif;
       font-weight: 600;
       font-size: 1.2em;
+      line-height: 0.8em;
       color: #fff; } }
 .site-main .comment-navigation,
 .site-main .posts-navigation,

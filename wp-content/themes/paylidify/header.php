@@ -30,9 +30,9 @@
 			<div class="site-branding">
 				<?php
 
-				// show white logo for reseller page
+				// show white logo for careers page
 
-				if (strpos($current_url, 'reseller-partners') !== false || strpos($current_url, 'careers') !== false) { ?>
+				if (strpos($current_url, 'careers') !== false) { ?>
 					<a href="/" class="custom-logo-link" rel="home" itemprop="url">
 						<img width="204" height="69" src="/wp-content/uploads/2019/02/paylidify-logo-white.png" class="custom-logo" alt="Paylidify" itemprop="logo">
 					</a>
