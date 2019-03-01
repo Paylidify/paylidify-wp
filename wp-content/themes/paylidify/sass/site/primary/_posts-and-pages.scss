@@ -7,21 +7,6 @@
 	}
 }
 
-.page-reseller-partners:before {
-	content: "";
-	background: url("inc/business-people.png");
-	background-repeat: no-repeat;
-	background-position: top center;
-	background-size: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 44em;
-	background-attachment: fixed;
-}
-
-.page-reseller-partners,
 .page-careers {
 	.site-header:after {
 		background: none;
