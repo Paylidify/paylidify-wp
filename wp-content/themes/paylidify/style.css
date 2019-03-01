@@ -1022,7 +1022,7 @@ a {
     display: block; } }
 @media screen and (max-width: 55em) {
   .main-navigation {
-    width: 100%;
+    width: 50%;
     position: absolute;
     top: 10px;
     right: 0; }
@@ -1033,6 +1033,7 @@ a {
       display: block; }
 
   .main-navigation.toggled {
+    width: 100%;
     z-index: 20; }
     .main-navigation.toggled .menu-us-header-navigation-container, .main-navigation.toggled .menu-ca-header-navigation-container {
       background-color: #006aff;
