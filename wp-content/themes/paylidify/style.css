@@ -1305,7 +1305,7 @@ header {
 .site-header {
   margin-top: 30px;
   position: relative;
-  z-index: 2; }
+  z-index: 0; }
   .site-header:after {
     content: "";
     display: block;
