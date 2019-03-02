@@ -17,7 +17,17 @@ $in_canada = ( strpos($current_url, 'ca-en' ) !== false);
 		<footer id="colophon" class="site-footer">
 			<div class="elementor-row">
 				<div class="footer-logo">
-					<?php the_custom_logo(); ?>
+
+					<?php if (strpos($current_url, 'ca-en') !== false) { ?>
+						<a href="/ca-en" class="custom-logo-link" rel="home" itemprop="url">
+							<img width="204" height="69" src="/wp-content/uploads/2019/02/paylidify-logo-blue.png" class="custom-logo" alt="Paylidify" itemprop="logo">
+						</a>
+					<?php } else { ?>
+						<a href="/us-en" class="custom-logo-link" rel="home" itemprop="url">
+							<img width="204" height="69" src="/wp-content/uploads/2019/02/paylidify-logo-blue.png" class="custom-logo" alt="Paylidify" itemprop="logo">
+						</a>
+					<?php } ?>
+
 					<div class="copyright">
 						<?php if ( is_active_sidebar( 'footer-copyright' ) ) { ?>
 							<div id="footer-copyright" class="widget-area">

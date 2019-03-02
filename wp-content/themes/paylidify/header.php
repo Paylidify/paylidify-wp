@@ -32,12 +32,26 @@
 
 				// show white logo for careers page
 
-				if (strpos($current_url, 'careers') !== false) { ?>
-					<a href="/" class="custom-logo-link" rel="home" itemprop="url">
-						<img width="204" height="69" src="/wp-content/uploads/2019/02/paylidify-logo-white.png" class="custom-logo" alt="Paylidify" itemprop="logo">
-					</a>
-				<?php } else {
-					the_custom_logo();
+				if (strpos($current_url, 'careers') !== false) {
+					if (strpos($current_url, 'ca-en') !== false) { ?>
+						<a href="/ca-en" class="custom-logo-link" rel="home" itemprop="url">
+							<img width="204" height="69" src="/wp-content/uploads/2019/02/paylidify-logo-white.png" class="custom-logo" alt="Paylidify" itemprop="logo">
+						</a>
+					<?php } else { ?>
+						<a href="/us-en" class="custom-logo-link" rel="home" itemprop="url">
+							<img width="204" height="69" src="/wp-content/uploads/2019/02/paylidify-logo-white.png" class="custom-logo" alt="Paylidify" itemprop="logo">
+						</a>
+					<?php } ?>
+				<?php } else { ?>
+					<?php if (strpos($current_url, 'ca-en') !== false) { ?>
+						<a href="/ca-en" class="custom-logo-link" rel="home" itemprop="url">
+							<img width="204" height="69" src="/wp-content/uploads/2019/02/paylidify-logo-blue.png" class="custom-logo" alt="Paylidify" itemprop="logo">
+						</a>
+					<?php } else { ?>
+						<a href="/us-en" class="custom-logo-link" rel="home" itemprop="url">
+							<img width="204" height="69" src="/wp-content/uploads/2019/02/paylidify-logo-blue.png" class="custom-logo" alt="Paylidify" itemprop="logo">
+						</a>
+					<?php }
 				}
 
 				if ( is_front_page() && is_home() ) :
