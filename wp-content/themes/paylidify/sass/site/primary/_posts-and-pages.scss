@@ -1,6 +1,7 @@
 .site-header {
 	margin-top: 30px;
 	position: relative;
+	z-index: 2;
 
 	&:after {
 		@include blue-angled-background(-19em, 700px);

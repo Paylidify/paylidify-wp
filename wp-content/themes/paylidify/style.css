@@ -1304,7 +1304,8 @@ header {
 --------------------------------------------------------------*/
 .site-header {
   margin-top: 30px;
-  position: relative; }
+  position: relative;
+  z-index: 2; }
   .site-header:after {
     content: "";
     display: block;
