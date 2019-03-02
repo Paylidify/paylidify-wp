@@ -1,4 +1,4 @@
-/*! elementor - v2.4.6 - 11-02-2019 */
+/*! elementor - v2.4.7 - 18-02-2019 */
 .dialog-widget-content {
   background-color: #fff;
   position: absolute;
@@ -1329,15 +1329,15 @@ ul.elementor-icon-list-items.elementor-inline-items {
     display: grid; } }
 
 @media (min-width: 1025px) {
-  head:after {
+  head {
     content: 'desktop'; } }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  head:after {
+  head {
     content: 'tablet'; } }
 
 @media (max-width: 767px) {
-  head:after {
+  head {
     content: 'mobile'; } }
 
 .elementor-form-fields-wrapper {

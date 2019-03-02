@@ -1,4 +1,4 @@
-/*! elementor - v2.4.6 - 11-02-2019 */
+/*! elementor - v2.4.7 - 18-02-2019 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -5887,7 +5887,7 @@ var App = Marionette.Application.extend({
 
 		setTimeout(console.log.bind(console, text, style)); // eslint-disable-line
 
-		text = '%cLove using Elementor? Join our growing community of Elementor developers: %chttps://github.com/pojome/elementor';
+		text = '%cLove using Elementor? Join our growing community of Elementor developers: %chttps://github.com/elementor/elementor';
 
 		setTimeout(console.log.bind(console, text, 'color: #9B0A46', '')); // eslint-disable-line
 	},

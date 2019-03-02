@@ -980,15 +980,15 @@ ul.elementor-icon-list-items.elementor-inline-items {
     display: grid; } }
 
 @media (min-width: ELEMENTOR_SCREEN_LG_MIN) {
-  head:after {
+  head {
     content: 'desktop'; } }
 
 @media (min-width: ELEMENTOR_SCREEN_MD_MIN) and (max-width: ELEMENTOR_SCREEN_MD_MAX) {
-  head:after {
+  head {
     content: 'tablet'; } }
 
 @media (max-width: ELEMENTOR_SCREEN_SM_MAX) {
-  head:after {
+  head {
     content: 'mobile'; } }
 
 .elementor-form-fields-wrapper {

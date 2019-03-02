@@ -1,4 +1,4 @@
-/*! elementor - v2.4.6 - 11-02-2019 */
+/*! elementor - v2.4.7 - 18-02-2019 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -760,19 +760,13 @@ var Frontend = function (_elementorModules$Vie) {
 	}, {
 		key: 'getDefaultElements',
 		value: function getDefaultElements() {
-			var selectors = this.getSettings('selectors');
-
-			var elements = {
+			return {
 				window: window,
 				$window: jQuery(window),
 				$document: jQuery(document),
 				$head: jQuery(document.head),
 				$body: jQuery(document.body)
 			};
-
-			elements.$wpAdminBar = elements.$document.find(selectors.adminBar);
-
-			return elements;
 		}
 	}, {
 		key: 'bindEvents',
@@ -815,7 +809,7 @@ var Frontend = function (_elementorModules$Vie) {
 	}, {
 		key: 'getCurrentDeviceMode',
 		value: function getCurrentDeviceMode() {
-			return getComputedStyle(this.elements.$head[0], ':after').content.replace(/"/g, '');
+			return getComputedStyle(this.elements.$head[0]).content.replace(/"/g, '');
 		}
 	}, {
 		key: 'isEditMode',
@@ -867,6 +861,11 @@ var Frontend = function (_elementorModules$Vie) {
 			this.documentsManager = new _documentsManager2.default();
 
 			this.trigger('components:init');
+		}
+	}, {
+		key: 'initOnReadyElements',
+		value: function initOnReadyElements() {
+			this.elements.$wpAdminBar = this.elements.$document.find(this.getSettings('selectors.adminBar'));
 		}
 	}, {
 		key: 'addIeCompatibility',
@@ -1029,6 +1028,8 @@ var Frontend = function (_elementorModules$Vie) {
 			if (!this.isEditMode()) {
 				this.initHotKeys();
 			}
+
+			this.initOnReadyElements();
 
 			this.initOnReadyComponents();
 		}
@@ -2324,7 +2325,7 @@ module.exports = elementorModules.ViewModule.extend({
 
 		var scrollTop = $anchor.offset().top,
 		    $wpAdminBar = elementorFrontend.elements.$wpAdminBar,
-		    $activeStickies = jQuery('.elementor-sticky--active'),
+		    $activeStickies = jQuery('.elementor-section.elementor-sticky--active'),
 		    maxStickyHeight = 0;
 
 		if ($wpAdminBar.length > 0) {
