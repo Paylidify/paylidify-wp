@@ -498,6 +498,10 @@ h6,
 .page-privacy-terms h5 {
   color: #00476e; }
 
+@media screen and (max-width: 767px) {
+  .site-content .elementor-widget-heading,
+  .site-content .elementor-widget-button {
+    text-align: center; } }
 p {
   margin-bottom: 1.5em; }
 
@@ -1139,6 +1143,9 @@ a {
 @media screen and (max-width: 767px) {
   .footer-navigation {
     width: 100%; }
+
+  .site-footer {
+    padding: 15px; }
 
   .footer-navigation ul#footer-menu > li {
     width: 50%;

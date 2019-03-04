@@ -71,3 +71,11 @@ h6,
 .page-privacy-terms h5 {
 	color: $color__dark-blue
 }
+
+
+@media screen and (max-width: 767px) {
+	.site-content .elementor-widget-heading,
+	.site-content .elementor-widget-button {
+		text-align: center;
+	}
+}
