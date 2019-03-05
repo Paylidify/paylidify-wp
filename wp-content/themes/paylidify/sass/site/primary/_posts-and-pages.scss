@@ -1,5 +1,6 @@
 .site-header {
 	margin-top: 30px;
+	margin-bottom: 40px;
 	position: relative;
 
 	&:after {
@@ -8,6 +9,10 @@
 }
 
 .page-careers {
+	.site-header {
+		margin-bottom: 0;
+	}
+
 	.site-header:after {
 		background: none;
 	  transform: rotate(0);
