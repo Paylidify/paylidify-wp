@@ -19,6 +19,7 @@ input[type="submit"] {
 
 	&:hover {
 		border-color: $color__button-border-hover;
+		background: $color__dark-blue;
 	}
 
 	&:active,
@@ -82,6 +83,7 @@ input[type="submit"] {
 
 		&:hover {
 			color: $color__dark-blue;
+			background: #fff;
 			border-color: $color__dark-blue;
 		}
 
@@ -108,6 +110,7 @@ input[type="submit"] {
 
 		&:hover {
 			color: $color__dark-blue;
+			background: #fff;
 		}
 	}
 }

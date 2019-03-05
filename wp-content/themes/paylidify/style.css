@@ -762,7 +762,8 @@ input[type="submit"] {
   input[type="button"]:hover,
   input[type="reset"]:hover,
   input[type="submit"]:hover {
-    border-color: #ccc #bbb #aaa; }
+    border-color: #ccc #bbb #aaa;
+    background: #00476e; }
   button:active, button:focus,
   a.elementor-button:active,
   a.elementor-button:focus,
@@ -835,6 +836,7 @@ input[type="submit"] {
   .bordered-button.elementor-widget-button input[type="reset"]:hover,
   .bordered-button.elementor-widget-button input[type="submit"]:hover {
     color: #00476e;
+    background: #fff;
     border-color: #00476e; }
   .bordered-button.elementor-widget-button button:active, .bordered-button.elementor-widget-button button:focus,
   .bordered-button.elementor-widget-button a.elementor-button:active,
@@ -872,7 +874,8 @@ input[type="submit"] {
   .white-button.elementor-widget-button input[type="button"]:hover,
   .white-button.elementor-widget-button input[type="reset"]:hover,
   .white-button.elementor-widget-button input[type="submit"]:hover {
-    color: #00476e; }
+    color: #00476e;
+    background: #fff; }
 
 input[type="text"],
 input[type="email"],
