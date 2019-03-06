@@ -1262,7 +1262,8 @@ a {
 # Content
 --------------------------------------------------------------*/
 #page-wrap {
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
 
 #page {
   width: 90%;
@@ -1364,6 +1365,20 @@ header {
 .site-footer .elementor-row {
   margin: 2.5em 0 .5em;
   clear: both; }
+
+.site-footer {
+  margin-top: 50px; }
+
+.site-footer:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -100px;
+  left: -50%;
+  height: 500px;
+  width: 2000px;
+  background: #effcff;
+  z-index: -10; }
 
 .footer-logo {
   width: 20%;

@@ -50,9 +50,9 @@
 	content: "";
 	display: block;
 	position: absolute;
-	top: $top;
+	bottom: -100px;
 	left: -50%;
-	height: $height;
+	height: 500px;
 	width: 2000px;
 	background: $color__light-blue;
 	z-index: -10;

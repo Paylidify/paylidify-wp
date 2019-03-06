@@ -3,6 +3,14 @@
 	clear: both;
 }
 
+.site-footer {
+  margin-top: 50px;
+}
+
+.site-footer:after {
+	@include blue-background();
+}
+
 .footer-logo {
 	width: 20%;
 	display: inline-block;
