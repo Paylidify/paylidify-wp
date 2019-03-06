@@ -645,7 +645,7 @@ table {
 
 @media screen and (max-width: 767px) {
   .elementor-widget-custom-testimonial {
-    padding: 20px; } }
+    padding: 50 10px; } }
 .elementor-widget-custom-icon-circle .elementor-icon-box-wrapper,
 .custom-image-circle .elementor-image-box-wrapper,
 .custom-image-box .elementor-image-box-wrapper {
