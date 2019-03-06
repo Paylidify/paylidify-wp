@@ -97,8 +97,8 @@ $in_canada = ( strpos($current_url, 'ca-en' ) !== false);
 			jQuery(".custom-image-box .elementor-image-box-title").fitText();
 			jQuery(".custom-image-circle .elementor-image-box-description").fitText(1.5);
 			jQuery(".custom-image-box .elementor-image-box-description").fitText(1.5);
-			jQuery(".custom-image-circle.smaller-header .elementor-image-box-title").fitText(1.4);
-			jQuery(".custom-image-circle.smaller-description .elementor-image-box-description").fitText(1.8);
+			jQuery(".custom-image-circle.smaller-header .elementor-image-box-title").fitText(1.6);
+			jQuery(".custom-image-circle.smaller-description .elementor-image-box-description").fitText(1.9);
 		})
 	</script>
 <?php wp_footer(); ?>
