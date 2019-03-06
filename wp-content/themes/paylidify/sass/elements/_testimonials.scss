@@ -1,5 +1,5 @@
 .elementor-widget-custom-testimonial {
-	border-radius: 8px;
+	border-radius: 10px;
 	padding: 50px;
 	box-shadow: $box-shadow__large-box;
 	background-color: $color__blue;
@@ -39,4 +39,10 @@
 .flex-column-reverse .elementor-testimonial {
 	display: flex;
 	flex-direction: column-reverse;
+}
+
+@media screen and (max-width: 767px) {
+	.elementor-widget-custom-testimonial {
+		padding: 20px;
+	}
 }
