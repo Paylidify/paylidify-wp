@@ -91,7 +91,14 @@ $in_canada = ( strpos($current_url, 'ca-en' ) !== false);
 		</footer><!-- #colophon -->
 	</div><!-- #page -->
 </div><!-- #page-wrap -->
-
+	<script>
+		jQuery(document).ready(function() {
+			jQuery(".custom-image-circle .elementor-image-box-title").fitText();
+			jQuery(".custom-image-box .elementor-image-box-title").fitText();
+			jQuery(".custom-image-circle .elementor-image-box-description").fitText(1.5);
+			jQuery(".custom-image-box .elementor-image-box-description").fitText(1.5);
+		})
+	</script>
 <?php wp_footer(); ?>
 
 </body>
