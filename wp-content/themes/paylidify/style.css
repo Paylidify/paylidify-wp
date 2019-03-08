@@ -1367,15 +1367,16 @@ header {
   clear: both; }
 
 .site-footer {
-  margin-top: 50px; }
+  margin-top: 50px;
+  position: relative; }
 
 .site-footer:after {
   content: "";
   display: block;
   position: absolute;
-  bottom: -100px;
+  top: 0;
   left: -50%;
-  height: 500px;
+  height: 5000px;
   width: 2000px;
   background: #effcff;
   z-index: -10; }
@@ -1437,7 +1438,19 @@ header {
 
   .footer-logo {
     width: 100%;
-    margin-bottom: 1em; } }
+    margin-bottom: 1em; }
+
+  #footer-widget {
+    margin-left: auto;
+    margin-right: auto; }
+
+  #footer-widget #media_image-2 {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto; }
+
+  .site-footer .elementor-col-33 {
+    justify-content: center; } }
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
