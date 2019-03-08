@@ -1151,7 +1151,7 @@ a {
     width: 100%; }
 
   .site-footer {
-    padding: 15px; }
+    padding: 25px; }
 
   .footer-navigation ul#footer-menu > li {
     width: 50%;
@@ -1270,6 +1270,9 @@ a {
   max-width: 1140px;
   margin: 0 auto; }
 
+body.page {
+  margin-bottom: 0; }
+
 header {
   padding: 10px; }
 
@@ -1367,7 +1370,7 @@ header {
   clear: both; }
 
 .site-footer {
-  margin-top: 50px;
+  padding-top: 50px;
   position: relative; }
 
 .site-footer:after {
