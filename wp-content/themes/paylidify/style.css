@@ -1450,7 +1450,12 @@ header {
     margin-right: auto; }
 
   .site-footer .elementor-col-33 {
-    justify-content: center; } }
+    justify-content: center; }
+
+  .footer-logo {
+    text-align: center; }
+    .footer-logo #footer-copyright {
+      padding-right: 0; } }
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/

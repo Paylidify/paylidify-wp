@@ -113,4 +113,12 @@
 	.site-footer .elementor-col-33 {
 		justify-content: center;
 	}
+
+	.footer-logo {
+		text-align: center;
+
+		#footer-copyright {
+			padding-right: 0;
+		}
+	}
 }
