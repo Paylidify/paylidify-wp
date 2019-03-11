@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.4.4 - 11-02-2019 */
+/*! elementor-pro - v2.4.8 - 11-03-2019 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -1203,7 +1203,7 @@ var _class = function (_elementorModules$fro) {
 				return;
 			}
 
-			if (elementorFrontend.isWPPreviewMode()) {
+			if (elementorFrontend.isWPPreviewMode() && elementorFrontend.config.post.id === this.getSettings('id')) {
 				this.showModal();
 
 				return;

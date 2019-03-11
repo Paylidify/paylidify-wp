@@ -157,7 +157,7 @@ class Module extends Module_Base {
 	 * @access public
 	 */
 	public function admin_menu() {
-		add_submenu_page( Source_Local::ADMIN_MENU_SLUG, '', __( 'Popups', 'elementor-pro' ), 'publish_posts', $this->get_admin_url() );
+		add_submenu_page( Source_Local::ADMIN_MENU_SLUG, '', __( 'Popups', 'elementor-pro' ), 'publish_posts', $this->get_admin_url( true ) );
 	}
 
 	public function add_finder_items( array $categories ) {
@@ -179,13 +179,18 @@ class Module extends Module_Base {
 
 	}
 
-	private function get_admin_url() {
+	private function get_admin_url( $relative = false ) {
+		$base_url = Source_Local::ADMIN_MENU_SLUG;
+		if ( ! $relative ) {
+			$base_url = admin_url( $base_url );
+		}
+
 		return add_query_arg(
 			[
 				'tabs_group' => 'popup',
 				'elementor_library_type' => 'popup',
 			],
-			admin_url( Source_Local::ADMIN_MENU_SLUG )
+			$base_url
 		);
 	}
 }

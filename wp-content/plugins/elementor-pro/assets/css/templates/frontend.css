@@ -2208,10 +2208,12 @@ body.rtl.woocommerce-page div.product .elementor-widget-woocommerce-product-imag
   .elementor-carousel-image-overlay i {
     font-size: 21px; }
 
-.elementor-testimonial__image img {
-  border-radius: 999px;
-  box-sizing: content-box;
-  object-fit: cover; }
+.elementor-testimonial__image {
+  flex-shrink: 0; }
+  .elementor-testimonial__image img {
+    border-radius: 999px;
+    box-sizing: content-box;
+    object-fit: cover; }
 
 .elementor-testimonial__footer, .elementor-testimonial__header {
   display: flex; }

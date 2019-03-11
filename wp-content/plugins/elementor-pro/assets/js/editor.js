@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.4.4 - 11-02-2019 */
+/*! elementor-pro - v2.4.8 - 11-03-2019 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -1222,7 +1222,7 @@ module.exports = BaseIntegrationModule.extend({
 
 		self.getMailchimpCache('lists', 'lists', GlobalApiKeycontrolView.getControlValue()).done(function (data) {
 			self.updateOptions('mailchimp_list', data.lists);
-			self.onMailchimpListUpdate();
+			self.updatMailchimpList();
 		});
 	},
 
@@ -3622,13 +3622,6 @@ module.exports = SaverBehavior.extend({
 		this.ui.menuConditions.toggle(!!elementorPro.config.theme_builder.settings.location);
 	},
 
-	openPublishScreenOnConditions: function openPublishScreenOnConditions() {
-		elementorPro.modules.themeBuilder.showPublishModal();
-
-		elementorPro.modules.themeBuilder.getPublishLayout().modalContent.currentView.showScreenByName('conditions');
-	},
-
-
 	onRender: function onRender() {
 		SaverBehavior.prototype.onRender.apply(this, arguments);
 
@@ -3637,7 +3630,9 @@ module.exports = SaverBehavior.extend({
 			name: 'conditions',
 			icon: 'fa fa-paper-plane',
 			title: elementorPro.translate('display_conditions'),
-			callback: this.openPublishScreenOnConditions
+			callback: function callback() {
+				return elementorPro.modules.themeBuilder.showPublishModal();
+			}
 		});
 
 		this.toggleMenuConditions();
@@ -3660,7 +3655,7 @@ module.exports = SaverBehavior.extend({
 		if (hasConditions && !isDraft || !hasLocation) {
 			SaverBehavior.prototype.onClickButtonPublish.apply(this, arguments);
 		} else {
-			this.openPublishScreenOnConditions();
+			elementorPro.modules.themeBuilder.showPublishModal();
 		}
 	},
 

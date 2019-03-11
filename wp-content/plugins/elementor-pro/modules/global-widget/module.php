@@ -42,8 +42,15 @@ class Module extends Module_Base {
 
 		$widgets_types = $elementor->widgets_manager->get_widget_types();
 
-		$widget_templates = array_filter( $templates_manager->get_source( 'local' )->get_items(), function( $template ) use ( $widgets_types ) {
-			return ! empty( $template['widgetType'] ) && ! empty( $widgets_types[ $template['widgetType'] ] );
+		$widget_templates = array_filter( $templates_manager->get_source( 'local' )->get_items( [ 'type' => self::TEMPLATE_TYPE ] ), function( $template ) use ( $widgets_types ) {
+			if ( empty( $template['widgetType'] ) || empty( $widgets_types[ $template['widgetType'] ] ) ) {
+				return false;
+			}
+
+			// Open the stack in order to include the widget controls in initial editor config
+			$widgets_types[ $template['widgetType'] ]->get_stack( false );
+
+			return true;
 		} );
 
 		$widget_templates_content = [];

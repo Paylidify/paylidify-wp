@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.4.4 - 11-02-2019 */
+/*! elementor-pro - v2.4.8 - 11-03-2019 */
 @charset "UTF-8";
 .elementor-bg-transform .elementor-bg {
   will-change: transform; }
@@ -2987,12 +2987,16 @@ body.rtl.woocommerce-page div.product .elementor-widget-woocommerce-product-imag
   .elementor-carousel-image-overlay i {
     font-size: 21px; }
 
-.elementor-testimonial__image img {
-  border-radius: 999px;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
-  -o-object-fit: cover;
-     object-fit: cover; }
+.elementor-testimonial__image {
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0; }
+  .elementor-testimonial__image img {
+    border-radius: 999px;
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+    -o-object-fit: cover;
+       object-fit: cover; }
 
 .elementor-testimonial__footer, .elementor-testimonial__header {
   display: -webkit-box;

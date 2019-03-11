@@ -100,13 +100,24 @@ class Group_Control_Posts extends Group_Control_Base {
 			'show_in_nav_menus' => true,
 		];
 
-		if ( ! empty( $args['post_type'] ) ) {
-			$taxonomy_filter_args['object_type'] = [ $args['post_type'] ];
-		}
-
 		$taxonomies = get_taxonomies( $taxonomy_filter_args, 'objects' );
 
-		foreach ( $taxonomies as $taxonomy => $object ) {
+		// bypass bug in WP_List_Util::filter() causing wrong array comparison
+		// when a taxonomy belongs to several post-types (e.g. when using woocommerce-product-add-ons)
+		// ( using simple '==' rather than in_array() or array_intersect() ).
+		$filtered_taxonomies = [];
+		if ( ! empty( $args['post_type'] ) ) {
+			foreach ( $taxonomies as $taxonomy => $obj ) {
+				$tax_array = (array) $obj;
+				if ( in_array( $args['post_type'], $tax_array['object_type'] ) ) {
+					$filtered_taxonomies[ $taxonomy ] = $obj;
+				}
+			}
+		} else {
+			$filtered_taxonomies = $taxonomies;
+		}
+
+		foreach ( $filtered_taxonomies as $taxonomy => $object ) {
 			$taxonomy_args = [
 				'label' => $object->label,
 				'type' => Module::QUERY_CONTROL_ID,

@@ -290,11 +290,17 @@ class Module extends Module_Base {
 	 * @access public
 	 */
 	public function admin_menu() {
-		add_submenu_page( Source_Local::ADMIN_MENU_SLUG, '', __( 'Theme Builder', 'elementor-pro' ), 'publish_posts', $this->get_admin_templates_url() );
+		add_submenu_page( Source_Local::ADMIN_MENU_SLUG, '', __( 'Theme Builder', 'elementor-pro' ), 'publish_posts', $this->get_admin_templates_url( true ) );
 	}
 
-	private function get_admin_templates_url() {
-		return add_query_arg( 'tabs_group', 'theme', admin_url( Source_Local::ADMIN_MENU_SLUG ) );
+	private function get_admin_templates_url( $relative = false ) {
+		$base_url = Source_Local::ADMIN_MENU_SLUG;
+
+		if ( ! $relative ) {
+			$base_url = admin_url( $base_url );
+		}
+
+		return add_query_arg( 'tabs_group', 'theme', $base_url );
 	}
 
 	public function __construct() {

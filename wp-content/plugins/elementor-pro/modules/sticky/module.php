@@ -12,8 +12,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Module extends Module_Base {
 
+	private $is_prior_to_250;
+
 	public function __construct() {
 		parent::__construct();
+
+		$this->is_prior_to_250 = version_compare( ELEMENTOR_VERSION, '2.5.0', '<' );
 
 		$this->add_actions();
 	}
@@ -23,13 +27,15 @@ class Module extends Module_Base {
 	}
 
 	public function register_controls( Controls_Stack $element ) {
-		$element->start_controls_section(
-			'section_scrolling_effect',
-			[
-				'label' => __( 'Scrolling Effect', 'elementor-pro' ),
-				'tab' => Controls_Manager::TAB_ADVANCED,
-			]
-		);
+		if ( $this->is_prior_to_250 ) {
+			$element->start_controls_section(
+				'section_scrolling_effect',
+				[
+					'label' => __( 'Scrolling Effect', 'elementor-pro' ),
+					'tab' => Controls_Manager::TAB_ADVANCED,
+				]
+			);
+		}
 
 		$element->add_control(
 			'sticky',
@@ -116,11 +122,18 @@ class Module extends Module_Base {
 			);
 		}
 
-		$element->end_controls_section();
+		if ( $this->is_prior_to_250 ) {
+			$element->end_controls_section();
+		}
 	}
 
 	private function add_actions() {
-		add_action( 'elementor/element/section/section_advanced/after_section_end', [ $this, 'register_controls' ] );
-		add_action( 'elementor/element/common/_section_style/after_section_end', [ $this, 'register_controls' ] );
+		if ( $this->is_prior_to_250 ) {
+			add_action( 'elementor/element/section/section_advanced/after_section_end', [ $this, 'register_controls' ] );
+			add_action( 'elementor/element/common/_section_style/after_section_end', [ $this, 'register_controls' ] );
+		} else {
+			add_action( 'elementor/element/section/section_effects/after_section_start', [ $this, 'register_controls' ] );
+			add_action( 'elementor/element/common/section_effects/after_section_start', [ $this, 'register_controls' ] );
+		}
 	}
 }
