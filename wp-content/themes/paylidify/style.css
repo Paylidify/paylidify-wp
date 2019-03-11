@@ -1502,6 +1502,8 @@ object {
 /* Make sure logo link wraps around logo image. */
 .custom-logo-link {
   display: inline-block; }
+  .custom-logo-link img {
+    max-width: 204px; }
 
 /*--------------------------------------------------------------
 ## Captions
