@@ -739,7 +739,7 @@ table {
 button,
 a.elementor-button,
 .page .elementor-button.elementor-size-md,
-.main-navigation ul#primary-menu > li:last-child,
+.elementor-location-header ul.elementor-nav-menu > li:last-child a,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
@@ -753,7 +753,7 @@ input[type="submit"] {
   button:visited,
   a.elementor-button:visited,
   .page .elementor-button.elementor-size-md:visited,
-  .main-navigation ul#primary-menu > li:last-child:visited,
+  .elementor-location-header ul.elementor-nav-menu > li:last-child a:visited,
   input[type="button"]:visited,
   input[type="reset"]:visited,
   input[type="submit"]:visited {
@@ -761,7 +761,7 @@ input[type="submit"] {
   button:hover,
   a.elementor-button:hover,
   .page .elementor-button.elementor-size-md:hover,
-  .main-navigation ul#primary-menu > li:last-child:hover,
+  .elementor-location-header ul.elementor-nav-menu > li:last-child a:hover,
   input[type="button"]:hover,
   input[type="reset"]:hover,
   input[type="submit"]:hover {
@@ -772,8 +772,8 @@ input[type="submit"] {
   a.elementor-button:focus,
   .page .elementor-button.elementor-size-md:active,
   .page .elementor-button.elementor-size-md:focus,
-  .main-navigation ul#primary-menu > li:last-child:active,
-  .main-navigation ul#primary-menu > li:last-child:focus,
+  .elementor-location-header ul.elementor-nav-menu > li:last-child a:active,
+  .elementor-location-header ul.elementor-nav-menu > li:last-child a:focus,
   input[type="button"]:active,
   input[type="button"]:focus,
   input[type="reset"]:active,
@@ -802,21 +802,21 @@ input[type="submit"] {
   padding: .4em 2.5em;
   border-radius: 100px; }
 
-.main-navigation ul#primary-menu > li:last-child {
+.elementor-location-header ul#primary-menu > li:last-child {
   margin-left: 1.5em;
   line-height: 2;
   padding: 0;
   border-radius: 100px; }
-  .main-navigation ul#primary-menu > li:last-child a {
+  .elementor-location-header ul#primary-menu > li:last-child a {
     color: #fff;
     padding: .5em 2.5em; }
-    .main-navigation ul#primary-menu > li:last-child a:visited {
+    .elementor-location-header ul#primary-menu > li:last-child a:visited {
       color: #fff; }
 
 .bordered-button.elementor-widget-button button,
 .bordered-button.elementor-widget-button a.elementor-button,
 .bordered-button.elementor-widget-button .page .elementor-button.elementor-size-md,
-.bordered-button.elementor-widget-button .main-navigation ul#primary-menu > li:last-child,
+.bordered-button.elementor-widget-button .elementor-location-header ul.elementor-nav-menu > li:last-child a,
 .bordered-button.elementor-widget-button input[type="button"],
 .bordered-button.elementor-widget-button input[type="reset"],
 .bordered-button.elementor-widget-button input[type="submit"] {
@@ -826,7 +826,7 @@ input[type="submit"] {
   .bordered-button.elementor-widget-button button:visited,
   .bordered-button.elementor-widget-button a.elementor-button:visited,
   .bordered-button.elementor-widget-button .page .elementor-button.elementor-size-md:visited,
-  .bordered-button.elementor-widget-button .main-navigation ul#primary-menu > li:last-child:visited,
+  .bordered-button.elementor-widget-button .elementor-location-header ul.elementor-nav-menu > li:last-child a:visited,
   .bordered-button.elementor-widget-button input[type="button"]:visited,
   .bordered-button.elementor-widget-button input[type="reset"]:visited,
   .bordered-button.elementor-widget-button input[type="submit"]:visited {
@@ -834,7 +834,7 @@ input[type="submit"] {
   .bordered-button.elementor-widget-button button:hover,
   .bordered-button.elementor-widget-button a.elementor-button:hover,
   .bordered-button.elementor-widget-button .page .elementor-button.elementor-size-md:hover,
-  .bordered-button.elementor-widget-button .main-navigation ul#primary-menu > li:last-child:hover,
+  .bordered-button.elementor-widget-button .elementor-location-header ul.elementor-nav-menu > li:last-child a:hover,
   .bordered-button.elementor-widget-button input[type="button"]:hover,
   .bordered-button.elementor-widget-button input[type="reset"]:hover,
   .bordered-button.elementor-widget-button input[type="submit"]:hover {
@@ -846,8 +846,8 @@ input[type="submit"] {
   .bordered-button.elementor-widget-button a.elementor-button:focus,
   .bordered-button.elementor-widget-button .page .elementor-button.elementor-size-md:active,
   .bordered-button.elementor-widget-button .page .elementor-button.elementor-size-md:focus,
-  .bordered-button.elementor-widget-button .main-navigation ul#primary-menu > li:last-child:active,
-  .bordered-button.elementor-widget-button .main-navigation ul#primary-menu > li:last-child:focus,
+  .bordered-button.elementor-widget-button .elementor-location-header ul.elementor-nav-menu > li:last-child a:active,
+  .bordered-button.elementor-widget-button .elementor-location-header ul.elementor-nav-menu > li:last-child a:focus,
   .bordered-button.elementor-widget-button input[type="button"]:active,
   .bordered-button.elementor-widget-button input[type="button"]:focus,
   .bordered-button.elementor-widget-button input[type="reset"]:active,
@@ -1015,9 +1015,9 @@ a {
     .main-navigation ul li.menu-item-has-children:after {
       right: -5px; }
 
-  .main-navigation ul#primary-menu > li:last-child {
+  .elementor-location-header ul.elementor-nav-menu > li:last-child {
     margin-left: 15px; }
-    .main-navigation ul#primary-menu > li:last-child a {
+    .elementor-location-header ul.elementor-nav-menu > li:last-child a {
       padding: .5em 1.5em; } }
 /* Small menu. */
 .menu-toggle,

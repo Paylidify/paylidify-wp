@@ -1,7 +1,7 @@
 button,
 a.elementor-button,
 .page .elementor-button.elementor-size-md,
-.main-navigation ul#primary-menu > li:last-child,
+.elementor-location-header ul.elementor-nav-menu > li:last-child a,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
@@ -48,7 +48,7 @@ input[type="submit"] {
 	border-radius: 100px;
 }
 
-.main-navigation ul#primary-menu > li:last-child {
+.elementor-location-header ul#primary-menu > li:last-child {
 	margin-left: 1.5em;
 	line-height: 2;
 	padding: 0;
@@ -69,7 +69,7 @@ input[type="submit"] {
 	button,
 	a.elementor-button,
 	.page .elementor-button.elementor-size-md,
-	.main-navigation ul#primary-menu > li:last-child,
+	.elementor-location-header ul.elementor-nav-menu > li:last-child a,
 	input[type="button"],
 	input[type="reset"],
 	input[type="submit"] {
