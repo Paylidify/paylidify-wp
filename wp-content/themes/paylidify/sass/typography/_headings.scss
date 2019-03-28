@@ -1,17 +1,17 @@
 h1, h2, h3, h4, h5, h6,
-.site-content .elementor-widget-heading h1.elementor-heading-title,
-.site-content .elementor-widget-heading h2.elementor-heading-title,
-.site-content .elementor-widget-heading h3.elementor-heading-title,
-.site-content .elementor-widget-heading h4.elementor-heading-title,
-.site-content .elementor-widget-heading h5.elementor-heading-title,
-.site-content .elementor-widget-heading h6.elementor-heading-title {
+.page .elementor-widget-heading h1.elementor-heading-title,
+.page .elementor-widget-heading h2.elementor-heading-title,
+.page .elementor-widget-heading h3.elementor-heading-title,
+.page .elementor-widget-heading h4.elementor-heading-title,
+.page .elementor-widget-heading h5.elementor-heading-title,
+.page .elementor-widget-heading h6.elementor-heading-title {
 	line-height: 1.3;
 	clear: both;
 	margin-bottom: 1em;
 }
 
 h1,
-.site-content .elementor-widget-heading h1.elementor-heading-title {
+.page .elementor-widget-heading h1.elementor-heading-title {
 	font-family: $font__bold;
 	font-weight: 400;
 	font-size: 2.65em;
@@ -19,7 +19,7 @@ h1,
 }
 
 h2,
-.site-content .elementor-widget-heading h2.elementor-heading-title {
+.page .elementor-widget-heading h2.elementor-heading-title {
 	font-family: $font__bold;
 	font-weight: 400;
 	font-size: 2.4em;
@@ -27,8 +27,8 @@ h2,
 }
 
 h3,
-.site-content .elementor-widget-heading h3.elementor-heading-title,
-.site-content .elementor-widget-image-box .elementor-image-box-content h3.elementor-image-box-title {
+.page .elementor-widget-heading h3.elementor-heading-title,
+.page .elementor-widget-image-box .elementor-image-box-content h3.elementor-image-box-title {
 	font-family: $font__light;
 	font-weight: 300;
 	font-size: 1.75em;
@@ -36,7 +36,7 @@ h3,
 }
 
 h4,
-.site-content .elementor-widget-heading h4.elementor-heading-title {
+.page .elementor-widget-heading h4.elementor-heading-title {
 	font-family: $font__light;
 	font-weight: 300;
 	font-size: 1.5em;
@@ -44,7 +44,7 @@ h4,
 }
 
 h5,
-.site-content .elementor-widget-heading h5.elementor-heading-title {
+.page .elementor-widget-heading h5.elementor-heading-title {
 	font-family: $font__light;
 	font-weight: 300;
 	font-size: 1.35em;
@@ -52,7 +52,7 @@ h5,
 }
 
 h6,
-.site-content .elementor-widget-heading .elementor-heading-title h6 {
+.page .elementor-widget-heading .elementor-heading-title h6 {
 	font-family: $font__light;
 	font-weight: 300;
 	font-size: 1em;
@@ -74,8 +74,8 @@ h6,
 
 
 @media screen and (max-width: 767px) {
-	.site-content .elementor-widget-heading,
-	.site-content .elementor-widget-button {
+	.page .elementor-widget-heading,
+	.page .elementor-widget-button {
 		text-align: center;
 	}
 }

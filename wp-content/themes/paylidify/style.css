@@ -435,54 +435,54 @@ p,
   color: #fff; }
 
 h1, h2, h3, h4, h5, h6,
-.site-content .elementor-widget-heading h1.elementor-heading-title,
-.site-content .elementor-widget-heading h2.elementor-heading-title,
-.site-content .elementor-widget-heading h3.elementor-heading-title,
-.site-content .elementor-widget-heading h4.elementor-heading-title,
-.site-content .elementor-widget-heading h5.elementor-heading-title,
-.site-content .elementor-widget-heading h6.elementor-heading-title {
+.page .elementor-widget-heading h1.elementor-heading-title,
+.page .elementor-widget-heading h2.elementor-heading-title,
+.page .elementor-widget-heading h3.elementor-heading-title,
+.page .elementor-widget-heading h4.elementor-heading-title,
+.page .elementor-widget-heading h5.elementor-heading-title,
+.page .elementor-widget-heading h6.elementor-heading-title {
   line-height: 1.3;
   clear: both;
   margin-bottom: 1em; }
 
 h1,
-.site-content .elementor-widget-heading h1.elementor-heading-title {
+.page .elementor-widget-heading h1.elementor-heading-title {
   font-family: Ubuntu, sans-serif;
   font-weight: 400;
   font-size: 2.65em;
   color: #00476e; }
 
 h2,
-.site-content .elementor-widget-heading h2.elementor-heading-title {
+.page .elementor-widget-heading h2.elementor-heading-title {
   font-family: Ubuntu, sans-serif;
   font-weight: 400;
   font-size: 2.4em;
   color: #00476e; }
 
 h3,
-.site-content .elementor-widget-heading h3.elementor-heading-title,
-.site-content .elementor-widget-image-box .elementor-image-box-content h3.elementor-image-box-title {
+.page .elementor-widget-heading h3.elementor-heading-title,
+.page .elementor-widget-image-box .elementor-image-box-content h3.elementor-image-box-title {
   font-family: UbuntuLight, sans-serif;
   font-weight: 300;
   font-size: 1.75em;
   color: #696969; }
 
 h4,
-.site-content .elementor-widget-heading h4.elementor-heading-title {
+.page .elementor-widget-heading h4.elementor-heading-title {
   font-family: UbuntuLight, sans-serif;
   font-weight: 300;
   font-size: 1.5em;
   color: #696969; }
 
 h5,
-.site-content .elementor-widget-heading h5.elementor-heading-title {
+.page .elementor-widget-heading h5.elementor-heading-title {
   font-family: UbuntuLight, sans-serif;
   font-weight: 300;
   font-size: 1.35em;
   color: #81868e; }
 
 h6,
-.site-content .elementor-widget-heading .elementor-heading-title h6 {
+.page .elementor-widget-heading .elementor-heading-title h6 {
   font-family: UbuntuLight, sans-serif;
   font-weight: 300;
   font-size: 1em;
@@ -499,8 +499,8 @@ h6,
   color: #00476e; }
 
 @media screen and (max-width: 767px) {
-  .site-content .elementor-widget-heading,
-  .site-content .elementor-widget-button {
+  .page .elementor-widget-heading,
+  .page .elementor-widget-button {
     text-align: center; } }
 p {
   margin-bottom: 1.5em; }
@@ -604,7 +604,7 @@ table {
   .elementor-image-box-wrapper .elementor-image-box-img {
     width: auto !important; }
 
-.site-content .elementor-widget-image-box .elementor-image-box-content .elementor-image-box-description {
+.page .elementor-widget-image-box .elementor-image-box-content .elementor-image-box-description {
   color: #696969; }
 
 .elementor-widget-custom-testimonial {
@@ -738,7 +738,7 @@ table {
 
 button,
 a.elementor-button,
-.site-content .elementor-button.elementor-size-md,
+.page .elementor-button.elementor-size-md,
 .main-navigation ul#primary-menu > li:last-child,
 input[type="button"],
 input[type="reset"],
@@ -752,7 +752,7 @@ input[type="submit"] {
   padding: .4em 3em; }
   button:visited,
   a.elementor-button:visited,
-  .site-content .elementor-button.elementor-size-md:visited,
+  .page .elementor-button.elementor-size-md:visited,
   .main-navigation ul#primary-menu > li:last-child:visited,
   input[type="button"]:visited,
   input[type="reset"]:visited,
@@ -760,7 +760,7 @@ input[type="submit"] {
     color: #fff; }
   button:hover,
   a.elementor-button:hover,
-  .site-content .elementor-button.elementor-size-md:hover,
+  .page .elementor-button.elementor-size-md:hover,
   .main-navigation ul#primary-menu > li:last-child:hover,
   input[type="button"]:hover,
   input[type="reset"]:hover,
@@ -770,8 +770,8 @@ input[type="submit"] {
   button:active, button:focus,
   a.elementor-button:active,
   a.elementor-button:focus,
-  .site-content .elementor-button.elementor-size-md:active,
-  .site-content .elementor-button.elementor-size-md:focus,
+  .page .elementor-button.elementor-size-md:active,
+  .page .elementor-button.elementor-size-md:focus,
   .main-navigation ul#primary-menu > li:last-child:active,
   .main-navigation ul#primary-menu > li:last-child:focus,
   input[type="button"]:active,
@@ -782,20 +782,20 @@ input[type="submit"] {
   input[type="submit"]:focus {
     border-color: #aaa #bbb #bbb; }
 
-.site-content .elementor-button.elementor-size-lg {
+.page .elementor-button.elementor-size-lg {
   font-size: 20px;
   font-size: 1.25rem;
   padding: .5em 3em;
   border-radius: 100px; }
 
-.site-content .elementor-button.elementor-size-sm {
+.page .elementor-button.elementor-size-sm {
   font-size: 13.6px;
   font-size: 0.85rem;
   line-height: 1.75;
   padding: .5em 2.5em;
   border-radius: 100px; }
 
-.site-content .elementor-button.elementor-size-xs {
+.page .elementor-button.elementor-size-xs {
   font-size: 13.6px;
   font-size: 0.85rem;
   line-height: 1.5;
@@ -815,7 +815,7 @@ input[type="submit"] {
 
 .bordered-button.elementor-widget-button button,
 .bordered-button.elementor-widget-button a.elementor-button,
-.bordered-button.elementor-widget-button .site-content .elementor-button.elementor-size-md,
+.bordered-button.elementor-widget-button .page .elementor-button.elementor-size-md,
 .bordered-button.elementor-widget-button .main-navigation ul#primary-menu > li:last-child,
 .bordered-button.elementor-widget-button input[type="button"],
 .bordered-button.elementor-widget-button input[type="reset"],
@@ -825,7 +825,7 @@ input[type="submit"] {
   border: 2px solid #006aff; }
   .bordered-button.elementor-widget-button button:visited,
   .bordered-button.elementor-widget-button a.elementor-button:visited,
-  .bordered-button.elementor-widget-button .site-content .elementor-button.elementor-size-md:visited,
+  .bordered-button.elementor-widget-button .page .elementor-button.elementor-size-md:visited,
   .bordered-button.elementor-widget-button .main-navigation ul#primary-menu > li:last-child:visited,
   .bordered-button.elementor-widget-button input[type="button"]:visited,
   .bordered-button.elementor-widget-button input[type="reset"]:visited,
@@ -833,7 +833,7 @@ input[type="submit"] {
     color: #006aff; }
   .bordered-button.elementor-widget-button button:hover,
   .bordered-button.elementor-widget-button a.elementor-button:hover,
-  .bordered-button.elementor-widget-button .site-content .elementor-button.elementor-size-md:hover,
+  .bordered-button.elementor-widget-button .page .elementor-button.elementor-size-md:hover,
   .bordered-button.elementor-widget-button .main-navigation ul#primary-menu > li:last-child:hover,
   .bordered-button.elementor-widget-button input[type="button"]:hover,
   .bordered-button.elementor-widget-button input[type="reset"]:hover,
@@ -844,8 +844,8 @@ input[type="submit"] {
   .bordered-button.elementor-widget-button button:active, .bordered-button.elementor-widget-button button:focus,
   .bordered-button.elementor-widget-button a.elementor-button:active,
   .bordered-button.elementor-widget-button a.elementor-button:focus,
-  .bordered-button.elementor-widget-button .site-content .elementor-button.elementor-size-md:active,
-  .bordered-button.elementor-widget-button .site-content .elementor-button.elementor-size-md:focus,
+  .bordered-button.elementor-widget-button .page .elementor-button.elementor-size-md:active,
+  .bordered-button.elementor-widget-button .page .elementor-button.elementor-size-md:focus,
   .bordered-button.elementor-widget-button .main-navigation ul#primary-menu > li:last-child:active,
   .bordered-button.elementor-widget-button .main-navigation ul#primary-menu > li:last-child:focus,
   .bordered-button.elementor-widget-button input[type="button"]:active,
@@ -858,7 +858,7 @@ input[type="submit"] {
 
 .white-button.elementor-widget-button button,
 .white-button.elementor-widget-button a.elementor-button,
-.white-button.elementor-widget-button .site-content .elementor-button.elementor-size-md,
+.white-button.elementor-widget-button .page .elementor-button.elementor-size-md,
 .white-button.elementor-widget-button input[type="button"],
 .white-button.elementor-widget-button input[type="reset"],
 .white-button.elementor-widget-button input[type="submit"] {
@@ -866,14 +866,14 @@ input[type="submit"] {
   color: #006aff; }
   .white-button.elementor-widget-button button:visited,
   .white-button.elementor-widget-button a.elementor-button:visited,
-  .white-button.elementor-widget-button .site-content .elementor-button.elementor-size-md:visited,
+  .white-button.elementor-widget-button .page .elementor-button.elementor-size-md:visited,
   .white-button.elementor-widget-button input[type="button"]:visited,
   .white-button.elementor-widget-button input[type="reset"]:visited,
   .white-button.elementor-widget-button input[type="submit"]:visited {
     color: #006aff; }
   .white-button.elementor-widget-button button:hover,
   .white-button.elementor-widget-button a.elementor-button:hover,
-  .white-button.elementor-widget-button .site-content .elementor-button.elementor-size-md:hover,
+  .white-button.elementor-widget-button .page .elementor-button.elementor-size-md:hover,
   .white-button.elementor-widget-button input[type="button"]:hover,
   .white-button.elementor-widget-button input[type="reset"]:hover,
   .white-button.elementor-widget-button input[type="submit"]:hover {
@@ -1285,7 +1285,7 @@ header {
 .site-main {
   margin: 0 25% 0 0; }
 
-.site-content .widget-area {
+.page .widget-area {
   float: right;
   overflow: hidden;
   width: 25%; }
