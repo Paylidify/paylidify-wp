@@ -101,6 +101,18 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   height: 4em;
   padding: 1em; }
 
+.blue-angled-background:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -50%;
+  height: 520px;
+  width: 2000px;
+  background: #effcff;
+  z-index: -10;
+  transform: rotate(-12deg); }
+
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -916,6 +928,18 @@ a {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
+body > .elementor-location-header:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -18em;
+  left: -50%;
+  height: 800px;
+  width: 2000px;
+  background: #effcff;
+  z-index: -10;
+  transform: rotate(-12deg); }
+
 body > .elementor-location-header .elementor-nav-menu ul a {
   width: 270px; }
 
@@ -1122,7 +1146,7 @@ body > .elementor-location-header .elementor-sticky--active {
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
-#page-wrap {
+body > [data-elementor-type="post"] {
   overflow: hidden;
   position: relative; }
 
@@ -1179,12 +1203,6 @@ header {
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
-.page-careers > .elementor-location-header {
-  margin-bottom: 0; }
-.page-careers > .elementor-location-header:after {
-  background: none;
-  transform: rotate(0); }
-
 .site-branding {
   display: inline-block; }
 

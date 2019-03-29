@@ -1,3 +1,7 @@
+body > .elementor-location-header:after {
+	@include blue-angled-background(-18em, 800px);
+}
+
 body > .elementor-location-header .elementor-nav-menu ul a {
 	width: 270px;
 }

@@ -43,7 +43,7 @@
 }
 
 .blue-angled-background:after {
-	// @include blue-angled-background(0, 520px);
+	@include blue-angled-background(0, 520px);
 }
 
 @mixin blue-background() {
