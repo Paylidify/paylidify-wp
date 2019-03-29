@@ -1,7 +1,6 @@
 button,
 a.elementor-button,
 .page .elementor-button.elementor-size-md,
-.elementor-location-header ul.elementor-nav-menu > li:last-child a,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
@@ -46,23 +45,6 @@ input[type="submit"] {
 	line-height: 1.5;
 	padding: .4em 2.5em;
 	border-radius: 100px;
-}
-
-.elementor-location-header ul#primary-menu > li:last-child {
-	margin-left: 1.5em;
-	line-height: 2;
-	padding: 0;
-	border-radius: 100px;
-
-	a {
-		color: $color__button-text;
-		padding: .5em 2.5em;
-
-
-		&:visited {
-			color: $color__button-text;
-		}
-	}
 }
 
 .bordered-button.elementor-widget-button {

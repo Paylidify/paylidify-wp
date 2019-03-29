@@ -1,29 +1,11 @@
-.site-header {
-	margin-top: 30px;
-	margin-bottom: 80px;
-	position: relative;
-
-	&:after {
-		@include blue-angled-background(-19em, 700px);
-	}
-}
-
 .page-careers {
-	.site-header {
+	> .elementor-location-header {
 		margin-bottom: 0;
 	}
 
-	.site-header:after {
+	> .elementor-location-header:after {
 		background: none;
 	  transform: rotate(0);
-	}
-
-	.main-navigation ul#primary-menu > li {
-		> a,
-		> a:visited,
-		&.menu-item-has-children:after {
-			color: #fff;
-		}
 	}
 }
 

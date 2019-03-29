@@ -1,229 +1,40 @@
-.main-navigation {
-	clear: both;
-	display: inline-block;
-	float: right;
+body > .elementor-location-header .elementor-nav-menu ul a {
+	width: 270px;
+}
 
-	ul {
-		list-style: none;
-		margin: 0;
-		padding-left: 0;
+body > .elementor-location-header .elementor-sticky--active {
+	background-color: #fff !important;
+	box-shadow: $box-shadow__large-box;
+}
 
-		ul {
-			box-shadow: $box-shadow__menu-items;
-			float: left;
-			position: absolute;
-			top: 100%;
-			left: -999em;
-			z-index: 99999;
 
-			ul {
-				left: -999em;
-				top: 0;
-			}
-
-			li {
-				margin-left: 1.5em;
-				padding: 5px 0;
-
-				&:hover > ul,
-				&.focus > ul {
-					left: 100%;
-				}
-			}
-
-			a {
-				width: 270px;
-			}
-
-			:hover > a,
-			.focus > a {
-			}
-
-			a:hover,
-			a.focus {
-			}
-		}
-
-		li:hover > ul,
-		li.focus > ul {
-			left: auto;
-			background: #fff;
-			border-radius: 8px;
-		}
-	}
-
-	li {
-		float: left;
-		position: relative;
-		margin-left: 1.5em;
-
-		a {
-			font-family: $font__bold;
-			font-weight: 400;
-			@include font-size(1);
-			padding: 12px 5px 12px;
-		}
-
-		a,
-		a:visited {
-			color: $color__dark-blue;
-		}
-
-		&:hover > a,
-		&.focus > a {
-		}
-
-		&.menu-item-has-children:after {
-			content: "\02C7";
-			position: absolute;
-			top: 40%;
-			right: -5px;
-		}
-	}
-
-	> button.menu-toggle {
-		width: 50px;
-		height: 50px;
-		float: right;
-		background-color: transparent;
-		background-image: url(inc/mobile-menu-icon.png);
-		background-repeat: no-repeat;
-		background-size: 35px 20px;
-		background-position: center;
-		text-indent: -9999px;
-	}
+[data-elementor-device-mode="desktop"] .elementor-location-header ul.elementor-nav-menu > li:last-child {
+	margin-left: 1.5em;
+	line-height: 2;
+	padding: 0;
+	border-radius: 100px;
 
 	a {
-		display: block;
-		text-decoration: none;
-	}
+		border: none;
+		border-color: $color__button-border;
+		border-radius: 100px;
+		background: $color__button-background;
+		color: $color__button-text !important;
+		padding: .5em 2.5em !important;
+		line-height: 2.25;
 
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
-	}
-}
-
-@media screen and (max-width: 62em) {
-	.site-branding {
-		max-width: 10em;
-	}
-
-	.main-navigation ul li {
-		margin-left: 1em;
-
-		&.menu-item-has-children:after {
-			right: -5px;
-		}
-	}
-
-	.elementor-location-header ul.elementor-nav-menu > li:last-child {
-		margin-left: 15px;
-
-		a {
-			padding: .5em 1.5em;
-		}
-	}
-}
-
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
-
-@media screen and (min-width: 55em) {
-	.menu-toggle {
-		display: none;
-	}
-	.main-navigation ul {
-		display: block;
-	}
-}
-
-@media screen and (max-width: 55em) {
-	.main-navigation {
-		width: 50%; // don't overlap header when hidden
-		position: absolute;
-		top: 10px;
-		right: 0;
-
-		 ul.nav-menu {
-			max-height: 0;
-			overflow: hidden;
-			transition: max-height 0.25s ease-out;
-			display: block;
-		}
-	}
-
-	.main-navigation.toggled {
-		width: 100%;
-		z-index: 20;
-
-		.menu-us-header-navigation-container, .menu-ca-header-navigation-container {
-			background-color: $color__blue;
-			border-radius: 10px;
-			padding-top: 50px;
-
-			 ul.nav-menu {
-				max-height: inherit;
-				overflow: auto;
-				transition: max-height 0.25s ease-out;
-				display: block;
-
-				> li {
-					font-weight: 400;
-					// @include font-size(1);
-
-					&:last-child {
-						margin-left: auto;
-						line-height: auto;
-						padding: auto;
-						clear: both !important;
-						margin-left: 1em !important;
-
-						a {
-							padding-left: 5px !important;
-						}
-					}
-				}
-
-				ul {
-					float: none;
-					position: relative;
-					background: auto;
-					left: auto;
-
-					li {
-						a {
-							font-family: $font__light;
-							font-size: 1em;
-							font-weight: 300;
-						}
-					}
-
-					ul {
-						left: auto;
-					}
-
-				}
-			}
+		&:visited {
+			color: $color__button-text;
 		}
 
-		> button.menu-toggle {
-			background-size: 25px 25px;
-			background-image: url(inc/mobile-menu-icon-open.png);
+		&:hover {
+			border-color: $color__button-border-hover;
+			background: $color__dark-blue;
 		}
 
-		li {
-			a {
-				font-family: $font__bold;
-				font-weight: 600;
-				font-size: 1.2em;
-				line-height: 0.8em;
-				color: #fff;
-			}
+		&:active,
+		&:focus {
+			border-color: $color__button-border-focus;
 		}
 	}
 }
