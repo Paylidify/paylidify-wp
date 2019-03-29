@@ -932,7 +932,7 @@ body > .elementor-location-header:after {
   content: "";
   display: block;
   position: absolute;
-  top: -18em;
+  top: -19em;
   left: -50%;
   height: 800px;
   width: 2000px;
@@ -940,12 +940,16 @@ body > .elementor-location-header:after {
   z-index: -10;
   transform: rotate(-12deg); }
 
-body > .elementor-location-header .elementor-nav-menu ul a {
-  width: 270px; }
+body > .elementor-location-header .elementor-nav-menu ul {
+  padding: 0.5em; }
+  body > .elementor-location-header .elementor-nav-menu ul a {
+    width: 270px; }
 
 body > .elementor-location-header .elementor-sticky--active {
   background-color: #fff !important;
   box-shadow: 8px 15px 25px rgba(200, 200, 200, 0.6), 0px 5px 25px rgba(200, 200, 200, 0.2); }
+  body > .elementor-location-header .elementor-sticky--active ul.elementor-nav-menu > li {
+    color: #00476e; }
 
 [data-elementor-device-mode="desktop"] .elementor-location-header ul.elementor-nav-menu > li:last-child {
   margin-left: 1.5em;

@@ -1,14 +1,22 @@
 body > .elementor-location-header:after {
-	@include blue-angled-background(-18em, 800px);
+	@include blue-angled-background(-19em, 800px);
 }
 
-body > .elementor-location-header .elementor-nav-menu ul a {
-	width: 270px;
+body > .elementor-location-header .elementor-nav-menu ul {
+	padding: 0.5em;
+
+	a {
+		width: 270px;
+	}
 }
 
 body > .elementor-location-header .elementor-sticky--active {
 	background-color: #fff !important;
 	box-shadow: $box-shadow__large-box;
+
+	ul.elementor-nav-menu > li {
+		color: $color__dark-blue;
+	}
 }
 
 
