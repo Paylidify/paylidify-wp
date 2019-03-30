@@ -18,11 +18,15 @@ body > .elementor-location-header .elementor-sticky--active {
 	background-color: #fff !important;
 	box-shadow: 8px 12px 25px rgba(0, 0, 0, 0.33);
 
-	ul.elementor-nav-menu > li a.elementor-item {
-		color: $color__dark-blue !important;
+	ul.elementor-nav-menu > li {
+		a.elementor-item {
+			color: $color__dark-blue !important;
+		}
 
 		&:last-child {
-			color: #fff !important;
+			a.elementor-item {
+				color: #fff !important;
+			}
 		}
 	}
 }
