@@ -1,110 +1,1421 @@
-/*
-Error: Invalid CSS after "...av-menu > li a.": expected class name, was ".elementor-item"
-        on line 21 of wp-content/themes/paylidify/sass/navigation/_header-menus.scss
-        from line 9 of wp-content/themes/paylidify/sass/navigation/_navigation.scss
-        from line 71 of wp-content/themes/paylidify/sass/style.scss
+@charset "UTF-8";
+/*!
+Theme Name: paylidify
+Theme URI: http://underscores.me/
+Author: Paylidify
+Author URI: http://paylidify.com
+Description: Paylidify default template
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: paylidify
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
-16: paylidify is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
-17: Underscores is distributed under the terms of the GNU GPL v2 or later.
-18: 
-19: Normalizing styles have been helped along thanks to the fine work of
-20: Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
-21: *\/
-22: 
-23: /*--------------------------------------------------------------
-24: >>> TABLE OF CONTENTS:
-25: ----------------------------------------------------------------
-26: # Normalize
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
 
-Backtrace:
-wp-content/themes/paylidify/sass/navigation/_header-menus.scss:21
-wp-content/themes/paylidify/sass/navigation/_navigation.scss:9
-wp-content/themes/paylidify/sass/style.scss:71
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:1308:in `expected'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:1238:in `expected'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:1233:in `tok!'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:1097:in `ident!'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/static_parser.rb:194:in `class_selector'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/static_parser.rb:162:in `simple_selector_sequence'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/static_parser.rb:115:in `selector'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/static_parser.rb:83:in `selector_comma_sequence'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/parser.rb:1216:in `expr!'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/scss/static_parser.rb:20:in `parse_selector'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:434:in `visit_rule'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/stack.rb:79:in `block in with_base'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/stack.rb:135:in `with_frame'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/stack.rb:79:in `with_base'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:440:in `block (2 levels) in visit_rule'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:440:in `map'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:440:in `block in visit_rule'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:438:in `visit_rule'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/stack.rb:79:in `block in with_base'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/stack.rb:135:in `with_frame'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/stack.rb:79:in `with_base'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:325:in `block (2 levels) in visit_import'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:325:in `map'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:325:in `block in visit_import'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/stack.rb:88:in `block in with_import'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/stack.rb:135:in `with_frame'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/stack.rb:88:in `with_import'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:322:in `visit_import'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/stack.rb:79:in `block in with_base'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/stack.rb:135:in `with_frame'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/stack.rb:79:in `with_base'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:325:in `block (2 levels) in visit_import'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:325:in `map'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:325:in `block in visit_import'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/stack.rb:88:in `block in with_import'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/stack.rb:135:in `with_frame'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/stack.rb:88:in `with_import'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:322:in `visit_import'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/stack.rb:79:in `block in with_base'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/stack.rb:135:in `with_frame'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/stack.rb:79:in `with_base'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/base.rb:52:in `map'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:157:in `visit'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/visitors/perform.rb:10:in `visit'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/root_node.rb:36:in `css_tree'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/engine.rb:307:in `render_with_sourcemap'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/plugin/compiler.rb:209:in `each'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/plugin/compiler.rb:443:in `on_file_changed'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.2/lib/sass/plugin/compiler.rb:320:in `block in watch'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/config.rb:23:in `call'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:115:in `_process_changes'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:19:in `block in loop_for'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop_for'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:84:in `_wait_for_changes'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:42:in `block in setup'
-/Users/tami/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/internals/thread_pool.rb:6:in `block in add'
+paylidify is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"...av-menu > li a.\": expected class name, was \".elementor-item\"\A         on line 21 of wp-content/themes/paylidify/sass/navigation/_header-menus.scss\A         from line 9 of wp-content/themes/paylidify/sass/navigation/_navigation.scss\A         from line 71 of wp-content/themes/paylidify/sass/style.scss\A \A 16: paylidify is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.\A 17: Underscores is distributed under the terms of the GNU GPL v2 or later.\A 18: \A 19: Normalizing styles have been helped along thanks to the fine work of\A 20: Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/\A 21: */\A 22: \A 23: /*--------------------------------------------------------------\A 24: >>> TABLE OF CONTENTS:\A 25: ----------------------------------------------------------------\A 26: # Normalize"; }
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Elements
+# Forms
+# Navigation
+	## Links
+	## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+	## Posts and pages
+	## Comments
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
+--------------------------------------------------------------*/
+@font-face {
+  font-family: Ubuntu;
+  src: url("fonts/Ubuntu-Regular.ttf"); }
+@font-face {
+  font-family: UbuntuBold;
+  src: url("fonts/Ubuntu-Bold.ttf"); }
+@font-face {
+  font-family: UbuntuLight;
+  src: url("fonts/Ubuntu-Light.ttf"); }
+.box-shadow-boxes {
+  box-shadow: 8px 15px 25px rgba(200, 200, 200, 0.6), 0px 5px 25px rgba(200, 200, 200, 0.2); }
+
+.box-shadow-boxes__column > .elementor-column-wrap {
+  box-shadow: 8px 15px 25px rgba(200, 200, 200, 0.6), 0px 5px 25px rgba(200, 200, 200, 0.2); }
+
+.floating-image-animation img {
+  animation: float 9s ease-in-out infinite; }
+
+.floating-image-animation__delayed img {
+  animation: float 9s ease-in-out infinite;
+  animation-delay: 3s; }
+
+@keyframes float {
+  0% {
+    transform: translatey(0px) scale(1); }
+  50% {
+    transform: translatey(-20px) scale(1.2); }
+  100% {
+    transform: translatey(0px) scale(1); } }
+.elementor-sticky a.ps2id,
+.elementor-sticky .ps2id a {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.4); }
+  .elementor-sticky a.ps2id:focus,
+  .elementor-sticky .ps2id a:focus {
+    border: none;
+    outline: none; }
+  .elementor-sticky a.ps2id:hover,
+  .elementor-sticky .ps2id a:hover {
+    background: rgba(255, 255, 255, 0.2); }
+  .elementor-sticky a.ps2id.mPS2id-clicked,
+  .elementor-sticky .ps2id a.mPS2id-clicked {
+    background: none; }
+
+.elementor-sticky .custom-image-circle .ps2id {
+  border-radius: 100%; }
+
+.elementor-sticky a.ps2id {
+  position: absolute; }
+
+.elementor-sticky .ps2id a {
+  position: relative;
+  height: 4em;
+  padding: 1em; }
+
+.blue-angled-background:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -50%;
+  height: 520px;
+  width: 2000px;
+  background: #effcff;
+  z-index: -10;
+  transform: rotate(-12deg); }
+
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+/*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
+/* Document
+	 ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+  line-height: 1.15;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */ }
+
+/* Sections
+	 ========================================================================== */
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+  margin: 0; }
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+/* Grouping content
+	 ========================================================================== */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */ }
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */ }
+
+/* Text-level semantics
+	 ========================================================================== */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+  background-color: transparent; }
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */ }
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder; }
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */ }
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sub {
+  bottom: -0.25em; }
+
+sup {
+  top: -0.5em; }
+
+/* Embedded content
+	 ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+img {
+  border-style: none; }
+
+/* Forms
+	 ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */ }
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+  /* 1 */
+  overflow: visible; }
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none; }
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; }
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0; }
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText; }
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em; }
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *		`fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */ }
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline; }
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+  overflow: auto; }
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */ }
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */ }
+
+/* Interactive
+	 ========================================================================== */
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+details {
+  display: block; }
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item; }
+
+/* Misc
+	 ========================================================================== */
+/**
+ * Add the correct display in IE 10+.
+ */
+template {
+  display: none; }
+
+/**
+ * Add the correct display in IE 10.
+ */
+[hidden] {
+  display: none; }
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+body,
+button,
+input,
+select,
+optgroup,
+textarea,
+p,
+.elementor-widget-text-editor {
+  color: #81868e;
+  font-family: UbuntuLight, sans-serif;
+  font-size: calc(14px + (20 - 16) * ((100vw - 300px) / (1600 - 300)));
+  line-height: calc(1.4em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300))); }
+
+.color__light {
+  color: #fff; }
+
+h1, h2, h3, h4, h5, h6,
+.page .elementor-widget-heading h1.elementor-heading-title,
+.page .elementor-widget-heading h2.elementor-heading-title,
+.page .elementor-widget-heading h3.elementor-heading-title,
+.page .elementor-widget-heading h4.elementor-heading-title,
+.page .elementor-widget-heading h5.elementor-heading-title,
+.page .elementor-widget-heading h6.elementor-heading-title {
+  line-height: 1.3;
+  clear: both;
+  margin-bottom: 1em; }
+
+h1,
+.page .elementor-widget-heading h1.elementor-heading-title {
+  font-family: Ubuntu, sans-serif;
+  font-weight: 400;
+  font-size: 2.65em;
+  color: #00476e; }
+
+h2,
+.page .elementor-widget-heading h2.elementor-heading-title {
+  font-family: Ubuntu, sans-serif;
+  font-weight: 400;
+  font-size: 2.4em;
+  color: #00476e; }
+
+h3,
+.page .elementor-widget-heading h3.elementor-heading-title,
+.page .elementor-widget-image-box .elementor-image-box-content h3.elementor-image-box-title {
+  font-family: UbuntuLight, sans-serif;
+  font-weight: 300;
+  font-size: 1.75em;
+  color: #696969; }
+
+h4,
+.page .elementor-widget-heading h4.elementor-heading-title {
+  font-family: UbuntuLight, sans-serif;
+  font-weight: 300;
+  font-size: 1.5em;
+  color: #696969; }
+
+h5,
+.page .elementor-widget-heading h5.elementor-heading-title {
+  font-family: UbuntuLight, sans-serif;
+  font-weight: 300;
+  font-size: 1.35em;
+  color: #81868e; }
+
+h6,
+.page .elementor-widget-heading .elementor-heading-title h6 {
+  font-family: UbuntuLight, sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+  color: #81868e; }
+
+.elementor-widget-colored-heading .elementor-heading-title {
+  padding: 30px;
+  color: #fff; }
+
+.elementor-widget-colored-heading .elementor-widget-container {
+  background-color: #006aff; }
+
+.page-privacy-terms h5 {
+  color: #00476e; }
+
+@media screen and (max-width: 767px) {
+  .page .elementor-widget-heading,
+  .page .elementor-widget-button {
+    text-align: center; } }
+p {
+  margin-bottom: 1.5em; }
+
+dfn, cite, em, i {
+  font-style: italic; }
+
+blockquote {
+  margin: 0 1.5em; }
+
+address {
+  margin: 0 0 1.5em; }
+
+pre {
+  background: #eee;
+  font-family: "Courier 10 Pitch", Courier, monospace;
+  font-size: 15px;
+  font-size: 0.9375rem;
+  line-height: calc(1.4em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1.6em; }
+
+code, kbd, tt, var {
+  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  font-size: 15px;
+  font-size: 0.9375rem; }
+
+abbr, acronym {
+  border-bottom: 1px dotted #666;
+  cursor: help; }
+
+mark, ins {
+  background: #fff9c0;
+  text-decoration: none; }
+
+big {
+  font-size: 125%; }
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+html {
+  box-sizing: border-box; }
+
+*,
+*:before,
+*:after {
+  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+  box-sizing: inherit; }
+
+body {
+  background: #fff;
+  /* Fallback for when there is no custom background color defined. */ }
+
+hr {
+  background-color: #ccc;
+  border: 0;
+  height: 1px;
+  margin-bottom: 1.5em; }
+
+ul, ol {
+  margin: 0 0 1.5em 3em; }
+
+ul {
+  list-style: disc; }
+
+ol {
+  list-style: decimal; }
+
+li > ul,
+li > ol {
+  margin-bottom: 0;
+  margin-left: 1.5em; }
+
+dt {
+  font-weight: bold; }
+
+dd {
+  margin: 0 1.5em 1.5em; }
+
+img {
+  height: auto;
+  /* Make sure images are scaled correctly. */
+  max-width: 100%;
+  /* Adhere to container width. */ }
+
+figure {
+  margin: 1em 0;
+  /* Extra wide images within figure tags don't overflow the content area. */ }
+
+table {
+  margin: 0 0 1.5em;
+  width: 100%; }
+
+.elementor-image-box-wrapper {
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 8px 15px 25px rgba(200, 200, 200, 0.6), 0px 5px 25px rgba(200, 200, 200, 0.2); }
+  .elementor-image-box-wrapper .elementor-image-box-img {
+    width: auto !important; }
+
+.page .elementor-widget-image-box .elementor-image-box-content .elementor-image-box-description {
+  color: #696969; }
+
+.elementor-widget-custom-testimonial {
+  border-radius: 10px;
+  padding: 50px;
+  box-shadow: 8px 15px 25px rgba(200, 200, 200, 0.6), 0px 5px 25px rgba(200, 200, 200, 0.2);
+  background-color: #006aff;
+  color: #fff; }
+
+.elementor-widget-custom-testimonial .elementor-testimonial-details {
+  color: #fff; }
+
+.elementor-widget-custom-testimonial .elementor-testimonial-wrapper .elementor-testimonial-name {
+  line-height: 2; }
+
+.elementor-widget-custom-testimonial .elementor-testimonial-wrapper .elementor-testimonial-job {
+  font-family: UbuntuLight, sans-serif;
+  line-height: 2; }
+
+.elementor-widget-custom-testimonial .elementor-testimonial-wrapper .elementor-testimonial-content {
+  padding: 0 20px;
+  quotes: "“" "”" "‘" "’"; }
+
+.elementor-widget-custom-testimonial .elementor-testimonial-wrapper .elementor-testimonial-content:before,
+.elementor-widget-testimonial-carousel .elementor-testimonial__text:before {
+  content: "\201C";
+  position: relative;
+  top: -5px;
+  left: -20px;
+  font-size: 48px;
+  font-size: 3rem;
+  font-style: italic;
+  line-height: 1em; }
+
+.flex-column-reverse .elementor-testimonial {
+  display: flex;
+  flex-direction: column-reverse; }
+
+@media screen and (max-width: 767px) {
+  .elementor-widget-custom-testimonial {
+    padding: 50 10px; } }
+.elementor-widget-custom-icon-circle .elementor-icon-box-wrapper,
+.custom-image-circle .elementor-image-box-wrapper,
+.custom-image-box .elementor-image-box-wrapper {
+  width: 100%;
+  height: 0;
+  padding: 50% 0;
+  box-shadow: 8px 15px 25px rgba(200, 200, 200, 0.6), 0px 5px 25px rgba(200, 200, 200, 0.2);
+  background-color: #006aff;
+  color: #fff;
+  text-align: center; }
+
+.elementor-widget-custom-icon-circle .elementor-icon-box-wrapper,
+.custom-image-circle .elementor-image-box-wrapper {
+  border-radius: 50%; }
+
+.custom-image-circle__white .elementor-image-box-wrapper,
+.custom-image-box__white .elementor-image-box-wrapper {
+  background-color: #fff; }
+
+.elementor-widget-custom-icon-circle .elementor-icon-box-icon {
+  display: block;
+  margin-top: -25%; }
+
+.elementor-widget-image-box.custom-image-circle .elementor-image-box-content,
+.elementor-widget-image-box.custom-image-box .elementor-image-box-content {
+  width: 80%;
+  display: inline-block; }
+
+.elementor-widget-image-box.custom-image-circle .elementor-image-box-content {
+  margin: 2% auto; }
+
+.elementor-widget-image-box.custom-image-box .elementor-image-box-content {
+  margin: -5% auto 2%; }
+
+.elementor-widget-image-box.custom-image-box__one-header .elementor-image-box-content {
+  margin: 5% auto 2%; }
+
+.elementor-widget-image-box.custom-image-circle .elementor-image-box-content h5,
+.custom-image-box .elementor-image-box-title {
+  margin-top: 5px; }
+
+.elementor .custom-image-circle.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img,
+.elementor .custom-image-box.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img {
+  position: absolute;
+  left: 0;
+  width: 100% !important;
+  height: 40%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center; }
+
+.elementor .custom-image-circle.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img {
+  bottom: 40%; }
+
+.elementor .custom-image-box.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img {
+  bottom: 62%; }
+
+.elementor .custom-image-box__one-header.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img {
+  bottom: 50%; }
+
+.elementor .custom-image-circle.custom-image-circle__center.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img {
+  margin-bottom: -25%;
+  padding: 10%; }
+  .elementor .custom-image-circle.custom-image-circle__center.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img img {
+    width: 40%; }
+
+.page-features .elementor .custom-image-circle.custom-image-circle__center.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img {
+  bottom: 50%;
+  margin-bottom: -25%;
+  padding: 0; }
+  .page-features .elementor .custom-image-circle.custom-image-circle__center.elementor-widget:not(.elementor-widget-text-editor) figure.elementor-image-box-img img {
+    width: 50%; }
+
+.elementor-widget-custom-icon-circle .elementor-icon-box-icon .elementor-icon {
+  color: #fff; }
+
+.elementor-widget-custom-icon-circle .elementor-icon-box-wrapper .elementor-icon-box-title,
+.custom-image-circle .elementor-image-box-title {
+  margin-top: 15px; }
+
+.elementor-widget-custom-icon-circle .elementor-icon-box-wrapper .elementor-icon-box-title {
+  color: #fff; }
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+.elementor-widget-form .elementor-message {
+  margin-top: 60px;
+  text-align: center; }
+
+button,
+a.elementor-button,
+.page .elementor-button.elementor-size-md,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  border: none;
+  border-color: #ccc #ccc #bbb;
+  border-radius: 100px;
+  background: #006aff;
+  color: #fff;
+  line-height: 2.25;
+  padding: .4em 3em; }
+  button:visited,
+  a.elementor-button:visited,
+  .page .elementor-button.elementor-size-md:visited,
+  input[type="button"]:visited,
+  input[type="reset"]:visited,
+  input[type="submit"]:visited {
+    color: #fff; }
+  button:hover,
+  a.elementor-button:hover,
+  .page .elementor-button.elementor-size-md:hover,
+  input[type="button"]:hover,
+  input[type="reset"]:hover,
+  input[type="submit"]:hover {
+    border-color: #ccc #bbb #aaa;
+    background: #00476e; }
+  button:active, button:focus,
+  a.elementor-button:active,
+  a.elementor-button:focus,
+  .page .elementor-button.elementor-size-md:active,
+  .page .elementor-button.elementor-size-md:focus,
+  input[type="button"]:active,
+  input[type="button"]:focus,
+  input[type="reset"]:active,
+  input[type="reset"]:focus,
+  input[type="submit"]:active,
+  input[type="submit"]:focus {
+    border-color: #aaa #bbb #bbb; }
+
+.page .elementor-button.elementor-size-lg {
+  font-size: 20px;
+  font-size: 1.25rem;
+  padding: .5em 3em;
+  border-radius: 100px; }
+
+.page .elementor-button.elementor-size-sm {
+  font-size: 13.6px;
+  font-size: 0.85rem;
+  line-height: 1.75;
+  padding: .5em 2.5em;
+  border-radius: 100px; }
+
+.page .elementor-button.elementor-size-xs {
+  font-size: 13.6px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  padding: .4em 2.5em;
+  border-radius: 100px; }
+
+.bordered-button.elementor-widget-button button,
+.bordered-button.elementor-widget-button a.elementor-button,
+.bordered-button.elementor-widget-button .page .elementor-button.elementor-size-md,
+.bordered-button.elementor-widget-button .elementor-location-header ul.elementor-nav-menu > li:last-child a,
+.bordered-button.elementor-widget-button input[type="button"],
+.bordered-button.elementor-widget-button input[type="reset"],
+.bordered-button.elementor-widget-button input[type="submit"] {
+  background: #fff;
+  color: #006aff;
+  border: 2px solid #006aff; }
+  .bordered-button.elementor-widget-button button:visited,
+  .bordered-button.elementor-widget-button a.elementor-button:visited,
+  .bordered-button.elementor-widget-button .page .elementor-button.elementor-size-md:visited,
+  .bordered-button.elementor-widget-button .elementor-location-header ul.elementor-nav-menu > li:last-child a:visited,
+  .bordered-button.elementor-widget-button input[type="button"]:visited,
+  .bordered-button.elementor-widget-button input[type="reset"]:visited,
+  .bordered-button.elementor-widget-button input[type="submit"]:visited {
+    color: #006aff; }
+  .bordered-button.elementor-widget-button button:hover,
+  .bordered-button.elementor-widget-button a.elementor-button:hover,
+  .bordered-button.elementor-widget-button .page .elementor-button.elementor-size-md:hover,
+  .bordered-button.elementor-widget-button .elementor-location-header ul.elementor-nav-menu > li:last-child a:hover,
+  .bordered-button.elementor-widget-button input[type="button"]:hover,
+  .bordered-button.elementor-widget-button input[type="reset"]:hover,
+  .bordered-button.elementor-widget-button input[type="submit"]:hover {
+    color: #00476e;
+    background: #fff;
+    border-color: #00476e; }
+  .bordered-button.elementor-widget-button button:active, .bordered-button.elementor-widget-button button:focus,
+  .bordered-button.elementor-widget-button a.elementor-button:active,
+  .bordered-button.elementor-widget-button a.elementor-button:focus,
+  .bordered-button.elementor-widget-button .page .elementor-button.elementor-size-md:active,
+  .bordered-button.elementor-widget-button .page .elementor-button.elementor-size-md:focus,
+  .bordered-button.elementor-widget-button .elementor-location-header ul.elementor-nav-menu > li:last-child a:active,
+  .bordered-button.elementor-widget-button .elementor-location-header ul.elementor-nav-menu > li:last-child a:focus,
+  .bordered-button.elementor-widget-button input[type="button"]:active,
+  .bordered-button.elementor-widget-button input[type="button"]:focus,
+  .bordered-button.elementor-widget-button input[type="reset"]:active,
+  .bordered-button.elementor-widget-button input[type="reset"]:focus,
+  .bordered-button.elementor-widget-button input[type="submit"]:active,
+  .bordered-button.elementor-widget-button input[type="submit"]:focus {
+    border-color: #00476e; }
+
+.white-button.elementor-widget-button button,
+.white-button.elementor-widget-button a.elementor-button,
+.white-button.elementor-widget-button .page .elementor-button.elementor-size-md,
+.white-button.elementor-widget-button input[type="button"],
+.white-button.elementor-widget-button input[type="reset"],
+.white-button.elementor-widget-button input[type="submit"] {
+  background: #fff;
+  color: #006aff; }
+  .white-button.elementor-widget-button button:visited,
+  .white-button.elementor-widget-button a.elementor-button:visited,
+  .white-button.elementor-widget-button .page .elementor-button.elementor-size-md:visited,
+  .white-button.elementor-widget-button input[type="button"]:visited,
+  .white-button.elementor-widget-button input[type="reset"]:visited,
+  .white-button.elementor-widget-button input[type="submit"]:visited {
+    color: #006aff; }
+  .white-button.elementor-widget-button button:hover,
+  .white-button.elementor-widget-button a.elementor-button:hover,
+  .white-button.elementor-widget-button .page .elementor-button.elementor-size-md:hover,
+  .white-button.elementor-widget-button input[type="button"]:hover,
+  .white-button.elementor-widget-button input[type="reset"]:hover,
+  .white-button.elementor-widget-button input[type="submit"]:hover {
+    color: #00476e;
+    background: #fff; }
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+  color: #666;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 3px; }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  input[type="search"]:focus,
+  input[type="number"]:focus,
+  input[type="tel"]:focus,
+  input[type="range"]:focus,
+  input[type="date"]:focus,
+  input[type="month"]:focus,
+  input[type="week"]:focus,
+  input[type="time"]:focus,
+  input[type="datetime"]:focus,
+  input[type="datetime-local"]:focus,
+  input[type="color"]:focus,
+  textarea:focus {
+    color: #111; }
+
+select {
+  border: 1px solid #ccc; }
+
+textarea {
+  width: 100%; }
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Links
+--------------------------------------------------------------*/
+a {
+  color: #00476e; }
+  a:visited {
+    color: purple; }
+  a:hover, a:focus, a:active {
+    color: #006aff; }
+  a:focus {
+    outline: thin dotted; }
+  a:hover, a:active {
+    outline: 0; }
+
+/*--------------------------------------------------------------
+## Menus
+--------------------------------------------------------------*/
+body > .elementor-location-header:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -19em;
+  left: -50%;
+  height: 800px;
+  width: 2000px;
+  background: #effcff;
+  z-index: -10;
+  transform: rotate(-12deg); }
+
+body.page-careers .elementor-location-header:after {
+  content: none; }
+
+body > .elementor-location-header .elementor-nav-menu ul {
+  padding: 0.5em; }
+  body > .elementor-location-header .elementor-nav-menu ul a {
+    width: 270px; }
+
+body > .elementor-location-header .elementor-sticky--active {
+  background-color: #fff !important;
+  box-shadow: 8px 12px 25px rgba(0, 0, 0, 0.33); }
+  body > .elementor-location-header .elementor-sticky--active ul.elementor-nav-menu > li a.elementor-item {
+    color: #00476e; }
+
+[data-elementor-device-mode="desktop"] .elementor-location-header ul.elementor-nav-menu > li:last-child {
+  margin-left: 1.5em;
+  line-height: 2;
+  padding: 0;
+  border-radius: 100px; }
+  [data-elementor-device-mode="desktop"] .elementor-location-header ul.elementor-nav-menu > li:last-child a {
+    border: none;
+    border-color: #ccc #ccc #bbb;
+    border-radius: 100px;
+    background: #006aff;
+    color: #fff !important;
+    padding: .5em 2.5em !important;
+    line-height: 2.25; }
+    [data-elementor-device-mode="desktop"] .elementor-location-header ul.elementor-nav-menu > li:last-child a:visited {
+      color: #fff; }
+    [data-elementor-device-mode="desktop"] .elementor-location-header ul.elementor-nav-menu > li:last-child a:hover {
+      border-color: #ccc #bbb #aaa;
+      background: #00476e; }
+    [data-elementor-device-mode="desktop"] .elementor-location-header ul.elementor-nav-menu > li:last-child a:active, [data-elementor-device-mode="desktop"] .elementor-location-header ul.elementor-nav-menu > li:last-child a:focus {
+      border-color: #aaa #bbb #bbb; }
+
+.site-main .comment-navigation,
+.site-main .posts-navigation,
+.site-main .post-navigation {
+  margin: 0 0 1.5em;
+  overflow: hidden; }
+.comment-navigation .nav-previous, .posts-navigation .nav-previous, .post-navigation .nav-previous {
+  float: left;
+  width: 50%; }
+.comment-navigation .nav-next, .posts-navigation .nav-next, .post-navigation .nav-next {
+  float: right;
+  text-align: right;
+  width: 50%; }
+
+.footer-navigation {
+  clear: both;
+  display: inline-block;
+  float: right;
+  width: 79%; }
+  .footer-navigation ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0; }
+    .footer-navigation ul > li {
+      width: 25%;
+      float: left;
+      font-weight: 600;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #00476e; }
+      .footer-navigation ul > li a,
+      .footer-navigation ul > li a:hover,
+      .footer-navigation ul > li a:visited {
+        color: #00476e; }
+    .footer-navigation ul ul li {
+      width: 80%;
+      clear: both;
+      margin-left: 0;
+      padding: 5px 0;
+      font-family: UbuntuLight, sans-serif;
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #696969; }
+      .footer-navigation ul ul li a,
+      .footer-navigation ul ul li a:visited {
+        color: #696969; }
+      .footer-navigation ul ul li a:hover {
+        color: #006aff; }
+  .footer-navigation li {
+    position: relative; }
+  .footer-navigation a {
+    display: block;
+    text-decoration: none; }
+
+@media screen and (max-width: 62em) {
+  .footer-navigation ul#footer-menu > li {
+    font-size: 1.2rem;
+    line-height: 1.6; }
+
+  .footer-navigation ul ul > li {
+    font-size: .9rem;
+    line-height: 1.2; } }
+@media screen and (max-width: 767px) {
+  .footer-navigation {
+    width: 100%; }
+
+  .site-footer {
+    padding: 15px;
+    padding-left: 30px; }
+
+  .footer-navigation ul#footer-menu > li {
+    width: 50%;
+    margin-bottom: 1em; } }
+.page-get-started .site-footer,
+.page-partner-with-paylidify .site-footer,
+.page-partner-with-paylidify-2 .site-footer,
+.page-developer-api .site-footer {
+  display: none; }
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+  /* Many screen reader and browser combinations announce broken words as they would appear visually. */ }
+  .screen-reader-text:focus {
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    clip-path: none;
+    color: #696969;
+    display: block;
+    font-size: 14px;
+    font-size: 0.875rem;
+    font-weight: bold;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+    /* Above WP toolbar. */ }
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+  outline: 0; }
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+.alignleft {
+  display: inline;
+  float: left;
+  margin-right: 1.5em; }
+
+.alignright {
+  display: inline;
+  float: right;
+  margin-left: 1.5em; }
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+  content: "";
+  display: table;
+  table-layout: fixed; }
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+  clear: both; }
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+.widget {
+  margin: 0 0 1.5em;
+  /* Make sure select elements fit in widgets. */ }
+  .widget select {
+    max-width: 100%; }
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+body > [data-elementor-type="post"] {
+  overflow: hidden;
+  position: relative; }
+
+#page {
+  width: 90%;
+  max-width: 1140px;
+  margin: 0 auto; }
+
+body.page {
+  margin-bottom: 0; }
+
+header {
+  padding: 10px; }
+
+.content-area {
+  float: left;
+  margin: 0 -25% 0 0;
+  width: 100%; }
+
+.site-main {
+  margin: 0 25% 0 0; }
+
+.page .widget-area {
+  float: right;
+  overflow: hidden;
+  width: 25%; }
+
+.site-footer {
+  clear: both;
+  width: 100%; }
+
+.flex .elementor-widget-wrap, .flex .elementor-widget-container, .flex .elementor-element {
+  display: flex; }
+
+.elementor-section.elementor-section-boxed > .elementor-container {
+  width: 100%; }
+
+@media screen and (max-width: 55em) {
+  .flex-reverse .elementor-row {
+    flex-direction: column-reverse; } }
+@media screen and (max-width: 767px) {
+  #page {
+    width: 100%; }
+
+  .elementor-column-gap-default > .elementor-row > .elementor-column > .elementor-element-populated {
+    padding: 10px 15px; } }
+.no-sidebar .content-area {
+  float: none;
+  margin-left: auto;
+  margin-right: auto; }
+.no-sidebar .site-main {
+  margin-right: 0; }
+
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+.site-branding {
+  display: inline-block; }
+
+.sticky {
+  display: block; }
+
+.post,
+.page {
+  margin: 0 0 1.5em; }
+
+.updated:not(.published) {
+  display: none; }
+
+.page-content,
+.entry-content,
+.entry-summary {
+  margin: 1.5em 0 0; }
+
+.page-links {
+  clear: both;
+  margin: 0 0 1.5em; }
+
+.site-footer .elementor-row {
+  margin: 2.5em 0 .5em;
+  clear: both; }
+
+.site-footer {
+  padding-top: 50px;
+  position: relative; }
+
+.site-footer:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -50%;
+  height: 5000px;
+  width: 2000px;
+  background: #effcff;
+  z-index: -10; }
+
+#footer-widget #media_image-2 {
+  width: 80%; }
+
+.footer-logo {
+  width: 20%;
+  display: inline-block;
+  padding-top: .5em; }
+  .footer-logo img {
+    width: 60%; }
+
+.country-flag {
+  display: inline-block;
+  margin-right: 1.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 44px 44px;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 1.5em; }
+  .country-flag a {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.6); }
+    .country-flag a:hover {
+      background: rgba(255, 255, 255, 0.1); }
+    .country-flag a.active {
+      background: none; }
+
+.country-flag-us {
+  background-image: url("inc/us-flag.png"); }
+
+.country-flag-ca {
+  background-image: url("inc/ca-flag.png"); }
+
+#footer-copyright {
+  padding-right: 1em; }
+  #footer-copyright p {
+    font-size: 0.7em;
+    margin-bottom: 0.7em; }
+
+@media screen and (min-width: 767px) {
+  .site-footer .widget {
+    margin: 0;
+    vertical-align: bottom; }
+  .site-footer .simple-social-icons {
+    position: absolute;
+    right: 0; }
+    .site-footer .simple-social-icons ul li {
+      margin-bottom: 0 !important; } }
+@media screen and (max-width: 767px) {
+  .site-footer .simple-social-icons {
+    position: relative;
+    right: auto; }
+
+  .footer-logo {
+    width: 100%;
+    margin-bottom: 1em; }
+
+  #footer-widget {
+    margin-left: auto;
+    margin-right: auto; }
+
+  #footer-widget #media_image-2 {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto; }
+
+  .site-footer .elementor-col-33 {
+    justify-content: center; }
+
+  .footer-logo {
+    text-align: center; }
+    .footer-logo #footer-copyright {
+      padding-right: 0; } }
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+.comment-content a {
+  word-wrap: break-word; }
+
+.bypostauthor {
+  display: block; }
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .posts-navigation,
+.infinite-scroll.neverending .site-footer {
+  /* Theme Footer (when set to scrolling) */
+  display: none; }
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+.infinity-end.neverending .site-footer {
+  display: block; }
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+  border: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0; }
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+  max-width: 100%; }
+
+/* Make sure logo link wraps around logo image. */
+.custom-logo-link {
+  display: inline-block; }
+  .custom-logo-link img {
+    max-width: 160px; }
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+.wp-caption {
+  margin-bottom: 1.5em;
+  max-width: 100%; }
+  .wp-caption img[class*="wp-image-"] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+  .wp-caption .wp-caption-text {
+    margin: 0.8075em 0; }
+
+.wp-caption-text {
+  text-align: center; }
+
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+.gallery {
+  margin-bottom: 1.5em; }
+
+.gallery-item {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  width: 100%; }
+  .gallery-columns-2 .gallery-item {
+    max-width: 50%; }
+  .gallery-columns-3 .gallery-item {
+    max-width: 33.33%; }
+  .gallery-columns-4 .gallery-item {
+    max-width: 25%; }
+  .gallery-columns-5 .gallery-item {
+    max-width: 20%; }
+  .gallery-columns-6 .gallery-item {
+    max-width: 16.66%; }
+  .gallery-columns-7 .gallery-item {
+    max-width: 14.28%; }
+  .gallery-columns-8 .gallery-item {
+    max-width: 12.5%; }
+  .gallery-columns-9 .gallery-item {
+    max-width: 11.11%; }
+
+.gallery-caption {
+  display: block; }
+
+/*# sourceMappingURL=style.css.map */
