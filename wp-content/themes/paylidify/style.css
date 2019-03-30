@@ -952,7 +952,9 @@ body > .elementor-location-header .elementor-sticky--active {
   background-color: #fff !important;
   box-shadow: 8px 12px 25px rgba(0, 0, 0, 0.33); }
   body > .elementor-location-header .elementor-sticky--active ul.elementor-nav-menu > li a.elementor-item {
-    color: #00476e; }
+    color: #00476e !important; }
+    body > .elementor-location-header .elementor-sticky--active ul.elementor-nav-menu > li a.elementor-item:last-child {
+      color: #fff !important; }
 
 [data-elementor-device-mode="desktop"] .elementor-location-header ul.elementor-nav-menu > li:last-child {
   margin-left: 1.5em;
