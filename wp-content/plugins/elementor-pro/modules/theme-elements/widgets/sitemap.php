@@ -2,7 +2,9 @@
 namespace ElementorPro\Modules\ThemeElements\Widgets;
 
 use Elementor\Controls_Manager;
-use ElementorPro\Modules\QueryControl\Module as Query_Control;
+use ElementorPro\Modules\QueryControl\Module as Query_Module;
+use ElementorPro\Modules\QueryControl\Controls\Group_Control_Query;
+use ElementorPro\Modules\QueryControl\Classes\Elementor_Post_Query;
 use Elementor\Repeater;
 use ElementorPro\Classes\Utils;
 use Elementor\Group_Control_Typography;
@@ -52,7 +54,6 @@ class Sitemap extends Base {
 			'sitemap_layout_divider',
 			[
 				'type' => Controls_Manager::DIVIDER,
-				'style' => 'thick',
 			]
 		);
 
@@ -72,7 +73,35 @@ class Sitemap extends Base {
 			]
 		);
 
-		Query_Control::add_exclude_controls( $this );
+		$this->add_control(
+			'sitemap_exclude',
+			[
+				'label' => __( 'Exclude', 'elementor-pro' ),
+				'type' => Controls_Manager::SELECT2,
+				'multiple' => true,
+				'options' => [
+					'current_post' => __( 'Current Post', 'elementor-pro' ),
+					'manual_selection' => __( 'Manual Selection', 'elementor-pro' ),
+				],
+				'label_block' => true,
+			]
+		);
+
+		$this->add_control(
+			'sitemap_exclude_ids',
+			[
+				'label' => __( 'Search & Select', 'elementor-pro' ),
+				'type' => Query_Module::QUERY_CONTROL_ID,
+				'post_type' => '',
+				'options' => [],
+				'label_block' => true,
+				'multiple' => true,
+				'filter_type' => 'by_id',
+				'condition' => [
+					'sitemap_exclude' => 'manual_selection',
+				],
+			]
+		);
 
 		$this->add_control(
 			'sitemap_password_protected',
@@ -496,8 +525,8 @@ class Sitemap extends Base {
 		$title_tag = $settings['sitemap_title_tag'];
 
 		$posts_query = [
-			'exclude_ids' => $settings['exclude_ids'],
-			'include_password_protected' => 'yes' === $settings['sitemap_password_protected'],
+			'post__not_in' => $settings['sitemap_exclude_ids'],
+			'has_password' => 'yes' === $settings['sitemap_password_protected'] ? null : false,
 		];
 
 		$this->add_render_attribute( [
@@ -627,17 +656,13 @@ class Sitemap extends Base {
 			'posts_per_page' => -1,
 			'update_post_meta_cache' => false,
 			'post_type' => $post_type,
-			'post__not_in' => $query_args['exclude_ids'],
-			'has_password' => $query_args['include_password_protected'] ? null : false,
-			'order' => $query_args['order'],
-			'orderby' => $query_args['orderby'],
 			'filter' => 'ids',
 			'post_status' => 'publish',
 		];
 
-		$query_args = array_merge( $query_args, $args );
+		$args = array_merge( $query_args, $args );
 
-		$query = new \WP_Query( $query_args );
+		$query = new \WP_Query( $args );
 
 		return $query;
 	}

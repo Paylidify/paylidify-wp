@@ -29,7 +29,7 @@ class Module extends Module_Base {
 		static $black_list = null;
 
 		if ( null === $black_list ) {
-			$black_list = [ 'id', 'class', 'data-id', 'data-settings', 'data-element_type', 'data-model-cid', 'onload', 'onclick', 'onfocus', 'onblur', 'onchange', 'onresize', 'onmouseover', 'onmouseout', 'onkeydown', 'onkeyup' ];
+			$black_list = [ 'id', 'class', 'data-id', 'data-settings', 'data-element_type', 'data-widget_type', 'data-model-cid', 'onload', 'onclick', 'onfocus', 'onblur', 'onchange', 'onresize', 'onmouseover', 'onmouseout', 'onkeydown', 'onkeyup' ];
 
 			/**
 			 * Elementor attributes black list.
@@ -78,6 +78,9 @@ class Module extends Module_Base {
 			[
 				'label' => __( 'Custom Attributes', 'elementor-pro' ),
 				'type' => Controls_Manager::TEXTAREA,
+				'dynamic' => [
+					'active' => true,
+				],
 				'placeholder' => __( 'key|value', 'elementor-pro' ),
 				'description' => sprintf( __( 'Set custom attributes for the wrapper element. Each attribute in a separate line. Separate attribute key from the value using %s character.', 'elementor-pro' ), '<code>|</code>' ),
 				'classes' => 'elementor-control-direction-ltr',
@@ -92,7 +95,7 @@ class Module extends Module_Base {
 	 * @param $element Element_Base
 	 */
 	public function render_attributes( Element_Base $element ) {
-		$settings = $element->get_active_settings();
+		$settings = $element->get_settings_for_display();
 
 		if ( ! empty( $settings['_attributes'] ) ) {
 			$attributes = explode( "\n", $settings['_attributes'] );

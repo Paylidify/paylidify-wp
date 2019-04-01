@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <script type="text/template" id="tmpl-elementor-theme-builder-conditions-view">
 	<div class="elementor-template-library-blank-icon">
-		<i class="fa fa-paper-plane" aria-hidden="true"></i>
+		<img src="<?php echo ELEMENTOR_PRO_MODULES_URL; ?>theme-builder/assets/images/conditions-tab.svg">
 	</div>
 	<div class="elementor-template-library-blank-title">{{{ elementorPro.translate( 'conditions_title' ) }}}</div>
 	<div class="elementor-template-library-blank-message">{{{ elementorPro.translate( 'conditions_description' ) }}}</div>

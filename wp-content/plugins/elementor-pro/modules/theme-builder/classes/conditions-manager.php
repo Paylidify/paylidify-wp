@@ -227,7 +227,7 @@ class Conditions_Manager {
 		$config = [];
 
 		foreach ( $this->conditions as $condition ) {
-			$config[ $condition->get_name() ] = $condition->get_condition_config();
+			$config[ $condition->get_name() ] = $condition->get_config();
 		}
 
 		return $config;

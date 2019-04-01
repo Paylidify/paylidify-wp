@@ -13,12 +13,6 @@ class Template_Conditions extends Controls_Stack {
 		return 'template-conditions';
 	}
 
-	protected function _get_initial_config() {
-		return [
-			'controls' => $this->get_controls(),
-		];
-	}
-
 	protected function _register_controls() {
 		parent::_register_controls();
 

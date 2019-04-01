@@ -37,4 +37,12 @@ abstract class Header_Footer_Base extends Theme_Section_Document {
 			]
 		);
 	}
+
+	protected function get_remote_library_config() {
+		$config = parent::get_remote_library_config();
+
+		$config['category'] = $this->get_name();
+
+		return $config;
+	}
 }

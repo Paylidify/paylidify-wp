@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.4.8 - 11-03-2019 */
+/*! elementor-pro - v2.5.3 - 31-03-2019 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -82,7 +82,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 69);
+/******/ 	return __webpack_require__(__webpack_require__.s = 70);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -179,12 +179,7 @@ exports.default = _class;
 "use strict";
 
 
-module.exports = elementorFrontend.Module.extend({
-
-	getElementName: function getElementName() {
-		return 'posts';
-	},
-
+module.exports = elementorModules.frontend.handlers.Base.extend({
 	getSkinPrefix: function getSkinPrefix() {
 		return 'classic_';
 	},
@@ -196,7 +191,7 @@ module.exports = elementorFrontend.Module.extend({
 	},
 
 	getClosureMethodsNames: function getClosureMethodsNames() {
-		return elementorFrontend.Module.prototype.getClosureMethodsNames.apply(this, arguments).concat(['fitImages', 'onWindowResize', 'runMasonry']);
+		return elementorModules.frontend.handlers.Base.prototype.getClosureMethodsNames.apply(this, arguments).concat(['fitImages', 'onWindowResize', 'runMasonry']);
 	},
 
 	getDefaultSettings: function getDefaultSettings() {
@@ -338,7 +333,7 @@ module.exports = elementorFrontend.Module.extend({
 	},
 
 	onInit: function onInit() {
-		elementorFrontend.Module.prototype.onInit.apply(this, arguments);
+		elementorModules.frontend.handlers.Base.prototype.onInit.apply(this, arguments);
 
 		this.bindEvents();
 
@@ -366,7 +361,91 @@ module.exports = elementorFrontend.Module.extend({
 "use strict";
 
 
-module.exports = elementorFrontend.Module.extend({
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _class = function (_elementorModules$Vie) {
+	_inherits(_class, _elementorModules$Vie);
+
+	function _class() {
+		_classCallCheck(this, _class);
+
+		return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
+	}
+
+	_createClass(_class, [{
+		key: '__construct',
+		value: function __construct(options) {
+			var _this2 = this;
+
+			this.motionFX = options.motionFX;
+
+			this.runImmediately = this.run;
+
+			this.run = function () {
+				_this2.animationFrameRequest = requestAnimationFrame(_this2.run.bind(_this2));
+
+				if ('page' === _this2.motionFX.getSettings('range')) {
+					_this2.runImmediately();
+
+					return;
+				}
+
+				var dimensions = _this2.motionFX.getSettings('dimensions'),
+				    elementTopWindowPoint = dimensions.elementTop - pageYOffset,
+				    elementEntrancePoint = elementTopWindowPoint - innerHeight,
+				    elementExitPoint = elementTopWindowPoint + dimensions.elementHeight;
+
+				if (elementEntrancePoint <= 0 && elementExitPoint >= 0) {
+					_this2.runImmediately();
+				}
+			};
+		}
+	}, {
+		key: 'runCallback',
+		value: function runCallback() {
+			var callback = this.getSettings('callback');
+
+			callback.apply(undefined, arguments);
+		}
+	}, {
+		key: 'destroy',
+		value: function destroy() {
+			cancelAnimationFrame(this.animationFrameRequest);
+		}
+	}, {
+		key: 'onInit',
+		value: function onInit() {
+			_get(_class.prototype.__proto__ || Object.getPrototypeOf(_class.prototype), 'onInit', this).call(this);
+
+			this.run();
+		}
+	}]);
+
+	return _class;
+}(elementorModules.ViewModule);
+
+exports.default = _class;
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = elementorModules.frontend.handlers.Base.extend({
 
 	getDefaultSettings: function getDefaultSettings() {
 		return {
@@ -556,7 +635,7 @@ module.exports = elementorFrontend.Module.extend({
 	},
 
 	onInit: function onInit() {
-		elementorFrontend.Module.prototype.onInit.apply(this, arguments);
+		elementorModules.frontend.handlers.Base.prototype.onInit.apply(this, arguments);
 
 		this.swipers = {};
 
@@ -593,13 +672,13 @@ module.exports = elementorFrontend.Module.extend({
 });
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var Base = __webpack_require__(5),
+var Base = __webpack_require__(6),
     TestimonialCarousel;
 
 TestimonialCarousel = Base.extend({
@@ -626,16 +705,16 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var FormSender = __webpack_require__(96),
+var FormSender = __webpack_require__(103),
     Form = FormSender.extend();
 
-var RedirectAction = __webpack_require__(97);
+var RedirectAction = __webpack_require__(104);
 
 module.exports = function ($scope) {
 	new Form({ $element: $scope });
@@ -643,7 +722,7 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -658,13 +737,13 @@ module.exports = PostsHandler.extend({
 });
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var StickyHandler = elementorFrontend.Module.extend({
+var StickyHandler = elementorModules.frontend.handlers.Base.extend({
 
 	bindEvents: function bindEvents() {
 		elementorFrontend.addListenerOnce(this.getUniqueHandlerID() + 'sticky', 'resize', this.run);
@@ -750,13 +829,13 @@ var StickyHandler = elementorFrontend.Module.extend({
 	},
 
 	onInit: function onInit() {
-		elementorFrontend.Module.prototype.onInit.apply(this, arguments);
+		elementorModules.frontend.handlers.Base.prototype.onInit.apply(this, arguments);
 
 		this.run();
 	},
 
 	onDestroy: function onDestroy() {
-		elementorFrontend.Module.prototype.onDestroy.apply(this, arguments);
+		elementorModules.frontend.handlers.Base.prototype.onDestroy.apply(this, arguments);
 
 		this.deactivate();
 	}
@@ -767,7 +846,6 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 10 */,
 /* 11 */,
 /* 12 */,
 /* 13 */,
@@ -826,7 +904,8 @@ module.exports = function ($scope) {
 /* 66 */,
 /* 67 */,
 /* 68 */,
-/* 69 */
+/* 69 */,
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -836,13 +915,17 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-var _frontend = __webpack_require__(70);
+var _frontend = __webpack_require__(71);
 
 var _frontend2 = _interopRequireDefault(_frontend);
 
-var _frontend3 = __webpack_require__(71);
+var _frontend3 = __webpack_require__(72);
 
 var _frontend4 = _interopRequireDefault(_frontend3);
+
+var _frontend5 = __webpack_require__(90);
+
+var _frontend6 = _interopRequireDefault(_frontend5);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -881,21 +964,22 @@ var ElementorProFrontend = function (_elementorModules$Vie) {
 			var _this2 = this;
 
 			var handlers = {
-				animatedText: __webpack_require__(89),
-				carousel: __webpack_require__(91),
-				countdown: __webpack_require__(93),
-				form: __webpack_require__(95),
+				animatedText: __webpack_require__(96),
+				carousel: __webpack_require__(98),
+				countdown: __webpack_require__(100),
+				form: __webpack_require__(102),
 				linkActions: _frontend2.default,
-				nav_menu: __webpack_require__(101),
+				nav_menu: __webpack_require__(108),
 				popup: _frontend4.default,
-				posts: __webpack_require__(103),
-				share_buttons: __webpack_require__(105),
-				slides: __webpack_require__(107),
-				social: __webpack_require__(109),
-				sticky: __webpack_require__(111),
-				themeBuilder: __webpack_require__(112),
-				themeElements: __webpack_require__(115),
-				woocommerce: __webpack_require__(117)
+				motionFX: _frontend6.default,
+				posts: __webpack_require__(110),
+				share_buttons: __webpack_require__(112),
+				slides: __webpack_require__(114),
+				social: __webpack_require__(116),
+				sticky: __webpack_require__(118),
+				themeBuilder: __webpack_require__(119),
+				themeElements: __webpack_require__(122),
+				woocommerce: __webpack_require__(124)
 			};
 
 			jQuery.each(handlers, function (moduleName, ModuleClass) {
@@ -915,7 +999,7 @@ var ElementorProFrontend = function (_elementorModules$Vie) {
 window.elementorProFrontend = new ElementorProFrontend();
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1033,7 +1117,7 @@ var _class = function (_elementorModules$Vie) {
 exports.default = _class;
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1045,9 +1129,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _document = __webpack_require__(72);
+var _document = __webpack_require__(73);
 
 var _document2 = _interopRequireDefault(_document);
+
+var _formsAction = __webpack_require__(89);
+
+var _formsAction2 = _interopRequireDefault(_formsAction);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1067,7 +1155,7 @@ var _class = function (_elementorModules$Mod) {
 
 		elementorFrontend.hooks.addAction('elementor/frontend/documents-manager/init-classes', _this.addDocumentClass);
 
-		elementorFrontend.hooks.addAction('frontend/element_ready/form.default', __webpack_require__(88));
+		elementorFrontend.hooks.addAction('frontend/element_ready/form.default', _formsAction2.default);
 
 		elementorProFrontend.modules.linkActions.addAction('popup:open', _this.showPopup.bind(_this));
 
@@ -1143,7 +1231,7 @@ var _class = function (_elementorModules$Mod) {
 exports.default = _class;
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1157,11 +1245,11 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-var _triggers = __webpack_require__(73);
+var _triggers = __webpack_require__(74);
 
 var _triggers2 = _interopRequireDefault(_triggers);
 
-var _timing = __webpack_require__(80);
+var _timing = __webpack_require__(81);
 
 var _timing2 = _interopRequireDefault(_timing);
 
@@ -1183,33 +1271,13 @@ var _class = function (_elementorModules$fro) {
 	}
 
 	_createClass(_class, [{
-		key: 'onInit',
-		value: function onInit() {
-			_get(_class.prototype.__proto__ || Object.getPrototypeOf(_class.prototype), 'onInit', this).call(this);
+		key: 'bindEvents',
+		value: function bindEvents() {
+			var openSelector = this.getDocumentSettings('open_selector');
 
-			this.initModal();
-
-			if (this.isEdit) {
-				this.showModal();
-
-				return;
+			if (openSelector) {
+				elementorFrontend.elements.$body.on('click', openSelector, this.showModal.bind(this));
 			}
-
-			this.$element.show().remove();
-
-			this.elementHTML = this.$element[0].outerHTML;
-
-			if (elementorFrontend.isEditMode()) {
-				return;
-			}
-
-			if (elementorFrontend.isWPPreviewMode() && elementorFrontend.config.post.id === this.getSettings('id')) {
-				this.showModal();
-
-				return;
-			}
-
-			this.startTiming();
 		}
 	}, {
 		key: 'startTiming',
@@ -1228,13 +1296,15 @@ var _class = function (_elementorModules$fro) {
 	}, {
 		key: 'showModal',
 		value: function showModal() {
+			var settings = this.getDocumentSettings();
+
 			if (!this.isEdit) {
 				if (!elementorFrontend.isWPPreviewMode()) {
 					if (this.getStorage('disable')) {
 						return;
 					}
 
-					if (elementorProFrontend.modules.popup.popupPopped && this.getDocumentSettings('avoid_multiple_popups')) {
+					if (elementorProFrontend.modules.popup.popupPopped && settings.avoid_multiple_popups) {
 						return;
 					}
 				}
@@ -1244,17 +1314,30 @@ var _class = function (_elementorModules$fro) {
 				this.elements.$elements = this.$element.find(this.getSettings('selectors.elements'));
 			}
 
-			this.getModal().setMessage(this.$element).show();
+			var modal = this.getModal(),
+			    $closeButton = modal.getElements('closeButton');
+
+			modal.setMessage(this.$element).show();
 
 			if (!this.isEdit) {
+				if (settings.close_button_delay) {
+					$closeButton.hide();
+
+					clearTimeout(this.closeButtonTimeout);
+
+					this.closeButtonTimeout = setTimeout(function () {
+						return $closeButton.show();
+					}, settings.close_button_delay * 1000);
+				}
+
 				_get(_class.prototype.__proto__ || Object.getPrototypeOf(_class.prototype), 'runElementsHandlers', this).call(this);
 			}
 
 			this.setEntranceAnimation();
 
-			var displayTimes = this.getStorage('times') || 0;
-
-			this.setStorage('times', displayTimes + 1);
+			if (!settings.timing || !settings.timing.times_count) {
+				this.countTimes();
+			}
 
 			elementorProFrontend.modules.popup.popupPopped = true;
 		}
@@ -1263,7 +1346,15 @@ var _class = function (_elementorModules$fro) {
 		value: function setEntranceAnimation() {
 			var modal = this.getModal(),
 			    $widgetContent = modal.getElements('widgetContent'),
-			    newAnimation = this.getDocumentSettings('entrance_animation');
+			    deviceMode = elementorFrontend.getCurrentDeviceMode();
+
+			var settingKey = 'entrance_animation';
+
+			if ('desktop' !== deviceMode) {
+				settingKey = settingKey + '_' + deviceMode;
+			}
+
+			var newAnimation = this.getDocumentSettings(settingKey);
 
 			if (this.currentAnimation) {
 				$widgetContent.removeClass(this.currentAnimation);
@@ -1310,28 +1401,19 @@ var _class = function (_elementorModules$fro) {
 						position: {
 							enable: false
 						},
-						onShow: function onShow() {
-							if (!_this2.isEdit && settings.close_button_delay) {
-								_$closeButton.hide();
-
-								clearTimeout(_this2.closeButtonTimeout);
-
-								_this2.closeButtonTimeout = setTimeout(function () {
-									return modal.getElements('closeButton').show();
-								}, settings.close_button_delay * 1000);
-							}
-						},
 						onHide: function onHide() {
-							_this2.$element.remove();
+							if (settings.timing && settings.timing.times_count) {
+								_this2.countTimes();
+							}
 						}
 					});
 
 					modal.getElements('widgetContent').addClass('animated');
 
-					var _$closeButton = modal.getElements('closeButton');
+					var $closeButton = modal.getElements('closeButton');
 
 					if (_this2.isEdit) {
-						_$closeButton.off('click');
+						$closeButton.off('click');
 
 						modal.hide = function () {};
 					}
@@ -1367,16 +1449,54 @@ var _class = function (_elementorModules$fro) {
 			return elementorFrontend.storage.get('popup_' + this.getSettings('id') + '_' + key, options);
 		}
 	}, {
+		key: 'countTimes',
+		value: function countTimes() {
+			var displayTimes = this.getStorage('times') || 0;
+
+			this.setStorage('times', displayTimes + 1);
+		}
+	}, {
 		key: 'runElementsHandlers',
 		value: function runElementsHandlers() {}
 	}, {
+		key: 'onInit',
+		value: function onInit() {
+			_get(_class.prototype.__proto__ || Object.getPrototypeOf(_class.prototype), 'onInit', this).call(this);
+
+			this.initModal();
+
+			if (this.isEdit) {
+				this.showModal();
+
+				return;
+			}
+
+			this.$element.show().remove();
+
+			this.elementHTML = this.$element[0].outerHTML;
+
+			if (elementorFrontend.isEditMode()) {
+				return;
+			}
+
+			if (elementorFrontend.isWPPreviewMode() && elementorFrontend.config.post.id === this.getSettings('id')) {
+				this.showModal();
+
+				return;
+			}
+
+			this.startTiming();
+		}
+	}, {
 		key: 'onSettingsChange',
 		value: function onSettingsChange(model) {
-			if (undefined !== model.changed.entrance_animation) {
+			var changedKey = Object.keys(model.changed)[0];
+
+			if (-1 !== changedKey.indexOf('entrance_animation')) {
 				this.setEntranceAnimation();
 			}
 
-			if (undefined !== model.changed.close_button_position) {
+			if ('close_button_position' === changedKey) {
 				this.setCloseButtonPosition();
 			}
 		}
@@ -1388,7 +1508,7 @@ var _class = function (_elementorModules$fro) {
 exports.default = _class;
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1400,27 +1520,27 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _pageLoad = __webpack_require__(74);
+var _pageLoad = __webpack_require__(75);
 
 var _pageLoad2 = _interopRequireDefault(_pageLoad);
 
-var _scrolling = __webpack_require__(75);
+var _scrolling = __webpack_require__(76);
 
 var _scrolling2 = _interopRequireDefault(_scrolling);
 
-var _scrollingTo = __webpack_require__(76);
+var _scrollingTo = __webpack_require__(77);
 
 var _scrollingTo2 = _interopRequireDefault(_scrollingTo);
 
-var _click = __webpack_require__(77);
+var _click = __webpack_require__(78);
 
 var _click2 = _interopRequireDefault(_click);
 
-var _inactivity = __webpack_require__(78);
+var _inactivity = __webpack_require__(79);
 
 var _inactivity2 = _interopRequireDefault(_inactivity);
 
-var _exitIntent = __webpack_require__(79);
+var _exitIntent = __webpack_require__(80);
 
 var _exitIntent2 = _interopRequireDefault(_exitIntent);
 
@@ -1502,7 +1622,7 @@ var _class = function (_elementorModules$Mod) {
 exports.default = _class;
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1558,7 +1678,7 @@ var _class = function (_BaseTrigger) {
 exports.default = _class;
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1650,7 +1770,7 @@ var _class = function (_BaseTrigger) {
 exports.default = _class;
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1716,7 +1836,7 @@ var _class = function (_BaseTrigger) {
 exports.default = _class;
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1792,7 +1912,7 @@ var _class = function (_BaseTrigger) {
 exports.default = _class;
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1878,7 +1998,7 @@ var _class = function (_BaseTrigger) {
 exports.default = _class;
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1950,7 +2070,7 @@ var _class = function (_BaseTrigger) {
 exports.default = _class;
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1962,31 +2082,31 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _pageViews = __webpack_require__(81);
+var _pageViews = __webpack_require__(82);
 
 var _pageViews2 = _interopRequireDefault(_pageViews);
 
-var _sessions = __webpack_require__(82);
+var _sessions = __webpack_require__(83);
 
 var _sessions2 = _interopRequireDefault(_sessions);
 
-var _url = __webpack_require__(83);
+var _url = __webpack_require__(84);
 
 var _url2 = _interopRequireDefault(_url);
 
-var _sources = __webpack_require__(84);
+var _sources = __webpack_require__(85);
 
 var _sources2 = _interopRequireDefault(_sources);
 
-var _loggedIn = __webpack_require__(85);
+var _loggedIn = __webpack_require__(86);
 
 var _loggedIn2 = _interopRequireDefault(_loggedIn);
 
-var _devices = __webpack_require__(86);
+var _devices = __webpack_require__(87);
 
 var _devices2 = _interopRequireDefault(_devices);
 
-var _times = __webpack_require__(87);
+var _times = __webpack_require__(88);
 
 var _times2 = _interopRequireDefault(_times);
 
@@ -2051,7 +2171,7 @@ var _class = function (_elementorModules$Mod) {
 exports.default = _class;
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2113,7 +2233,7 @@ var _class = function (_BaseTiming) {
 exports.default = _class;
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2175,7 +2295,7 @@ var _class = function (_BaseTiming) {
 exports.default = _class;
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2242,7 +2362,7 @@ var _class = function (_BaseTiming) {
 exports.default = _class;
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2315,7 +2435,7 @@ var _class = function (_BaseTiming) {
 exports.default = _class;
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2380,7 +2500,7 @@ var _class = function (_BaseTiming) {
 exports.default = _class;
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2431,7 +2551,7 @@ var _class = function (_BaseTiming) {
 exports.default = _class;
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2484,13 +2604,13 @@ var _class = function (_BaseTiming) {
 exports.default = _class;
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var PopupFormActions = elementorFrontend.Module.extend({
+var PopupFormActions = elementorModules.frontend.handlers.Base.extend({
 	getDefaultSettings: function getDefaultSettings() {
 		return {
 			selectors: {
@@ -2528,24 +2648,1111 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 89 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = function () {
-    elementorFrontend.hooks.addAction('frontend/element_ready/animated-headline.default', __webpack_require__(90));
-};
-
-/***/ }),
 /* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var AnimatedHeadlineHandler = elementorFrontend.Module.extend({
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _handler = __webpack_require__(91);
+
+var _handler2 = _interopRequireDefault(_handler);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _class = function (_elementorModules$Mod) {
+	_inherits(_class, _elementorModules$Mod);
+
+	function _class() {
+		_classCallCheck(this, _class);
+
+		var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this));
+
+		elementorFrontend.hooks.addAction('frontend/element_ready/global', function ($element) {
+			elementorFrontend.elementsHandler.addHandler(_handler2.default, { $element: $element });
+		});
+		return _this;
+	}
+
+	return _class;
+}(elementorModules.Module);
+
+exports.default = _class;
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+var _motionFx = __webpack_require__(92);
+
+var _motionFx2 = _interopRequireDefault(_motionFx);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _class = function (_elementorModules$fro) {
+	_inherits(_class, _elementorModules$fro);
+
+	function _class() {
+		_classCallCheck(this, _class);
+
+		return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
+	}
+
+	_createClass(_class, [{
+		key: '__construct',
+		value: function __construct() {
+			var _get2;
+
+			for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+				args[_key] = arguments[_key];
+			}
+
+			(_get2 = _get(_class.prototype.__proto__ || Object.getPrototypeOf(_class.prototype), '__construct', this)).call.apply(_get2, [this].concat(args));
+
+			this.toggle = elementorFrontend.debounce(this.toggle, 200);
+		}
+	}, {
+		key: 'bindEvents',
+		value: function bindEvents() {
+			elementorFrontend.elements.$window.on('resize', this.toggle);
+		}
+	}, {
+		key: 'unbindEvents',
+		value: function unbindEvents() {
+			elementorFrontend.elements.$window.off('resize', this.toggle);
+		}
+	}, {
+		key: 'initEffects',
+		value: function initEffects() {
+			this.effects = {
+				translateY: {
+					interaction: 'scroll',
+					actions: ['translateY']
+				},
+				translateX: {
+					interaction: 'scroll',
+					actions: ['translateX']
+				},
+				rotateZ: {
+					interaction: 'scroll',
+					actions: ['rotateZ']
+				},
+				scale: {
+					interaction: 'scroll',
+					actions: ['scale']
+				},
+				opacity: {
+					interaction: 'scroll',
+					actions: ['opacity']
+				},
+				blur: {
+					interaction: 'scroll',
+					actions: ['blur']
+				},
+				mouseTrack: {
+					interaction: 'mouseMove',
+					actions: ['translateXY']
+				},
+				tilt: {
+					interaction: 'mouseMove',
+					actions: ['tilt']
+				}
+			};
+		}
+	}, {
+		key: 'prepareOptions',
+		value: function prepareOptions(name) {
+			var _this2 = this;
+
+			var elementSettings = this.getElementSettings(),
+			    type = 'motion_fx' === name ? 'element' : 'background',
+			    interactions = {};
+
+			jQuery.each(elementSettings, function (key, value) {
+				var keyRegex = new RegExp('^' + name + '_(.+?)_effect'),
+				    keyMatches = key.match(keyRegex);
+
+				if (!keyMatches || !value) {
+					return;
+				}
+
+				var options = {},
+				    effectName = keyMatches[1];
+
+				jQuery.each(elementSettings, function (subKey, subValue) {
+					var subKeyRegex = new RegExp(name + '_' + effectName + '_(.+)'),
+					    subKeyMatches = subKey.match(subKeyRegex);
+
+					if (!subKeyMatches) {
+						return;
+					}
+
+					var subFieldName = subKeyMatches[1];
+
+					if ('effect' === subFieldName) {
+						return;
+					}
+
+					if ('object' === (typeof subValue === 'undefined' ? 'undefined' : _typeof(subValue))) {
+						subValue = Object.keys(subValue.sizes).length ? subValue.sizes : subValue.size;
+					}
+
+					options[subKeyMatches[1]] = subValue;
+				});
+
+				var effect = _this2.effects[effectName],
+				    interactionName = effect.interaction;
+
+				if (!interactions[interactionName]) {
+					interactions[interactionName] = {};
+				}
+
+				effect.actions.forEach(function (action) {
+					return interactions[interactionName][action] = options;
+				});
+			});
+
+			var $element = this.$element,
+			    $dimensionsElement = void 0;
+
+			var elementType = this.getElementType();
+
+			if ('element' === type && 'section' !== elementType) {
+				$dimensionsElement = $element;
+
+				var childElementSelector = void 0;
+
+				if ('column' === elementType) {
+					childElementSelector = '.elementor-column-wrap';
+				} else {
+					childElementSelector = '.elementor-widget-container';
+				}
+
+				$element = $element.find('> ' + childElementSelector);
+			}
+
+			var options = {
+				type: type,
+				interactions: interactions,
+				$element: $element,
+				$dimensionsElement: $dimensionsElement,
+				refreshDimensions: this.isEdit,
+				classes: {
+					element: 'elementor-motion-effects-element',
+					parent: 'elementor-motion-effects-parent',
+					backgroundType: 'elementor-motion-effects-element-type-background',
+					container: 'elementor-motion-effects-container',
+					layer: 'elementor-motion-effects-layer',
+					perspective: 'elementor-motion-effects-perspective'
+				}
+			};
+
+			if ('fixed' === this.getCurrentDeviceSetting('_position')) {
+				options.range = 'page';
+			}
+
+			if ('background' === type && 'column' === this.getElementType()) {
+				options.addBackgroundLayerTo = ' > .elementor-element-populated';
+			}
+
+			return options;
+		}
+	}, {
+		key: 'activate',
+		value: function activate(name) {
+			var options = this.prepareOptions(name);
+
+			if (jQuery.isEmptyObject(options.interactions)) {
+				return;
+			}
+
+			this[name] = new _motionFx2.default(options);
+		}
+	}, {
+		key: 'deactivate',
+		value: function deactivate(name) {
+			if (this[name]) {
+				this[name].destroy();
+
+				delete this[name];
+			}
+		}
+	}, {
+		key: 'toggle',
+		value: function toggle() {
+			var _this3 = this;
+
+			var currentDeviceMode = elementorFrontend.getCurrentDeviceMode(),
+			    elementSettings = this.getElementSettings();
+
+			['motion_fx', 'background_motion_fx'].forEach(function (name) {
+				var devices = elementSettings[name + '_devices'],
+				    isCurrentModeActive = !devices || -1 !== devices.indexOf(currentDeviceMode);
+
+				if (isCurrentModeActive && (elementSettings[name + '_motion_fx_scrolling'] || elementSettings[name + '_motion_fx_mouse'])) {
+					if (_this3[name]) {
+						_this3.refreshInstance(name);
+					} else {
+						_this3.activate(name);
+					}
+				} else {
+					_this3.deactivate(name);
+				}
+			});
+		}
+	}, {
+		key: 'refreshInstance',
+		value: function refreshInstance(instanceName) {
+			var instance = this[instanceName];
+
+			if (!instance) {
+				return;
+			}
+
+			var preparedOptions = this.prepareOptions(instanceName);
+
+			instance.setSettings(preparedOptions);
+
+			instance.refresh();
+		}
+	}, {
+		key: 'onInit',
+		value: function onInit() {
+			_get(_class.prototype.__proto__ || Object.getPrototypeOf(_class.prototype), 'onInit', this).call(this);
+
+			this.initEffects();
+
+			this.toggle();
+		}
+	}, {
+		key: 'onElementChange',
+		value: function onElementChange(propertyName) {
+			var _this4 = this;
+
+			if (/motion_fx_((scrolling)|(mouse)|(devices))$/.test(propertyName)) {
+				this.toggle();
+
+				return;
+			}
+
+			var propertyMatches = propertyName.match('.*?motion_fx');
+
+			if (propertyMatches) {
+				var instanceName = propertyMatches[0];
+
+				this.refreshInstance(instanceName);
+
+				if (!this[instanceName]) {
+					this.activate(instanceName);
+				}
+			}
+
+			if (/^_position/.test(propertyName)) {
+				['motion_fx', 'background_motion_fx'].forEach(function (instanceName) {
+					_this4.refreshInstance(instanceName);
+				});
+			}
+		}
+	}, {
+		key: 'onDestroy',
+		value: function onDestroy() {
+			var _this5 = this;
+
+			_get(_class.prototype.__proto__ || Object.getPrototypeOf(_class.prototype), 'onDestroy', this).call(this);
+
+			['motion_fx', 'background_motion_fx'].forEach(function (name) {
+				_this5.deactivate(name);
+			});
+		}
+	}]);
+
+	return _class;
+}(elementorModules.frontend.handlers.Base);
+
+exports.default = _class;
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+var _scroll = __webpack_require__(93);
+
+var _scroll2 = _interopRequireDefault(_scroll);
+
+var _mouseMove = __webpack_require__(94);
+
+var _mouseMove2 = _interopRequireDefault(_mouseMove);
+
+var _actions2 = __webpack_require__(95);
+
+var _actions3 = _interopRequireDefault(_actions2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _class = function (_elementorModules$Vie) {
+	_inherits(_class, _elementorModules$Vie);
+
+	function _class() {
+		_classCallCheck(this, _class);
+
+		return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
+	}
+
+	_createClass(_class, [{
+		key: 'getDefaultSettings',
+		value: function getDefaultSettings() {
+			return {
+				type: 'element',
+				$element: null,
+				$dimensionsElement: null,
+				addBackgroundLayerTo: null,
+				interactions: {},
+				refreshDimensions: false,
+				range: 'viewport',
+				classes: {
+					element: 'motion-fx-element',
+					parent: 'motion-fx-parent',
+					backgroundType: 'motion-fx-element-type-background',
+					container: 'motion-fx-container',
+					layer: 'motion-fx-layer',
+					perspective: 'motion-fx-perspective'
+				}
+			};
+		}
+	}, {
+		key: 'bindEvents',
+		value: function bindEvents() {
+			this.onWindowResize = this.onWindowResize.bind(this);
+
+			elementorFrontend.elements.$window.on('resize', this.onWindowResize);
+		}
+	}, {
+		key: 'unbindEvents',
+		value: function unbindEvents() {
+			elementorFrontend.elements.$window.off('resize', this.onWindowResize);
+		}
+	}, {
+		key: 'addBackgroundLayer',
+		value: function addBackgroundLayer() {
+			var settings = this.getSettings();
+
+			this.elements.$motionFXContainer = jQuery('<div>', { class: settings.classes.container });
+
+			this.elements.$motionFXLayer = jQuery('<div>', { class: settings.classes.layer });
+
+			this.updateBackgroundLayerSize();
+
+			this.elements.$motionFXContainer.prepend(this.elements.$motionFXLayer);
+
+			var $addBackgroundLayerTo = settings.addBackgroundLayerTo ? this.$element.find(settings.addBackgroundLayerTo) : this.$element;
+
+			$addBackgroundLayerTo.prepend(this.elements.$motionFXContainer);
+		}
+	}, {
+		key: 'removeBackgroundLayer',
+		value: function removeBackgroundLayer() {
+			this.elements.$motionFXContainer.remove();
+		}
+	}, {
+		key: 'updateBackgroundLayerSize',
+		value: function updateBackgroundLayerSize() {
+			var settings = this.getSettings(),
+			    speed = {
+				x: 0,
+				y: 0
+			},
+			    mouseInteraction = settings.interactions.mouseMove,
+			    scrollInteraction = settings.interactions.scroll;
+
+			if (mouseInteraction && mouseInteraction.translateXY) {
+				speed.x = mouseInteraction.translateXY.speed * 10;
+				speed.y = mouseInteraction.translateXY.speed * 10;
+			}
+
+			if (scrollInteraction) {
+				if (scrollInteraction.translateX) {
+					speed.x = scrollInteraction.translateX.speed * 10;
+				}
+
+				if (scrollInteraction.translateY) {
+					speed.y = scrollInteraction.translateY.speed * 10;
+				}
+			}
+
+			this.elements.$motionFXLayer.css({
+				width: 100 + speed.x + '%',
+				height: 100 + speed.y + '%'
+			});
+		}
+	}, {
+		key: 'defineDimensions',
+		value: function defineDimensions() {
+			var $dimensionsElement = this.getSettings('$dimensionsElement') || this.$element,
+			    elementOffset = $dimensionsElement.offset();
+
+			var dimensions = {
+				elementHeight: $dimensionsElement.outerHeight(),
+				elementWidth: $dimensionsElement.outerWidth(),
+				elementTop: elementOffset.top,
+				elementLeft: elementOffset.left
+			};
+
+			dimensions.elementRange = dimensions.elementHeight + innerHeight;
+
+			this.setSettings('dimensions', dimensions);
+
+			if ('background' === this.getSettings('type')) {
+				this.defineBackgroundLayerDimensions();
+			}
+		}
+	}, {
+		key: 'defineBackgroundLayerDimensions',
+		value: function defineBackgroundLayerDimensions() {
+			var dimensions = this.getSettings('dimensions');
+
+			dimensions.layerHeight = this.elements.$motionFXLayer.height();
+			dimensions.layerWidth = this.elements.$motionFXLayer.width();
+			dimensions.movableX = dimensions.layerWidth - dimensions.elementWidth;
+			dimensions.movableY = dimensions.layerHeight - dimensions.elementHeight;
+
+			this.setSettings('dimensions', dimensions);
+		}
+	}, {
+		key: 'initInteractionsTypes',
+		value: function initInteractionsTypes() {
+			this.interactionsTypes = {
+				scroll: _scroll2.default,
+				mouseMove: _mouseMove2.default
+			};
+		}
+	}, {
+		key: 'prepareSpecialActions',
+		value: function prepareSpecialActions() {
+			var settings = this.getSettings(),
+			    hasTiltEffect = !!(settings.interactions.mouseMove && settings.interactions.mouseMove.tilt);
+
+			this.elements.$parent.toggleClass(settings.classes.perspective, hasTiltEffect);
+		}
+	}, {
+		key: 'cleanSpecialActions',
+		value: function cleanSpecialActions() {
+			var settings = this.getSettings();
+
+			this.elements.$parent.removeClass(settings.classes.perspective);
+		}
+	}, {
+		key: 'runInteractions',
+		value: function runInteractions() {
+			var _this2 = this;
+
+			var settings = this.getSettings();
+
+			this.prepareSpecialActions();
+
+			jQuery.each(settings.interactions, function (interactionName, actions) {
+				_this2.interactions[interactionName] = new _this2.interactionsTypes[interactionName]({
+					motionFX: _this2,
+					callback: function callback() {
+						for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+							args[_key] = arguments[_key];
+						}
+
+						jQuery.each(actions, function (actionName, actionData) {
+							var _actions;
+
+							return (_actions = _this2.actions).runAction.apply(_actions, [actionName, actionData].concat(args));
+						});
+					}
+				});
+
+				_this2.interactions[interactionName].runImmediately();
+			});
+		}
+	}, {
+		key: 'destroyInteractions',
+		value: function destroyInteractions() {
+			this.cleanSpecialActions();
+
+			jQuery.each(this.interactions, function (interactionName, interaction) {
+				return interaction.destroy();
+			});
+
+			this.interactions = {};
+		}
+	}, {
+		key: 'refresh',
+		value: function refresh() {
+			this.actions.setSettings(this.getSettings());
+
+			if ('background' === this.getSettings('type')) {
+				this.updateBackgroundLayerSize();
+
+				this.defineBackgroundLayerDimensions();
+			}
+
+			this.actions.refresh();
+
+			this.destroyInteractions();
+
+			this.runInteractions();
+		}
+	}, {
+		key: 'destroy',
+		value: function destroy() {
+			this.destroyInteractions();
+
+			this.actions.refresh();
+
+			var settings = this.getSettings();
+
+			this.$element.removeClass(settings.classes.element);
+
+			this.elements.$parent.removeClass(settings.classes.parent);
+
+			if ('background' === settings.type) {
+				this.$element.removeClass(settings.classes.backgroundType);
+
+				this.removeBackgroundLayer();
+			}
+		}
+	}, {
+		key: 'onInit',
+		value: function onInit() {
+			_get(_class.prototype.__proto__ || Object.getPrototypeOf(_class.prototype), 'onInit', this).call(this);
+
+			var settings = this.getSettings();
+
+			this.$element = settings.$element;
+
+			this.elements.$parent = this.$element.parent();
+
+			this.$element.addClass(settings.classes.element);
+
+			this.elements.$parent = this.$element.parent();
+
+			this.elements.$parent.addClass(settings.classes.parent);
+
+			if ('background' === settings.type) {
+				this.$element.addClass(settings.classes.backgroundType);
+
+				this.addBackgroundLayer();
+			}
+
+			this.defineDimensions();
+
+			settings.$targetElement = 'element' === settings.type ? this.$element : this.elements.$motionFXLayer;
+
+			this.interactions = {};
+
+			this.actions = new _actions3.default(settings);
+
+			this.initInteractionsTypes();
+
+			this.runInteractions();
+		}
+	}, {
+		key: 'onWindowResize',
+		value: function onWindowResize() {
+			this.defineDimensions();
+		}
+	}]);
+
+	return _class;
+}(elementorModules.ViewModule);
+
+exports.default = _class;
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _base = __webpack_require__(5);
+
+var _base2 = _interopRequireDefault(_base);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _class = function (_BaseInteraction) {
+	_inherits(_class, _BaseInteraction);
+
+	function _class() {
+		_classCallCheck(this, _class);
+
+		return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
+	}
+
+	_createClass(_class, [{
+		key: 'run',
+		value: function run() {
+			if (pageYOffset === this.windowScrollTop) {
+				return;
+			}
+
+			var motionFXSettings = this.motionFX.getSettings();
+
+			if (motionFXSettings.refreshDimensions) {
+				this.motionFX.defineDimensions();
+			}
+
+			this.windowScrollTop = pageYOffset;
+
+			var passedRangePercents = void 0;
+
+			if ('page' === this.motionFX.getSettings('range')) {
+				passedRangePercents = document.documentElement.scrollTop / (document.body.scrollHeight - innerHeight) * 100;
+			} else {
+				var dimensions = motionFXSettings.dimensions,
+				    elementTopWindowPoint = dimensions.elementTop - pageYOffset,
+				    elementEntrancePoint = elementTopWindowPoint - innerHeight;
+
+				passedRangePercents = 100 / dimensions.elementRange * (elementEntrancePoint * -1);
+			}
+
+			this.runCallback(passedRangePercents);
+		}
+	}]);
+
+	return _class;
+}(_base2.default);
+
+exports.default = _class;
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+var _base = __webpack_require__(5);
+
+var _base2 = _interopRequireDefault(_base);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var MouseMoveInteraction = function (_BaseInteraction) {
+	_inherits(MouseMoveInteraction, _BaseInteraction);
+
+	function MouseMoveInteraction() {
+		_classCallCheck(this, MouseMoveInteraction);
+
+		return _possibleConstructorReturn(this, (MouseMoveInteraction.__proto__ || Object.getPrototypeOf(MouseMoveInteraction)).apply(this, arguments));
+	}
+
+	_createClass(MouseMoveInteraction, [{
+		key: 'bindEvents',
+		value: function bindEvents() {
+			if (!MouseMoveInteraction.mouseTracked) {
+				elementorFrontend.elements.$window.on('mousemove', MouseMoveInteraction.updateMousePosition);
+
+				MouseMoveInteraction.mouseTracked = true;
+			}
+		}
+	}, {
+		key: 'run',
+		value: function run() {
+			var mousePosition = MouseMoveInteraction.mousePosition,
+			    oldMousePosition = this.oldMousePosition;
+
+			if (oldMousePosition.x === mousePosition.x && oldMousePosition.y === mousePosition.y) {
+				return;
+			}
+
+			this.oldMousePosition = {
+				x: mousePosition.x,
+				y: mousePosition.y
+			};
+
+			var passedPercentsX = 100 / innerWidth * mousePosition.x,
+			    passedPercentsY = 100 / innerHeight * mousePosition.y;
+
+			this.runCallback(passedPercentsX, passedPercentsY);
+		}
+	}, {
+		key: 'onInit',
+		value: function onInit() {
+			this.oldMousePosition = {};
+
+			_get(MouseMoveInteraction.prototype.__proto__ || Object.getPrototypeOf(MouseMoveInteraction.prototype), 'onInit', this).call(this);
+		}
+	}]);
+
+	return MouseMoveInteraction;
+}(_base2.default);
+
+exports.default = MouseMoveInteraction;
+
+
+MouseMoveInteraction.mousePosition = {};
+
+MouseMoveInteraction.updateMousePosition = function (event) {
+	MouseMoveInteraction.mousePosition = {
+		x: event.clientX,
+		y: event.clientY
+	};
+};
+
+/***/ }),
+/* 95 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _class = function (_elementorModules$Mod) {
+	_inherits(_class, _elementorModules$Mod);
+
+	function _class() {
+		_classCallCheck(this, _class);
+
+		return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
+	}
+
+	_createClass(_class, [{
+		key: 'getMovePointFromPassedPercents',
+		value: function getMovePointFromPassedPercents(movableRange, passedPercents) {
+			var movePoint = passedPercents / movableRange * 100;
+
+			return +movePoint.toFixed(2);
+		}
+	}, {
+		key: 'getEffectValueFromMovePoint',
+		value: function getEffectValueFromMovePoint(range, movePoint) {
+			return range * movePoint / 100;
+		}
+	}, {
+		key: 'getStep',
+		value: function getStep(passedPercents, options) {
+			if ('element' === this.getSettings('type')) {
+				return this.getElementStep(passedPercents, options);
+			}
+
+			return this.getBackgroundStep(passedPercents, options);
+		}
+	}, {
+		key: 'getElementStep',
+		value: function getElementStep(passedPercents, options) {
+			return -(passedPercents - 50) * options.speed;
+		}
+	}, {
+		key: 'getBackgroundStep',
+		value: function getBackgroundStep(passedPercents, options) {
+			var movableRange = this.getSettings('dimensions.movable' + options.axis.toUpperCase());
+
+			return -this.getEffectValueFromMovePoint(movableRange, passedPercents);
+		}
+	}, {
+		key: 'getDirectionMovePoint',
+		value: function getDirectionMovePoint(passedPercents, direction, range) {
+			var movePoint = void 0;
+
+			if (passedPercents < range.start) {
+				if ('out-in' === direction) {
+					movePoint = 0;
+				} else if ('in-out' === direction) {
+					movePoint = 100;
+				} else {
+					movePoint = this.getMovePointFromPassedPercents(range.start, passedPercents);
+
+					if ('in-out-in' === direction) {
+						movePoint = 100 - movePoint;
+					}
+				}
+			} else if (passedPercents < range.end) {
+				if ('in-out-in' === direction) {
+					movePoint = 0;
+				} else if ('out-in-out' === direction) {
+					movePoint = 100;
+				} else {
+					movePoint = this.getMovePointFromPassedPercents(range.end - range.start, passedPercents - range.start);
+
+					if ('in-out' === direction) {
+						movePoint = 100 - movePoint;
+					}
+				}
+			} else if ('in-out' === direction) {
+				movePoint = 0;
+			} else if ('out-in' === direction) {
+				movePoint = 100;
+			} else {
+				movePoint = this.getMovePointFromPassedPercents(100 - range.end, 100 - passedPercents);
+
+				if ('in-out-in' === direction) {
+					movePoint = 100 - movePoint;
+				}
+			}
+
+			return movePoint;
+		}
+	}, {
+		key: 'translateX',
+		value: function translateX(actionData, passedPercents) {
+			actionData.axis = 'x';
+			actionData.unit = 'px';
+
+			this.transform('translateX', passedPercents, actionData);
+		}
+	}, {
+		key: 'translateY',
+		value: function translateY(actionData, passedPercents) {
+			actionData.axis = 'y';
+			actionData.unit = 'px';
+
+			this.transform('translateY', passedPercents, actionData);
+		}
+	}, {
+		key: 'translateXY',
+		value: function translateXY(actionData, passedPercentsX, passedPercentsY) {
+			this.translateX(actionData, passedPercentsX);
+
+			this.translateY(actionData, passedPercentsY);
+		}
+	}, {
+		key: 'tilt',
+		value: function tilt(actionData, passedPercentsX, passedPercentsY) {
+			var options = {
+				speed: actionData.speed / 10,
+				direction: actionData.direction
+			};
+
+			this.rotateX(options, passedPercentsY);
+
+			this.rotateY(options, 100 - passedPercentsX);
+		}
+	}, {
+		key: 'rotateX',
+		value: function rotateX(actionData, passedPercents) {
+			actionData.axis = 'x';
+			actionData.unit = 'deg';
+
+			this.transform('rotateX', passedPercents, actionData);
+		}
+	}, {
+		key: 'rotateY',
+		value: function rotateY(actionData, passedPercents) {
+			actionData.axis = 'y';
+			actionData.unit = 'deg';
+
+			this.transform('rotateY', passedPercents, actionData);
+		}
+	}, {
+		key: 'rotateZ',
+		value: function rotateZ(actionData, passedPercents) {
+			actionData.unit = 'deg';
+
+			this.transform('rotateZ', passedPercents, actionData);
+		}
+	}, {
+		key: 'scale',
+		value: function scale(actionData, passedPercents) {
+			var movePoint = this.getDirectionMovePoint(passedPercents, actionData.direction, actionData.range);
+
+			this.updateRulePart('transform', 'scale', 1 + actionData.speed * movePoint / 1000);
+		}
+	}, {
+		key: 'transform',
+		value: function transform(action, passedPercents, actionData) {
+			if (actionData.direction) {
+				passedPercents = 100 - passedPercents;
+			}
+
+			this.updateRulePart('transform', action, this.getStep(passedPercents, actionData) + actionData.unit);
+		}
+	}, {
+		key: 'opacity',
+		value: function opacity(actionData, passedPercents) {
+			var movePoint = this.getDirectionMovePoint(passedPercents, actionData.direction, actionData.range),
+			    level = actionData.level / 10,
+			    opacity = 1 - level + this.getEffectValueFromMovePoint(level, movePoint);
+
+			this.$element.css('opacity', opacity);
+		}
+	}, {
+		key: 'blur',
+		value: function blur(actionData, passedPercents) {
+			var movePoint = this.getDirectionMovePoint(passedPercents, actionData.direction, actionData.range),
+			    blur = actionData.level - this.getEffectValueFromMovePoint(actionData.level, movePoint);
+
+			this.updateRulePart('filter', 'blur', blur + 'px');
+		}
+	}, {
+		key: 'updateRulePart',
+		value: function updateRulePart(ruleName, key, value) {
+			if (!this.rulesVariables[ruleName]) {
+				this.rulesVariables[ruleName] = {};
+			}
+
+			if (!this.rulesVariables[ruleName][key]) {
+				this.rulesVariables[ruleName][key] = true;
+
+				this.updateRule(ruleName);
+			}
+
+			var cssVarKey = '--' + key;
+
+			this.$element[0].style.setProperty(cssVarKey, value);
+		}
+	}, {
+		key: 'updateRule',
+		value: function updateRule(ruleName) {
+			var value = '';
+
+			jQuery.each(this.rulesVariables[ruleName], function (variableKey) {
+				value += variableKey + '(var(--' + variableKey + '))';
+			});
+
+			this.$element.css(ruleName, value);
+		}
+	}, {
+		key: 'runAction',
+		value: function runAction(actionName, actionData, passedPercents) {
+			if (actionData.affectedRange) {
+				if (actionData.affectedRange.start > passedPercents) {
+					passedPercents = actionData.affectedRange.start;
+				}
+
+				if (actionData.affectedRange.end < passedPercents) {
+					passedPercents = actionData.affectedRange.end;
+				}
+			}
+
+			for (var _len = arguments.length, args = Array(_len > 3 ? _len - 3 : 0), _key = 3; _key < _len; _key++) {
+				args[_key - 3] = arguments[_key];
+			}
+
+			this[actionName].apply(this, [actionData, passedPercents].concat(args));
+		}
+	}, {
+		key: 'refresh',
+		value: function refresh() {
+			this.rulesVariables = {};
+
+			this.$element.css({
+				transform: '',
+				filter: '',
+				opacity: ''
+			});
+		}
+	}, {
+		key: 'onInit',
+		value: function onInit() {
+			this.$element = this.getSettings('$targetElement');
+
+			this.refresh();
+		}
+	}]);
+
+	return _class;
+}(elementorModules.Module);
+
+exports.default = _class;
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function () {
+    elementorFrontend.hooks.addAction('frontend/element_ready/animated-headline.default', __webpack_require__(97));
+};
+
+/***/ }),
+/* 97 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var AnimatedHeadlineHandler = elementorModules.frontend.handlers.Base.extend({
 	svgPaths: {
 		circle: ['M325,18C228.7-8.3,118.5,8.3,78,21C22.4,38.4,4.6,54.6,5.6,77.6c1.4,32.4,52.2,54,142.6,63.7 c66.2,7.1,212.2,7.5,273.5-8.3c64.4-16.6,104.3-57.6,33.8-98.2C386.7-4.9,179.4-1.4,126.3,20.7'],
 		underline_zigzag: ['M9.3,127.3c49.3-3,150.7-7.6,199.7-7.4c121.9,0.4,189.9,0.4,282.3,7.2C380.1,129.6,181.2,130.6,70,139 c82.6-2.9,254.2-1,335.9,1.3c-56,1.4-137.2-0.3-197.1,9'],
@@ -2814,7 +4021,7 @@ var AnimatedHeadlineHandler = elementorFrontend.Module.extend({
 	},
 
 	onInit: function onInit() {
-		elementorFrontend.Module.prototype.onInit.apply(this, arguments);
+		elementorModules.frontend.handlers.Base.prototype.onInit.apply(this, arguments);
 
 		this.fillWords();
 
@@ -2827,26 +4034,26 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 91 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	elementorFrontend.hooks.addAction('frontend/element_ready/media-carousel.default', __webpack_require__(92));
-	elementorFrontend.hooks.addAction('frontend/element_ready/testimonial-carousel.default', __webpack_require__(6));
-	elementorFrontend.hooks.addAction('frontend/element_ready/reviews.default', __webpack_require__(6));
+	elementorFrontend.hooks.addAction('frontend/element_ready/media-carousel.default', __webpack_require__(99));
+	elementorFrontend.hooks.addAction('frontend/element_ready/testimonial-carousel.default', __webpack_require__(7));
+	elementorFrontend.hooks.addAction('frontend/element_ready/reviews.default', __webpack_require__(7));
 };
 
 /***/ }),
-/* 92 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var Base = __webpack_require__(5),
+var Base = __webpack_require__(6),
     MediaCarousel;
 
 MediaCarousel = Base.extend({
@@ -2998,24 +4205,24 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 93 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	elementorFrontend.hooks.addAction('frontend/element_ready/countdown.default', __webpack_require__(94));
+	elementorFrontend.hooks.addAction('frontend/element_ready/countdown.default', __webpack_require__(101));
 };
 
 /***/ }),
-/* 94 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var CountDown = elementorFrontend.Module.extend({
+var CountDown = elementorModules.frontend.handlers.Base.extend({
 
 	cache: null,
 
@@ -3043,7 +4250,7 @@ var CountDown = elementorFrontend.Module.extend({
 	},
 
 	onInit: function onInit() {
-		elementorFrontend.Module.prototype.onInit.apply(this, arguments);
+		elementorModules.frontend.handlers.Base.prototype.onInit.apply(this, arguments);
 
 		this.cacheElements();
 
@@ -3172,30 +4379,30 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 95 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	elementorFrontend.hooks.addAction('frontend/element_ready/form.default', __webpack_require__(7));
-	elementorFrontend.hooks.addAction('frontend/element_ready/subscribe.default', __webpack_require__(7));
+	elementorFrontend.hooks.addAction('frontend/element_ready/form.default', __webpack_require__(8));
+	elementorFrontend.hooks.addAction('frontend/element_ready/subscribe.default', __webpack_require__(8));
 
-	elementorFrontend.hooks.addAction('frontend/element_ready/form.default', __webpack_require__(98));
+	elementorFrontend.hooks.addAction('frontend/element_ready/form.default', __webpack_require__(105));
 
-	elementorFrontend.hooks.addAction('frontend/element_ready/form.default', __webpack_require__(99));
-	elementorFrontend.hooks.addAction('frontend/element_ready/form.default', __webpack_require__(100));
+	elementorFrontend.hooks.addAction('frontend/element_ready/form.default', __webpack_require__(106));
+	elementorFrontend.hooks.addAction('frontend/element_ready/form.default', __webpack_require__(107));
 };
 
 /***/ }),
-/* 96 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = elementorFrontend.Module.extend({
+module.exports = elementorModules.frontend.handlers.Base.extend({
 
 	getDefaultSettings: function getDefaultSettings() {
 		return {
@@ -3345,13 +4552,13 @@ module.exports = elementorFrontend.Module.extend({
 });
 
 /***/ }),
-/* 97 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = elementorFrontend.Module.extend({
+module.exports = elementorModules.frontend.handlers.Base.extend({
 	getDefaultSettings: function getDefaultSettings() {
 		return {
 			selectors: {
@@ -3381,7 +4588,7 @@ module.exports = elementorFrontend.Module.extend({
 });
 
 /***/ }),
-/* 98 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3422,7 +4629,7 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 99 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3452,7 +4659,7 @@ module.exports = function ($scope, $) {
 };
 
 /***/ }),
-/* 100 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3481,7 +4688,7 @@ module.exports = function ($scope, $) {
 };
 
 /***/ }),
-/* 101 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3499,17 +4706,17 @@ module.exports = function () {
 		}
 	}
 
-	elementorFrontend.hooks.addAction('frontend/element_ready/nav-menu.default', __webpack_require__(102));
+	elementorFrontend.hooks.addAction('frontend/element_ready/nav-menu.default', __webpack_require__(109));
 };
 
 /***/ }),
-/* 102 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var MenuHandler = elementorFrontend.Module.extend({
+var MenuHandler = elementorModules.frontend.handlers.Base.extend({
 
 	stretchElement: null,
 
@@ -3629,7 +4836,7 @@ var MenuHandler = elementorFrontend.Module.extend({
 	},
 
 	onInit: function onInit() {
-		elementorFrontend.Module.prototype.onInit.apply(this, arguments);
+		elementorModules.frontend.handlers.Base.prototype.onInit.apply(this, arguments);
 
 		if (!this.elements.$menu.length) {
 			return;
@@ -3662,7 +4869,7 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 103 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3670,8 +4877,8 @@ module.exports = function ($scope) {
 
 module.exports = function () {
 	var PostsModule = __webpack_require__(3),
-	    CardsModule = __webpack_require__(8),
-	    PortfolioModule = __webpack_require__(104);
+	    CardsModule = __webpack_require__(9),
+	    PortfolioModule = __webpack_require__(111);
 
 	elementorFrontend.hooks.addAction('frontend/element_ready/posts.classic', function ($scope) {
 		new PostsModule({ $element: $scope });
@@ -3691,7 +4898,7 @@ module.exports = function () {
 };
 
 /***/ }),
-/* 104 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3700,10 +4907,6 @@ module.exports = function () {
 var PostsHandler = __webpack_require__(3);
 
 module.exports = PostsHandler.extend({
-	getElementName: function getElementName() {
-		return 'portfolio';
-	},
-
 	getSkinPrefix: function getSkinPrefix() {
 		return '';
 	},
@@ -3964,7 +5167,7 @@ module.exports = PostsHandler.extend({
 });
 
 /***/ }),
-/* 105 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3972,23 +5175,20 @@ module.exports = PostsHandler.extend({
 
 module.exports = function () {
 	if (!elementorFrontend.isEditMode()) {
-		elementorFrontend.hooks.addAction('frontend/element_ready/share-buttons.default', __webpack_require__(106));
+		elementorFrontend.hooks.addAction('frontend/element_ready/share-buttons.default', __webpack_require__(113));
 	}
 };
 
 /***/ }),
-/* 106 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var HandlerModule = elementorFrontend.Module,
-    ShareButtonsHandler;
-
-ShareButtonsHandler = HandlerModule.extend({
+var ShareButtonsHandler = elementorModules.frontend.handlers.Base.extend({
 	onInit: function onInit() {
-		HandlerModule.prototype.onInit.apply(this, arguments);
+		elementorModules.frontend.handlers.Base.prototype.onInit.apply(this, arguments);
 
 		var elementSettings = this.getElementSettings(),
 		    classes = this.getSettings('classes'),
@@ -4056,24 +5256,24 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 107 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	elementorFrontend.hooks.addAction('frontend/element_ready/slides.default', __webpack_require__(108));
+	elementorFrontend.hooks.addAction('frontend/element_ready/slides.default', __webpack_require__(115));
 };
 
 /***/ }),
-/* 108 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var SlidesHandler = elementorFrontend.Module.extend({
+var SlidesHandler = elementorModules.frontend.handlers.Base.extend({
 	getDefaultSettings: function getDefaultSettings() {
 		return {
 			selectors: {
@@ -4151,7 +5351,7 @@ var SlidesHandler = elementorFrontend.Module.extend({
 	},
 
 	onInit: function onInit() {
-		elementorFrontend.Module.prototype.onInit.apply(this, arguments);
+		elementorModules.frontend.handlers.Base.prototype.onInit.apply(this, arguments);
 
 		this.initSlider();
 
@@ -4172,13 +5372,13 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 109 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var facebookHandler = __webpack_require__(110);
+var facebookHandler = __webpack_require__(117);
 
 module.exports = function () {
 	elementorFrontend.hooks.addAction('frontend/element_ready/facebook-button.default', facebookHandler);
@@ -4188,7 +5388,7 @@ module.exports = function () {
 };
 
 /***/ }),
-/* 110 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4236,27 +5436,27 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 111 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-    elementorFrontend.hooks.addAction('frontend/element_ready/section', __webpack_require__(9));
-    elementorFrontend.hooks.addAction('frontend/element_ready/widget', __webpack_require__(9));
+    elementorFrontend.hooks.addAction('frontend/element_ready/section', __webpack_require__(10));
+    elementorFrontend.hooks.addAction('frontend/element_ready/widget', __webpack_require__(10));
 };
 
 /***/ }),
-/* 112 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	var PostsArchiveClassic = __webpack_require__(113),
-	    PostsArchiveCards = __webpack_require__(114);
+	var PostsArchiveClassic = __webpack_require__(120),
+	    PostsArchiveCards = __webpack_require__(121);
 
 	elementorFrontend.hooks.addAction('frontend/element_ready/archive-posts.archive_classic', function ($scope) {
 		new PostsArchiveClassic({ $element: $scope });
@@ -4279,7 +5479,7 @@ module.exports = function () {
 };
 
 /***/ }),
-/* 113 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4288,55 +5488,45 @@ module.exports = function () {
 var PostsClassicHandler = __webpack_require__(3);
 
 module.exports = PostsClassicHandler.extend({
-
-	getElementName: function getElementName() {
-		return 'archive-posts';
-	},
-
 	getSkinPrefix: function getSkinPrefix() {
 		return 'archive_classic_';
 	}
 });
 
 /***/ }),
-/* 114 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var PostsCardHandler = __webpack_require__(8);
+var PostsCardHandler = __webpack_require__(9);
 
 module.exports = PostsCardHandler.extend({
-
-	getElementName: function getElementName() {
-		return 'archive-posts';
-	},
-
 	getSkinPrefix: function getSkinPrefix() {
 		return 'archive_cards_';
 	}
 });
 
 /***/ }),
-/* 115 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-    elementorFrontend.hooks.addAction('frontend/element_ready/search-form.default', __webpack_require__(116));
+    elementorFrontend.hooks.addAction('frontend/element_ready/search-form.default', __webpack_require__(123));
 };
 
 /***/ }),
-/* 116 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var SearchBerHandler = elementorFrontend.Module.extend({
+var SearchBerHandler = elementorModules.frontend.handlers.Base.extend({
 
     getDefaultSettings: function getDefaultSettings() {
         return {
@@ -4434,14 +5624,14 @@ module.exports = function ($scope) {
 };
 
 /***/ }),
-/* 117 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	elementorFrontend.hooks.addAction('frontend/element_ready/woocommerce-menu-cart.default', __webpack_require__(118));
+	elementorFrontend.hooks.addAction('frontend/element_ready/woocommerce-menu-cart.default', __webpack_require__(125));
 
 	if (elementorFrontend.isEditMode()) {
 		return;
@@ -4455,13 +5645,13 @@ module.exports = function () {
 };
 
 /***/ }),
-/* 118 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var SearchBerHandler = elementorFrontend.Module.extend({
+var SearchBerHandler = elementorModules.frontend.handlers.Base.extend({
 
 	getDefaultSettings: function getDefaultSettings() {
 		return {

@@ -5,9 +5,11 @@ use Elementor\Controls_Manager;
 use Elementor\Core\Common\Modules\Ajax\Module as Ajax;
 use Elementor\Widget_Base;
 use ElementorPro\Base\Module_Base;
-use ElementorPro\Classes\Utils;
-use Elementor\Utils as ElementorUtils;
 use ElementorPro\Modules\QueryControl\Controls\Group_Control_Posts;
+use ElementorPro\Modules\QueryControl\Controls\Group_Control_Query;
+use ElementorPro\Modules\QueryControl\Controls\Group_Control_Related;
+use ElementorPro\Modules\QueryControl\Classes\Elementor_Post_Query;
+use ElementorPro\Modules\QueryControl\Classes\Elementor_Related_Query;
 use ElementorPro\Modules\QueryControl\Controls\Query;
 use ElementorPro\Plugin;
 
@@ -36,9 +38,13 @@ class Module extends Module_Base {
 	}
 
 	/**
+	 * @deprecated use Group_Control_Query capabilities
+	 *
 	 * @param Widget_Base $widget
 	 */
 	public static function add_exclude_controls( $widget ) {
+		// _deprecated_function( __METHOD__, '2.5.0', 'class Group_Control_Query' );
+
 		$widget->add_control(
 			'exclude',
 			[
@@ -113,13 +119,13 @@ class Module extends Module_Base {
 				foreach ( $terms as $term ) {
 					$term_name = $this->get_term_name_with_parents( $term );
 					if ( ! empty( $data['include_type'] ) ) {
-						$text = $wp_taxonomies[ $term->taxonomy ]->labels->singular_name . ': ' . $term_name;
+						$text = $wp_taxonomies[ $term->taxonomy ]->labels->name . ': ' . $term_name;
 					} else {
 						$text = $term_name;
 					}
 
 					$results[] = [
-						'id' => $term->term_id,
+						'id' => $term->term_taxonomy_id,
 						'text' => $text,
 					];
 				}
@@ -143,7 +149,7 @@ class Module extends Module_Base {
 				foreach ( $query->posts as $post ) {
 					$post_type_obj = get_post_type_object( $post->post_type );
 					if ( ! empty( $data['include_type'] ) ) {
-						$text = $post_type_obj->labels->singular_name . ': ' . $post->post_title;
+						$text = $post_type_obj->labels->name . ': ' . $post->post_title;
 					} else {
 						$text = ( $post_type_obj->hierarchical ) ? $this->get_post_name_with_parents( $post ) : $post->post_title;
 					}
@@ -181,7 +187,7 @@ class Module extends Module_Base {
 				break;
 			default:
 				$results = apply_filters( 'elementor_pro/query_control/get_autocomplete/' . $data['filter_type'], [], $data );
-		} // End switch().
+		}
 
 		return [
 			'results' => $results,
@@ -202,8 +208,15 @@ class Module extends Module_Base {
 					]
 				);
 
+				global $wp_taxonomies;
 				foreach ( $terms as $term ) {
-					$results[ $term->term_id ] = $term->name;
+					$term_name = $this->get_term_name_with_parents( $term );
+					if ( ! empty( $request['include_type'] ) ) {
+						$text = $wp_taxonomies[ $term->taxonomy ]->labels->name . ': ' . $term_name;
+					} else {
+						$text = $term_name;
+					}
+					$results[ $term->term_taxonomy_id ] = $text;
 				}
 				break;
 
@@ -251,6 +264,10 @@ class Module extends Module_Base {
 
 		$controls_manager->add_group_control( Group_Control_Posts::get_type(), new Group_Control_Posts() );
 
+		$controls_manager->add_group_control( Group_Control_Query::get_type(), new Group_Control_Query() );
+
+		$controls_manager->add_group_control( Group_Control_Related::get_type(), new Group_Control_Related() );
+
 		$controls_manager->register_control( self::QUERY_CONTROL_ID, new Query() );
 	}
 
@@ -278,7 +295,7 @@ class Module extends Module_Base {
 		$test_term = $term;
 		$names = [];
 		while ( $test_term->parent > 0 ) {
-			$test_term = get_term_by( 'id', $test_term->parent, $test_term->taxonomy );
+			$test_term = get_term_by( 'term_taxonomy_id', $test_term->parent, $test_term->taxonomy );
 			if ( ! $test_term ) {
 				break;
 			}
@@ -331,114 +348,47 @@ class Module extends Module_Base {
 		return $name_string . '...' . $separator . $post->post_title;
 	}
 
-	public static function get_query_args( $control_id, $settings ) {
-		$defaults = [
-			$control_id . '_post_type' => 'post',
-			$control_id . '_posts_ids' => [],
-			'orderby' => 'date',
-			'order' => 'desc',
-			'posts_per_page' => 3,
-			'offset' => 0,
-		];
+	/**
+	 * @deprecated use Elementor_Post_Query capabilities
+	 *
+	 * @param string $control_id
+	 * @param array $settings
+	 *
+	 * @return array
+	 */
+	public function get_query_args( $control_id, $settings ) {
+		// _deprecated_function( __METHOD__, '2.5.0', 'class Elementor_Post_Query' );
 
-		$settings = wp_parse_args( $settings, $defaults );
+		$controls_manager = Plugin::elementor()->controls_manager;
 
-		$post_type = $settings[ $control_id . '_post_type' ];
+		/** @var Group_Control_Posts $posts_query */
+		$posts_query = $controls_manager->get_control_groups( Group_Control_Posts::get_type() );
 
-		if ( 'current_query' === $post_type ) {
-			$current_query_vars = $GLOBALS['wp_query']->query_vars;
-
-			/**
-			 * Current query variables.
-			 *
-			 * Filters the query variables for the current query.
-			 *
-			 * @since 1.0.0
-			 *
-			 * @param array $current_query_vars Current query variables.
-			 */
-			$current_query_vars = apply_filters( 'elementor_pro/query_control/get_query_args/current_query', $current_query_vars );
-
-			return $current_query_vars;
-		}
-
-		$query_args = [
-			'orderby' => $settings['orderby'],
-			'order' => $settings['order'],
-			'ignore_sticky_posts' => 1,
-			'post_status' => 'publish', // Hide drafts/private posts for admins
-		];
-
-		if ( 'by_id' === $post_type ) {
-			$post_types = Utils::get_public_post_types();
-
-			$query_args['post_type'] = array_keys( $post_types );
-			$query_args['posts_per_page'] = -1;
-
-			$query_args['post__in'] = $settings[ $control_id . '_posts_ids' ];
-
-			if ( empty( $query_args['post__in'] ) ) {
-				// If no selection - return an empty query
-				$query_args['post__in'] = [ 0 ];
-			}
-		} else {
-			$query_args['post_type'] = $post_type;
-			$query_args['posts_per_page'] = $settings['posts_per_page'];
-			$query_args['tax_query'] = [];
-
-			if ( 0 < $settings['offset'] ) {
-				/**
-				 * Due to a WordPress bug, the offset will be set later, in $this->fix_query_offset()
-				 * @see https://codex.wordpress.org/Making_Custom_Queries_using_Offset_and_Pagination
-				 */
-				$query_args['offset_to_fix'] = $settings['offset'];
-			}
-
-			$taxonomies = get_object_taxonomies( $post_type, 'objects' );
-
-			foreach ( $taxonomies as $object ) {
-				$setting_key = $control_id . '_' . $object->name . '_ids';
-
-				if ( ! empty( $settings[ $setting_key ] ) ) {
-					$query_args['tax_query'][] = [
-						'taxonomy' => $object->name,
-						'field' => 'term_id',
-						'terms' => $settings[ $setting_key ],
-					];
-				}
-			}
-		}
-
-		if ( ! empty( $settings[ $control_id . '_authors' ] ) ) {
-			$query_args['author__in'] = $settings[ $control_id . '_authors' ];
-		}
-
-		$post__not_in = [];
-		if ( ! empty( $settings['exclude'] ) ) {
-			if ( in_array( 'current_post', $settings['exclude'] ) ) {
-				if ( ElementorUtils::is_ajax() && ! empty( $_REQUEST['post_id'] ) ) {
-					$post__not_in[] = $_REQUEST['post_id'];
-				} elseif ( is_singular() ) {
-					$post__not_in[] = get_queried_object_id();
-				}
-			}
-
-			if ( in_array( 'manual_selection', $settings['exclude'] ) && ! empty( $settings['exclude_ids'] ) ) {
-				$post__not_in = array_merge( $post__not_in, $settings['exclude_ids'] );
-			}
-		}
-
-		if ( ! empty( $settings['avoid_duplicates'] ) && 'yes' === $settings['avoid_duplicates'] ) {
-			$post__not_in = array_merge( $post__not_in, self::$displayed_ids );
-		}
-
-		$query_args['post__not_in'] = $post__not_in;
-
-		return $query_args;
+		return $posts_query->get_query_args( $control_id, $settings );
 	}
 
 	/**
-	 * @param \WP_Query $query
+	 * @param \ElementorPro\Base\Base_Widget $widget
+	 * @param string $name
+	 * @param array $query_args
+	 * @param array $fallback_args
+	 *
+	 * @return \WP_Query
+	 */
+	public function get_query( $widget, $name, $query_args = [], $fallback_args = [] ) {
+		$prefix = $name . '_';
+		$post_type = $widget->get_settings( $prefix . 'post_type' );
+		if ( 'related' === $post_type ) {
+			$elementor_query = new Elementor_Related_Query( $widget, $name, $query_args, $fallback_args );
+		} else {
+			$elementor_query = new Elementor_Post_Query( $widget, $name, $query_args );
+		}
+		return $elementor_query->get_query();
+	}
+
+	/**
+	 * @deprecated 2.5.0
+	 * @param \WP_Query &$query
 	 */
 	public function fix_query_offset( &$query ) {
 		if ( ! empty( $query->query_vars['offset_to_fix'] ) ) {
@@ -451,12 +401,14 @@ class Module extends Module_Base {
 	}
 
 	/**
+	 * @deprecated 2.5.0
+	 *
 	 * @param int       $found_posts
 	 * @param \WP_Query $query
 	 *
 	 * @return mixed
 	 */
-	public function fix_query_found_posts( $found_posts, $query ) {
+	public static function fix_query_found_posts( $found_posts, $query ) {
 		$offset_to_fix = $query->get( 'offset_to_fix' );
 
 		if ( $offset_to_fix ) {

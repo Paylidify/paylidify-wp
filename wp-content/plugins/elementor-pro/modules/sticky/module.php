@@ -2,7 +2,7 @@
 namespace ElementorPro\Modules\Sticky;
 
 use Elementor\Controls_Manager;
-use Elementor\Controls_Stack;
+use Elementor\Element_Base;
 use Elementor\Widget_Base;
 use ElementorPro\Base\Module_Base;
 
@@ -12,12 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Module extends Module_Base {
 
-	private $is_prior_to_250;
-
 	public function __construct() {
 		parent::__construct();
-
-		$this->is_prior_to_250 = version_compare( ELEMENTOR_VERSION, '2.5.0', '<' );
 
 		$this->add_actions();
 	}
@@ -26,17 +22,7 @@ class Module extends Module_Base {
 		return 'sticky';
 	}
 
-	public function register_controls( Controls_Stack $element ) {
-		if ( $this->is_prior_to_250 ) {
-			$element->start_controls_section(
-				'section_scrolling_effect',
-				[
-					'label' => __( 'Scrolling Effect', 'elementor-pro' ),
-					'tab' => Controls_Manager::TAB_ADVANCED,
-				]
-			);
-		}
-
+	public function register_controls( Element_Base $element ) {
 		$element->add_control(
 			'sticky',
 			[
@@ -47,6 +33,7 @@ class Module extends Module_Base {
 					'top' => __( 'Top', 'elementor-pro' ),
 					'bottom' => __( 'Bottom', 'elementor-pro' ),
 				],
+				'separator' => 'before',
 				'render_type' => 'none',
 				'frontend_available' => true,
 			]
@@ -122,18 +109,16 @@ class Module extends Module_Base {
 			);
 		}
 
-		if ( $this->is_prior_to_250 ) {
-			$element->end_controls_section();
-		}
+		$element->add_control(
+			'sticky_divider',
+			[
+				'type' => Controls_Manager::DIVIDER,
+			]
+		);
 	}
 
 	private function add_actions() {
-		if ( $this->is_prior_to_250 ) {
-			add_action( 'elementor/element/section/section_advanced/after_section_end', [ $this, 'register_controls' ] );
-			add_action( 'elementor/element/common/_section_style/after_section_end', [ $this, 'register_controls' ] );
-		} else {
-			add_action( 'elementor/element/section/section_effects/after_section_start', [ $this, 'register_controls' ] );
-			add_action( 'elementor/element/common/section_effects/after_section_start', [ $this, 'register_controls' ] );
-		}
+		add_action( 'elementor/element/section/section_effects/after_section_start', [ $this, 'register_controls' ] );
+		add_action( 'elementor/element/common/section_effects/after_section_start', [ $this, 'register_controls' ] );
 	}
 }

@@ -194,7 +194,7 @@ class Plugin {
 		 */
 		$locale_settings = apply_filters( 'elementor_pro/frontend/localize_settings', $locale_settings );
 
-		wp_localize_script(
+		Utils::print_js_config(
 			'elementor-pro-frontend',
 			'ElementorProFrontendConfig',
 			$locale_settings
@@ -247,7 +247,7 @@ class Plugin {
 		 */
 		$locale_settings = apply_filters( 'elementor_pro/editor/localize_settings', $locale_settings );
 
-		wp_localize_script(
+		Utils::print_js_config(
 			'elementor-pro',
 			'ElementorProConfig',
 			$locale_settings

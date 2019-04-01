@@ -1,11 +1,13 @@
 <?php
 namespace ElementorPro\Core\Upgrade;
 
+use Elementor\Core\Upgrade\Manager as Upgrades_Manager;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Manager extends \Elementor\Core\Upgrade\Manager {
+class Manager extends Upgrades_Manager {
 
 	public function get_action() {
 		return 'elementor_pro_updater';

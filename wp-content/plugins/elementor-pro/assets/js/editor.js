@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.4.8 - 11-03-2019 */
+/*! elementor-pro - v2.5.3 - 31-03-2019 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -82,7 +82,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -216,13 +216,14 @@ module.exports = elementorModules.editor.utils.Module.extend({
 /* 7 */,
 /* 8 */,
 /* 9 */,
-/* 10 */
+/* 10 */,
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _editor = __webpack_require__(11);
+var _editor = __webpack_require__(12);
 
 var _editor2 = _interopRequireDefault(_editor);
 
@@ -234,16 +235,16 @@ var ElementorPro = Marionette.Application.extend({
 	modules: {},
 
 	initModules: function initModules() {
-		var QueryControl = __webpack_require__(13),
-		    Forms = __webpack_require__(15),
-		    Library = __webpack_require__(31),
-		    CustomCSS = __webpack_require__(33),
-		    GlobalWidget = __webpack_require__(35),
-		    FlipBox = __webpack_require__(41),
-		    ShareButtons = __webpack_require__(42),
-		    AssetsManager = __webpack_require__(43),
-		    ThemeElements = __webpack_require__(45),
-		    ThemeBuilder = __webpack_require__(47);
+		var QueryControl = __webpack_require__(14),
+		    Forms = __webpack_require__(16),
+		    Library = __webpack_require__(32),
+		    CustomCSS = __webpack_require__(34),
+		    GlobalWidget = __webpack_require__(36),
+		    FlipBox = __webpack_require__(42),
+		    ShareButtons = __webpack_require__(43),
+		    AssetsManager = __webpack_require__(44),
+		    ThemeElements = __webpack_require__(46),
+		    ThemeBuilder = __webpack_require__(48);
 
 		this.modules = {
 			queryControl: new QueryControl(),
@@ -306,7 +307,7 @@ window.elementorPro = new ElementorPro();
 elementorPro.start();
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -318,7 +319,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _displaySettings = __webpack_require__(12);
+var _displaySettings = __webpack_require__(13);
 
 var _displaySettings2 = _interopRequireDefault(_displaySettings);
 
@@ -533,7 +534,7 @@ var _class = function (_elementorModules$edi) {
 exports.default = _class;
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -656,7 +657,7 @@ var _class = function (_elementorModules$edi) {
 exports.default = _class;
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -664,12 +665,12 @@ exports.default = _class;
 
 module.exports = elementorModules.editor.utils.Module.extend({
 	onElementorPreviewLoaded: function onElementorPreviewLoaded() {
-		elementor.addControlView('Query', __webpack_require__(14));
+		elementor.addControlView('Query', __webpack_require__(15));
 	}
 });
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -742,6 +743,7 @@ module.exports = elementor.modules.controls.Select2.extend({
 			data: {
 				filter_type: filterType,
 				object_type: self.model.get('object_type'),
+				include_type: self.model.get('include_type'),
 				unique_id: '' + self.cid + filterType
 			},
 			before: function before() {
@@ -773,7 +775,7 @@ module.exports = elementor.modules.controls.Select2.extend({
 });
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -781,15 +783,15 @@ module.exports = elementor.modules.controls.Select2.extend({
 
 module.exports = elementorModules.editor.utils.Module.extend({
 	onElementorInit: function onElementorInit() {
-		var ReplyToField = __webpack_require__(16),
-		    Recaptcha = __webpack_require__(17),
-		    Shortcode = __webpack_require__(18),
-		    MailerLite = __webpack_require__(19),
-		    Mailchimp = __webpack_require__(20),
-		    Drip = __webpack_require__(21),
-		    ActiveCampaign = __webpack_require__(22),
-		    GetResponse = __webpack_require__(23),
-		    ConvertKit = __webpack_require__(24);
+		var ReplyToField = __webpack_require__(17),
+		    Recaptcha = __webpack_require__(18),
+		    Shortcode = __webpack_require__(19),
+		    MailerLite = __webpack_require__(20),
+		    Mailchimp = __webpack_require__(21),
+		    Drip = __webpack_require__(22),
+		    ActiveCampaign = __webpack_require__(23),
+		    GetResponse = __webpack_require__(24),
+		    ConvertKit = __webpack_require__(25);
 
 		this.replyToField = new ReplyToField();
 		this.mailchimp = new Mailchimp('form');
@@ -802,11 +804,11 @@ module.exports = elementorModules.editor.utils.Module.extend({
 		this.mailerlite = new MailerLite('form');
 
 		// Form fields
-		var TimeField = __webpack_require__(25),
-		    DateField = __webpack_require__(26),
-		    AcceptanceField = __webpack_require__(27),
-		    UploadField = __webpack_require__(28),
-		    TelField = __webpack_require__(29);
+		var TimeField = __webpack_require__(26),
+		    DateField = __webpack_require__(27),
+		    AcceptanceField = __webpack_require__(28),
+		    UploadField = __webpack_require__(29),
+		    TelField = __webpack_require__(30);
 
 		this.Fields = {
 			time: new TimeField('form'),
@@ -816,12 +818,12 @@ module.exports = elementorModules.editor.utils.Module.extend({
 			upload: new UploadField('form')
 		};
 
-		elementor.addControlView('Fields_map', __webpack_require__(30));
+		elementor.addControlView('Fields_map', __webpack_require__(31));
 	}
 });
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -855,7 +857,7 @@ module.exports = function () {
 
 		emailFields = _.map(emailModels, function (model) {
 			return {
-				id: model.get('_id'),
+				id: model.get('custom_id'),
 				label: elementorPro.translate('x_field', [model.get('field_label')])
 			};
 		});
@@ -877,7 +879,7 @@ module.exports = function () {
 
 	var onFormFieldsChange = function onFormFieldsChange(changedModel) {
 		// If it's repeater field
-		if (changedModel.get('_id')) {
+		if (changedModel.get('custom_id')) {
 			if ('email' === changedModel.get('field_type')) {
 				updateReplyToOptions();
 			}
@@ -912,7 +914,7 @@ module.exports = function () {
 };
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -950,7 +952,7 @@ module.exports = elementorModules.editor.utils.Module.extend({
 });
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -959,95 +961,119 @@ module.exports = elementorModules.editor.utils.Module.extend({
 var ElementEditorModule = __webpack_require__(4);
 
 module.exports = ElementEditorModule.extend({
+	lastRemovedModelId: false,
+	collectionEventsAttached: false,
+
+	formFieldEvents: {
+		ADD: 'add',
+		SORT: 'sort',
+		DUPLICATE: 'duplicate',
+		CHANGE: 'change'
+	},
+
 	getExistId: function getExistId(id) {
 		var exist = this.getEditorControlView('form_fields').collection.filter(function (model) {
-			return id === model.get('_id');
+			return id === model.get('custom_id');
 		});
 
 		return exist.length > 1;
 	},
-
 	getFormFieldsView: function getFormFieldsView() {
 		return this.getEditorControlView('form_fields');
 	},
-
-	onFieldAdded: function onFieldAdded(model) {
-		this.updateIdAndShortcode(model, true);
+	onFieldUpdate: function onFieldUpdate(collection, update) {
+		if (!update.add) {
+			return;
+		}
+		var event = this.formFieldEvents.ADD;
+		var addedModel = update.changes.added[0];
+		if (update.at) {
+			if (this.lastRemovedModelId && addedModel.attributes.custom_id === this.lastRemovedModelId) {
+				event = this.formFieldEvents.SORT;
+			} else {
+				event = this.formFieldEvents.DUPLICATE;
+			}
+			this.lastRemovedModelId = false;
+		}
+		this.updateIdAndShortcode(addedModel, event);
 	},
-
 	onFieldChanged: function onFieldChanged(model) {
-		if (!_.isUndefined(model.changed._id)) {
-			this.updateIdAndShortcode(model, false);
+		if (!_.isUndefined(model.changed.custom_id)) {
+			this.updateIdAndShortcode(model, this.formFieldEvents.CHANGE);
 		}
 	},
-
-	onFieldRemoved: function onFieldRemoved() {
+	onFieldRemoved: function onFieldRemoved(model) {
+		this.lastRemovedModelId = model.attributes.custom_id;
 		this.getFormFieldsView().children.each(this.updateShortcode);
 	},
+	updateIdAndShortcode: function updateIdAndShortcode(model, event) {
+		var _this = this;
 
-	updateIdAndShortcode: function updateIdAndShortcode(model, isNewItem) {
-		var self = this,
-		    view = this.getFormFieldsView().children.findByModel(model);
+		var view = this.getFormFieldsView().children.findByModel(model);
 
 		_.defer(function () {
-			self.updateId(view, isNewItem);
-			self.updateShortcode(view);
+			_this.updateId(view, event);
+			_this.updateShortcode(view);
 		});
 	},
-
-	updateId: function updateId(view, isNewItem) {
-		var id = view.model.get('_id'),
+	getFieldId: function getFieldId(model, event) {
+		if (event === this.formFieldEvents.ADD || event === this.formFieldEvents.DUPLICATE) {
+			return model.get('_id');
+		}
+		var customId = model.get('custom_id');
+		return customId ? customId : model.get('_id');
+	},
+	updateId: function updateId(view, event) {
+		var id = this.getFieldId(view.model, event),
 		    sanitizedId = id.replace(/[^\w]/, '_'),
 		    fieldIndex = 1,
-		    IdView = view.children.filter(function (childrenView) {
-			return '_id' === childrenView.model.get('name');
+		    isNew = event === this.formFieldEvents.ADD || event === this.formFieldEvents.DUPLICATE;
+		var IdView = view.children.filter(function (childrenView) {
+			return 'custom_id' === childrenView.model.get('name');
 		});
 
-		while (sanitizedId !== id || isNewItem || !id || this.getExistId(id)) {
+		while (sanitizedId !== id || this.getExistId(id) || isNew) {
 			if (sanitizedId !== id) {
 				id = sanitizedId;
-			} else {
+			} else if (isNew || this.getExistId(id)) {
 				id = 'field_' + fieldIndex;
 				sanitizedId = id;
 			}
 
-			view.model.attributes._id = id;
+			view.model.attributes.custom_id = id;
 			IdView[0].render();
 			IdView[0].$el.find('input').focus();
 			fieldIndex++;
-			isNewItem = false;
+			isNew = false;
 		}
 	},
-
 	updateShortcode: function updateShortcode(view) {
 		var template = _.template('[field id="<%= id %>"]')({
 			title: view.model.get('field_label'),
-			id: view.model.get('_id')
+			id: view.model.get('custom_id')
 		});
 
 		view.$el.find('.elementor-form-field-shortcode').focus(function () {
 			this.select();
 		}).val(template);
 	},
-
 	onSectionActive: function onSectionActive() {
 		var controlView = this.getEditorControlView('form_fields');
 
 		controlView.children.each(this.updateShortcode);
 
-		if (!this.collectionEventsAttached) {
-			controlView.collection.on('add', this.onFieldAdded).on('change', this.onFieldChanged).on('remove', this.onFieldRemoved);
-			this.collectionEventsAttached = true;
+		if (!controlView.collection.shortcodeEventsAttached) {
+			controlView.collection.on('change', this.onFieldChanged).on('update', this.onFieldUpdate).on('remove', this.onFieldRemoved);
+			controlView.collection.shortcodeEventsAttached = true;
 		}
 	},
-
 	onInit: function onInit() {
 		this.addSectionListener('section_form_fields', this.onSectionActive);
 	}
 });
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1182,7 +1208,7 @@ module.exports = BaseIntegrationModule.extend({
 });
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1275,7 +1301,7 @@ module.exports = BaseIntegrationModule.extend({
 });
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1358,7 +1384,7 @@ module.exports = BaseIntegrationModule.extend({
 });
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1473,7 +1499,7 @@ module.exports = BaseIntegrationModule.extend({
 });
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1562,7 +1588,7 @@ module.exports = BaseIntegrationModule.extend({
 });
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1652,7 +1678,7 @@ module.exports = BaseIntegrationModule.extend({
 });
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1686,7 +1712,7 @@ module.exports = elementorModules.editor.utils.Module.extend({
 });
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1730,7 +1756,7 @@ module.exports = elementorModules.editor.utils.Module.extend({
 });
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1765,7 +1791,7 @@ module.exports = elementorModules.editor.utils.Module.extend({
 });
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1796,7 +1822,7 @@ module.exports = elementorModules.editor.utils.Module.extend({
 });
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1828,7 +1854,7 @@ module.exports = elementorModules.editor.utils.Module.extend({
 });
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1888,7 +1914,7 @@ module.exports = elementor.modules.controls.Repeater.extend({
 					return;
 				}
 
-				options[model.get('_id')] = model.get('field_label') || 'Field #' + (index + 1);
+				options[model.get('custom_id')] = model.get('field_label') || 'Field #' + (index + 1);
 			});
 
 			localFieldsControl.model.set('label', label);
@@ -1910,7 +1936,7 @@ module.exports = elementor.modules.controls.Repeater.extend({
 });
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1918,13 +1944,13 @@ module.exports = elementor.modules.controls.Repeater.extend({
 
 module.exports = elementorModules.editor.utils.Module.extend({
 	onElementorPreviewLoaded: function onElementorPreviewLoaded() {
-		var EditButton = __webpack_require__(32);
+		var EditButton = __webpack_require__(33);
 		this.editButton = new EditButton();
 	}
 });
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1975,7 +2001,7 @@ module.exports = function () {
 };
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1983,13 +2009,13 @@ module.exports = function () {
 
 module.exports = elementorModules.editor.utils.Module.extend({
 	onElementorInit: function onElementorInit() {
-		var CustomCss = __webpack_require__(34);
+		var CustomCss = __webpack_require__(35);
 		this.customCss = new CustomCss();
 	}
 });
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2031,7 +2057,7 @@ module.exports = function () {
 };
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2077,7 +2103,7 @@ module.exports = elementorModules.editor.utils.Module.extend({
 	setWidgetType: function setWidgetType() {
 		elementor.hooks.addFilter('element/view', function (DefaultView, model) {
 			if (model.get('templateID')) {
-				return __webpack_require__(36);
+				return __webpack_require__(37);
 			}
 
 			return DefaultView;
@@ -2085,7 +2111,7 @@ module.exports = elementorModules.editor.utils.Module.extend({
 
 		elementor.hooks.addFilter('element/model', function (DefaultModel, attrs) {
 			if (attrs.templateID) {
-				return __webpack_require__(37);
+				return __webpack_require__(38);
 			}
 
 			return DefaultModel;
@@ -2121,7 +2147,7 @@ module.exports = elementorModules.editor.utils.Module.extend({
 
 		elementor.hooks.addFilter('panel/elements/regionViews', function (regionViews) {
 			_.extend(regionViews.global, {
-				view: __webpack_require__(38),
+				view: __webpack_require__(39),
 				options: {
 					collection: self.panelWidgets
 				}
@@ -2133,7 +2159,7 @@ module.exports = elementorModules.editor.utils.Module.extend({
 
 	addPanelPage: function addPanelPage() {
 		elementor.getPanelView().addPage('globalWidget', {
-			view: __webpack_require__(40)
+			view: __webpack_require__(41)
 		});
 	},
 
@@ -2278,7 +2304,7 @@ module.exports = elementorModules.editor.utils.Module.extend({
 });
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2400,7 +2426,7 @@ GlobalWidgetView = WidgetView.extend({
 module.exports = GlobalWidgetView;
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2469,7 +2495,7 @@ module.exports = elementor.modules.elements.models.Element.extend({
 });
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2483,14 +2509,14 @@ module.exports = elementor.modules.layouts.panel.pages.elements.views.Elements.e
 			return null;
 		}
 
-		return __webpack_require__(39);
+		return __webpack_require__(40);
 	},
 
 	onFilterEmpty: function onFilterEmpty() {}
 });
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2507,7 +2533,7 @@ module.exports = GlobalWidgetsView.extend({
 });
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2598,7 +2624,7 @@ module.exports = Marionette.ItemView.extend({
 });
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2635,7 +2661,7 @@ module.exports = elementorModules.editor.utils.Module.extend({
 });
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2664,7 +2690,7 @@ module.exports = elementorModules.editor.utils.Module.extend({
 });
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2672,7 +2698,7 @@ module.exports = elementorModules.editor.utils.Module.extend({
 
 module.exports = elementorModules.editor.utils.Module.extend({
 	onElementorInit: function onElementorInit() {
-		var FontsManager = __webpack_require__(44);
+		var FontsManager = __webpack_require__(45);
 
 		this.assets = {
 			font: new FontsManager()
@@ -2681,7 +2707,7 @@ module.exports = elementorModules.editor.utils.Module.extend({
 });
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2739,7 +2765,7 @@ module.exports = elementorModules.Module.extend({
 });
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2747,13 +2773,13 @@ module.exports = elementorModules.Module.extend({
 
 module.exports = elementorModules.editor.utils.Module.extend({
 	onElementorPreviewLoaded: function onElementorPreviewLoaded() {
-		var CommentsSkin = __webpack_require__(46);
+		var CommentsSkin = __webpack_require__(47);
 		this.commentsSkin = new CommentsSkin();
 	}
 });
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2779,17 +2805,17 @@ module.exports = function () {
 };
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _layout = __webpack_require__(48);
+var _layout = __webpack_require__(49);
 
 var _layout2 = _interopRequireDefault(_layout);
 
-var _view = __webpack_require__(50);
+var _view = __webpack_require__(51);
 
 var _view2 = _interopRequireDefault(_view);
 
@@ -2804,7 +2830,7 @@ module.exports = elementorModules.editor.utils.Module.extend({
 
 		elementor.channels.editor.on('page_settings:preview_settings:activated', this.onSectionPreviewSettingsActive);
 
-		elementor.addControlView('Conditions_repeater', __webpack_require__(52));
+		elementor.addControlView('Conditions_repeater', __webpack_require__(53));
 
 		elementor.hooks.addFilter('panel/footer/behaviors', this.addFooterBehavior);
 
@@ -2815,7 +2841,7 @@ module.exports = elementorModules.editor.utils.Module.extend({
 
 	addFooterBehavior: function addFooterBehavior(behaviors) {
 		behaviors.saver = {
-			behaviorClass: __webpack_require__(54)
+			behaviorClass: __webpack_require__(55)
 		};
 
 		return behaviors;
@@ -2987,7 +3013,7 @@ module.exports = elementorModules.editor.utils.Module.extend({
 });
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3001,7 +3027,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-var _content = __webpack_require__(49);
+var _content = __webpack_require__(50);
 
 var _content2 = _interopRequireDefault(_content);
 
@@ -3143,7 +3169,7 @@ var _class = function (_elementorModules$com) {
 exports.default = _class;
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3262,13 +3288,13 @@ var _class = function (_Marionette$LayoutVie) {
 exports.default = _class;
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var inlineControlsStack = __webpack_require__(51);
+var inlineControlsStack = __webpack_require__(52);
 
 module.exports = inlineControlsStack.extend({
 	id: 'elementor-theme-builder-conditions-view',
@@ -3285,7 +3311,7 @@ module.exports = inlineControlsStack.extend({
 });
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3318,13 +3344,13 @@ module.exports = elementorModules.editor.views.ControlsStack.extend({
 });
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _repeaterRow = __webpack_require__(53);
+var _repeaterRow = __webpack_require__(54);
 
 var _repeaterRow2 = _interopRequireDefault(_repeaterRow);
 
@@ -3417,7 +3443,7 @@ module.exports = elementor.modules.controls.Repeater.extend({
 });
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3582,7 +3608,7 @@ module.exports = elementor.modules.controls.RepeaterRow.extend({
 });
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3628,7 +3654,7 @@ module.exports = SaverBehavior.extend({
 		this.ui.menuConditions = this.view.addSubMenuItem('saver-options', {
 			before: 'save-template',
 			name: 'conditions',
-			icon: 'fa fa-paper-plane',
+			icon: 'eicon-flow',
 			title: elementorPro.translate('display_conditions'),
 			callback: function callback() {
 				return elementorPro.modules.themeBuilder.showPublishModal();

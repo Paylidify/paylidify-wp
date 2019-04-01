@@ -1,4 +1,4 @@
-/*! elementor - v2.5.5 - 11-03-2019 */
+/*! elementor - v2.5.11 - 31-03-2019 */
 @charset "UTF-8";
 *, :before, :after {
   margin: 0;
@@ -2009,18 +2009,46 @@ select {
   .elementor-control-type-section + .elementor-control:not(.elementor-control-type-section):before {
     display: none; }
 
-.elementor-control-type-slider--multiple .elementor-slider {
-  margin-top: 15px; }
+.elementor-control-type-slider--multiple {
+  margin-bottom: 14px; }
+  .elementor-control-type-slider--multiple .elementor-slider {
+    margin-top: 12px;
+    width: 98%; }
 
-.elementor-control-type-slider--multiple .elementor-control-title {
-  margin-bottom: 10px; }
+.elementor-control-type-slider--handles-range .elementor-slider .noUi-handle {
+  -webkit-border-radius: 0;
+          border-radius: 0;
+  width: 10px;
+  -webkit-transform: translateY(calc(50% - 14px)) translateX(4px);
+      -ms-transform: translateY(calc(50% - 14px)) translateX(4px);
+          transform: translateY(calc(50% - 14px)) translateX(4px); }
+  .elementor-control-type-slider--handles-range .elementor-slider .noUi-handle:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    height: 12px;
+    width: 11px;
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+    background-color: #fff;
+    -webkit-border-radius: 3px;
+            border-radius: 3px; }
+  .elementor-control-type-slider--handles-range .elementor-slider .noUi-handle-lower:after {
+    left: 5px;
+    -webkit-box-shadow: 2px -2px 3px 0px rgba(0, 0, 0, 0.1);
+            box-shadow: 2px -2px 3px 0px rgba(0, 0, 0, 0.1); }
+  .elementor-control-type-slider--handles-range .elementor-slider .noUi-handle-upper:after {
+    right: 5px;
+    -webkit-box-shadow: -2px 2px 3px 0px rgba(0, 0, 0, 0.1);
+            box-shadow: -2px 2px 3px 0px rgba(0, 0, 0, 0.1); }
 
 .elementor-control-type-slider:not(.elementor-control-type-slider--multiple) .elementor-slider {
   display: inline-block;
   width: 70%; }
 
 .elementor-slider {
-  margin: 10px 0;
+  margin: 10px auto;
   height: 4px;
   background-color: #d5dadf;
   -webkit-border-radius: 5px;
@@ -2044,12 +2072,10 @@ select {
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
-            justify-content: space-between;
-    width: calc(100% + 16px);
-    margin-left: -8px; }
+            justify-content: space-between; }
   .elementor-slider__label {
-    font-size: 10px;
-    color: #a4afb7; }
+    font-size: 9px;
+    color: #c2cbd2; }
   .elementor-slider__scales {
     position: absolute;
     display: -webkit-box;
@@ -2061,11 +2087,11 @@ select {
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
     width: 100%;
-    margin-top: 7px; }
+    margin-top: 4px; }
   .elementor-slider__scale {
     width: 1px;
-    height: 20px;
-    background-color: #6d7882; }
+    height: 21px;
+    background-color: #a4afb7; }
   .elementor-slider .noUi-handle {
     height: 16px;
     width: 16px;
@@ -2075,8 +2101,8 @@ select {
         -ms-transform: translateY(calc(50% - 14px)) translateX(8px);
             transform: translateY(calc(50% - 14px)) translateX(8px);
     position: absolute;
-    -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.1);
-            box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
     -webkit-border-radius: 50%;
             border-radius: 50%; }
   .elementor-slider .noUi-connects {
@@ -2097,12 +2123,12 @@ select {
     background-color: #a4afb7; }
   .elementor-slider .noUi-tooltip {
     position: absolute;
-    top: calc(100% + 3px);
-    left: 50%;
+    top: calc(100% + 5px);
+    left: calc(50% - 4px);
     -webkit-transform: translateX(-50%);
         -ms-transform: translateX(-50%);
             transform: translateX(-50%);
-    font-size: 11px; }
+    font-size: 10px; }
 
 .elementor-control-type-structure .elementor-control-structure-preset {
   border: 1px solid #e6e9ec;
@@ -3442,12 +3468,19 @@ label.elementor-template-library-order-label {
 .elementor-template-library-blank-title {
   font-size: 30px;
   margin-top: 40px; }
+  @media (max-width: 1439px) {
+    .elementor-template-library-blank-title {
+      font-size: 25px; } }
 
 .elementor-template-library-blank-message {
   font-size: 18px;
   color: #a4afb7;
-  margin-top: 25px;
+  margin-top: 15px;
   font-weight: 300; }
+  @media (max-width: 1439px) {
+    .elementor-template-library-blank-message {
+      font-size: 16px;
+      margin-top: 10px; } }
 
 #elementor-template-library-save-template-form {
   margin-top: 40px;

@@ -1753,135 +1753,135 @@ body.rtl.woocommerce-page div.product .elementor-widget-woocommerce-product-imag
 .elementor-product-rating--align-justify .woocommerce-product-rating .woocommerce-review-link {
   margin-left: auto; }
 
-.elementor-element.elementor-wc-products ul.products {
+.elementor-element.elementor-products-grid ul.products {
   grid-template-columns: repeat(4, 1fr); }
 
 @media (max-width: ELEMENTOR_SCREEN_MD_MAX) {
-  .elementor-element.elementor-wc-products ul.products {
+  .elementor-element.elementor-products-grid ul.products {
     grid-template-columns: repeat(3, 1fr); } }
 
 @media (max-width: ELEMENTOR_SCREEN_SM_MAX) {
-  .elementor-element.elementor-wc-products ul.products {
+  .elementor-element.elementor-products-grid ul.products {
     grid-template-columns: repeat(2, 1fr); } }
 
-.elementor-element.elementor-wc-products.elementor-products-columns-1 ul.products {
+.elementor-element.elementor-products-grid.elementor-products-columns-1 ul.products {
   grid-template-columns: repeat(1, 1fr); }
 
-.elementor-element.elementor-wc-products.elementor-products-columns-2 ul.products {
+.elementor-element.elementor-products-grid.elementor-products-columns-2 ul.products {
   grid-template-columns: repeat(2, 1fr); }
 
-.elementor-element.elementor-wc-products.elementor-products-columns-3 ul.products {
+.elementor-element.elementor-products-grid.elementor-products-columns-3 ul.products {
   grid-template-columns: repeat(3, 1fr); }
 
-.elementor-element.elementor-wc-products.elementor-products-columns-4 ul.products {
+.elementor-element.elementor-products-grid.elementor-products-columns-4 ul.products {
   grid-template-columns: repeat(4, 1fr); }
 
-.elementor-element.elementor-wc-products.elementor-products-columns-5 ul.products {
+.elementor-element.elementor-products-grid.elementor-products-columns-5 ul.products {
   grid-template-columns: repeat(5, 1fr); }
 
-.elementor-element.elementor-wc-products.elementor-products-columns-6 ul.products {
+.elementor-element.elementor-products-grid.elementor-products-columns-6 ul.products {
   grid-template-columns: repeat(6, 1fr); }
 
-.elementor-element.elementor-wc-products.elementor-products-columns-7 ul.products {
+.elementor-element.elementor-products-grid.elementor-products-columns-7 ul.products {
   grid-template-columns: repeat(7, 1fr); }
 
-.elementor-element.elementor-wc-products.elementor-products-columns-8 ul.products {
+.elementor-element.elementor-products-grid.elementor-products-columns-8 ul.products {
   grid-template-columns: repeat(8, 1fr); }
 
-.elementor-element.elementor-wc-products.elementor-products-columns-9 ul.products {
+.elementor-element.elementor-products-grid.elementor-products-columns-9 ul.products {
   grid-template-columns: repeat(9, 1fr); }
 
-.elementor-element.elementor-wc-products.elementor-products-columns-10 ul.products {
+.elementor-element.elementor-products-grid.elementor-products-columns-10 ul.products {
   grid-template-columns: repeat(10, 1fr); }
 
-.elementor-element.elementor-wc-products.elementor-products-columns-11 ul.products {
+.elementor-element.elementor-products-grid.elementor-products-columns-11 ul.products {
   grid-template-columns: repeat(11, 1fr); }
 
-.elementor-element.elementor-wc-products.elementor-products-columns-12 ul.products {
+.elementor-element.elementor-products-grid.elementor-products-columns-12 ul.products {
   grid-template-columns: repeat(12, 1fr); }
 
 @media (max-width: ELEMENTOR_SCREEN_MD_MAX) {
-  .elementor-element.elementor-wc-products.elementor-products-columns-tablet-1 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-tablet-1 ul.products {
     grid-template-columns: repeat(1, 1fr); }
-  .elementor-element.elementor-wc-products.elementor-products-columns-tablet-2 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-tablet-2 ul.products {
     grid-template-columns: repeat(2, 1fr); }
-  .elementor-element.elementor-wc-products.elementor-products-columns-tablet-3 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-tablet-3 ul.products {
     grid-template-columns: repeat(3, 1fr); }
-  .elementor-element.elementor-wc-products.elementor-products-columns-tablet-4 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-tablet-4 ul.products {
     grid-template-columns: repeat(4, 1fr); }
-  .elementor-element.elementor-wc-products.elementor-products-columns-tablet-5 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-tablet-5 ul.products {
     grid-template-columns: repeat(5, 1fr); }
-  .elementor-element.elementor-wc-products.elementor-products-columns-tablet-6 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-tablet-6 ul.products {
     grid-template-columns: repeat(6, 1fr); }
-  .elementor-element.elementor-wc-products.elementor-products-columns-tablet-7 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-tablet-7 ul.products {
     grid-template-columns: repeat(7, 1fr); }
-  .elementor-element.elementor-wc-products.elementor-products-columns-tablet-8 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-tablet-8 ul.products {
     grid-template-columns: repeat(8, 1fr); }
-  .elementor-element.elementor-wc-products.elementor-products-columns-tablet-9 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-tablet-9 ul.products {
     grid-template-columns: repeat(9, 1fr); }
-  .elementor-element.elementor-wc-products.elementor-products-columns-tablet-10 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-tablet-10 ul.products {
     grid-template-columns: repeat(10, 1fr); }
-  .elementor-element.elementor-wc-products.elementor-products-columns-tablet-11 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-tablet-11 ul.products {
     grid-template-columns: repeat(11, 1fr); }
-  .elementor-element.elementor-wc-products.elementor-products-columns-tablet-12 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-tablet-12 ul.products {
     grid-template-columns: repeat(12, 1fr); } }
 
 @media (max-width: ELEMENTOR_SCREEN_SM_MAX) {
-  .elementor-element.elementor-wc-products.elementor-products-columns-mobile-1 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-mobile-1 ul.products {
     grid-template-columns: repeat(1, 1fr); }
-  .elementor-element.elementor-wc-products.elementor-products-columns-mobile-2 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-mobile-2 ul.products {
     grid-template-columns: repeat(2, 1fr); }
-  .elementor-element.elementor-wc-products.elementor-products-columns-mobile-3 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-mobile-3 ul.products {
     grid-template-columns: repeat(3, 1fr); }
-  .elementor-element.elementor-wc-products.elementor-products-columns-mobile-4 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-mobile-4 ul.products {
     grid-template-columns: repeat(4, 1fr); }
-  .elementor-element.elementor-wc-products.elementor-products-columns-mobile-5 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-mobile-5 ul.products {
     grid-template-columns: repeat(5, 1fr); }
-  .elementor-element.elementor-wc-products.elementor-products-columns-mobile-6 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-mobile-6 ul.products {
     grid-template-columns: repeat(6, 1fr); }
-  .elementor-element.elementor-wc-products.elementor-products-columns-mobile-7 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-mobile-7 ul.products {
     grid-template-columns: repeat(7, 1fr); }
-  .elementor-element.elementor-wc-products.elementor-products-columns-mobile-8 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-mobile-8 ul.products {
     grid-template-columns: repeat(8, 1fr); }
-  .elementor-element.elementor-wc-products.elementor-products-columns-mobile-9 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-mobile-9 ul.products {
     grid-template-columns: repeat(9, 1fr); }
-  .elementor-element.elementor-wc-products.elementor-products-columns-mobile-10 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-mobile-10 ul.products {
     grid-template-columns: repeat(10, 1fr); }
-  .elementor-element.elementor-wc-products.elementor-products-columns-mobile-11 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-mobile-11 ul.products {
     grid-template-columns: repeat(11, 1fr); }
-  .elementor-element.elementor-wc-products.elementor-products-columns-mobile-12 ul.products {
+  .elementor-element.elementor-products-grid.elementor-products-columns-mobile-12 ul.products {
     grid-template-columns: repeat(12, 1fr); } }
 
-.elementor-element.elementor-wc-products ul.products {
+.elementor-element.elementor-products-grid ul.products {
   display: grid;
   margin: 0;
   grid-column-gap: 20px;
   grid-row-gap: 40px; }
-  .elementor-element.elementor-wc-products ul.products:before, .elementor-element.elementor-wc-products ul.products:after {
+  .elementor-element.elementor-products-grid ul.products:before, .elementor-element.elementor-products-grid ul.products:after {
     content: none;
     display: none; }
-  .elementor-element.elementor-wc-products ul.products li.product {
+  .elementor-element.elementor-products-grid ul.products li.product {
     width: auto;
     padding: 0;
     margin: 0;
     float: none; }
-    .elementor-element.elementor-wc-products ul.products li.product .onsale {
+    .elementor-element.elementor-products-grid ul.products li.product .onsale {
       padding: 0;
       display: none; }
-    .elementor-element.elementor-wc-products ul.products li.product a.woocommerce-loop-product__link {
+    .elementor-element.elementor-products-grid ul.products li.product a.woocommerce-loop-product__link {
       display: block;
       position: relative; }
 
-.elementor-wc-products:not(.show-heading-yes) .products > h2 {
+.elementor-products-grid:not(.show-heading-yes) .products > h2 {
   display: none; }
 
-.elementor-wc-products nav.woocommerce-pagination {
+.elementor-products-grid nav.woocommerce-pagination {
   margin-top: 40px; }
 
-.elementor-wc-products:not(.elementor-show-pagination-border-yes) nav.woocommerce-pagination ul {
+.elementor-products-grid:not(.elementor-show-pagination-border-yes) nav.woocommerce-pagination ul {
   border: none 0; }
 
-.elementor-wc-products:not(.elementor-show-pagination-border-yes) nav.woocommerce-pagination ul li {
+.elementor-products-grid:not(.elementor-show-pagination-border-yes) nav.woocommerce-pagination ul li {
   border-right: none 0;
   border-left: none 0; }
 
@@ -1895,11 +1895,11 @@ body.rtl.woocommerce-page div.product .elementor-widget-woocommerce-product-imag
   margin-right: auto;
   margin-left: auto; }
 
-.woocommerce .elementor-element.elementor-wc-products ul.products li.product {
+.woocommerce .elementor-element.elementor-products-grid ul.products li.product {
   width: auto; }
 
-.woocommerce div.product .elementor-element .related.products ul.products li.product,
-.woocommerce div.product .elementor-element .upsells.products ul.products li.product {
+.woocommerce div.product .elementor-element.elementor-products-grid .related.products ul.products li.product,
+.woocommerce div.product .elementor-element.elementor-products-grid .upsells.products ul.products li.product {
   width: auto; }
 
 .elementor.product .woocommerce-product-gallery__trigger + .woocommerce-product-gallery__wrapper {
@@ -3692,7 +3692,7 @@ ul.elementor-nav-menu--dropdown a, ul.elementor-nav-menu--dropdown a:hover, ul.e
 
 .elementor-nav-menu--stretch .elementor-nav-menu__container.elementor-nav-menu--dropdown {
   position: absolute;
-  z-index: 9998; }
+  z-index: 9997; }
 
 @media (min-width: ELEMENTOR_SCREEN_MD_MIN) {
   .elementor-nav-menu--dropdown-mobile .elementor-nav-menu--dropdown, .elementor-nav-menu--dropdown-mobile .elementor-menu-toggle {
@@ -4028,3 +4028,26 @@ ul.elementor-nav-menu--dropdown a, ul.elementor-nav-menu--dropdown a:hover, ul.e
     display: flex; }
   .elementor-popup-modal .elementor {
     width: 100%; }
+
+.elementor-motion-effects-element, .elementor-motion-effects-layer {
+  transition-property: transform, opacity;
+  transition-timing-function: cubic-bezier(0, 0.33, 0.07, 1.03);
+  transition-duration: 1s; }
+
+.elementor-motion-effects-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+.elementor-motion-effects-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.elementor-motion-effects-perspective {
+  perspective: 1200px; }

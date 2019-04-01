@@ -1,5 +1,51 @@
 # Elementor Pro - by Elementor.com
 
+#### 2.5.3 - 2019-03-31
+* Tweak: Updated Google Calendar dynamic tag URL ([#7673](https://github.com/elementor/elementor/issues/7673))
+* Fix: Missing form field names ([#7651](https://github.com/elementor/elementor/issues/7651))
+* Fix: PHP 5.4 backward compatibility in Query Control ([#7633](https://github.com/elementor/elementor/issues/7633))
+* Fix: `products_deprecated` Query Control module compatibility ([#7654](https://github.com/elementor/elementor/issues/7654))
+* Fix: Changed query method from `term_id` to `term_taxonomy_id` ([#7653](https://github.com/elementor/elementor/issues/7653))
+
+#### 2.5.2 - 2019-03-27
+* Fix: Overwrite parent widget type in Global Widget ([#7632](https://github.com/elementor/elementor/issues/7632))
+* Fix: Avoid Duplicates option not working in Query Control ([#7635](https://github.com/elementor/elementor/issues/7635))
+* Fix: Manual Selection option not working in Query Control ([#7634](https://github.com/elementor/elementor/issues/7634))
+* Fix: Incorrect condition caused handlers issues inside popup
+
+#### 2.5.1 - 2019-03-26
+* Fix: Query Control invalid call to deprecated action ([#7619](https://github.com/elementor/elementor/issues/7619))
+* Tweak: Renamed action hook from `elementor_pro/{$widget_name}/query/{$query_id}` to `elementor/query/{$query_id}`
+* Tweak: Renamed filter hook from `elementor_pro/query_control/get_query_args/current_query` to `elementor/query/get_query_args/current_query`
+
+#### 2.5.0 - 2019-03-26
+* New: Introducing Motion Effects including Scrolling & Mouse effects ([#72](https://github.com/elementor/elementor/issues/72))
+* New: Introducing Related Posts for Query Control ([#7306](https://github.com/elementor/elementor/issues/7306), [#7490](https://github.com/elementor/elementor/issues/7490))
+* New: Introducing Date query for Query Control
+* Tweak: Added option to open a Popup by a custom selector ([#6871](https://github.com/elementor/elementor/issues/6871), [#6876](https://github.com/elementor/elementor/issues/6876), [#7258](https://github.com/elementor/elementor/issues/7258))
+* Tweak: Option to count when Popup is closed in "Show up to X times" Advanced Rule
+* Tweak: Added full border radius control options inside Popup
+* Tweak: Changed exit intent icon in Popups
+* Tweak: Show only one popup in its own preview
+* Tweak: Added responsive support to Popup entrance animation control
+* Tweak: Conditions - Singular `All Pages` string changed to `Pages`
+* Tweak: Added form field shortcode support for Drip tags ([#7000](https://github.com/elementor/elementor/issues/7000))
+* Tweak: Added dynamic capabilities to Price List widget ([#7258](https://github.com/elementor/elementor/issues/7258))
+* Tweak: Added Dynamic capabilities to Custom Attributes ([#6779](https://github.com/elementor/elementor/issues/6779))
+* Tweak: Added dynamic capabilities to Flip Box widget ([#6986](https://github.com/elementor/elementor/issues/6986))
+* Tweak: Decrease `z-index` for Nav Menu ([#6869](https://github.com/elementor/elementor/issues/6869))
+* Tweak: Changed "Scrolling Effects" section label to "Motion Effects"
+* Tweak: Use filter `get_meta_viewport` for header templates ([#7043](https://github.com/elementor/elementor/issues/7043))
+* Tweak: use filterable `Util::get_public_post_types()` in Theme Builder ([#7172](https://github.com/elementor/elementor/issues/7172))
+* Tweak: Added Cloudflare rocket-loader support ([#7443](https://github.com/elementor/elementor/issues/7443))
+* Tweak: Added responsive support to WC Products Columns & Rows Gap controls ([#6913](https://github.com/elementor/elementor/issues/6913))
+* Tweak: WC Menu cart "View Cart" & "Checkout" buttons styling
+* Fix: Custom ID reset to default when dragging repeater
+* Fix: Conflict between archive-products widget and WC customizer
+* Fix: Add to Cart widget `spacing` and `space-between`
+* Fix: Library view when creating a new Header or Footer
+* Fix: Post types labels missing on Add New Template modal
+
 #### 2.4.8 - 2019-03-11
 * Fix: Missing query section in Products widget
 * Fix: Missing Taxonomy controls in Products widget in edge cases

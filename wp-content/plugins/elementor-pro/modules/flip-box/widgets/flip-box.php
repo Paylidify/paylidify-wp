@@ -73,6 +73,9 @@ class Flip_Box extends Base_Widget {
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
 				],
+				'dynamic' => [
+					'active' => true,
+				],
 				'condition' => [
 					'graphic_element' => 'image',
 				],
@@ -143,6 +146,9 @@ class Flip_Box extends Base_Widget {
 				'type' => Controls_Manager::TEXT,
 				'default' => __( 'This is the heading', 'elementor-pro' ),
 				'placeholder' => __( 'Enter your title', 'elementor-pro' ),
+				'dynamic' => [
+					'active' => true,
+				],
 				'label_block' => true,
 				'separator' => 'before',
 			]
@@ -156,6 +162,9 @@ class Flip_Box extends Base_Widget {
 				'default' => __( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'elementor-pro' ),
 				'placeholder' => __( 'Enter your description', 'elementor-pro' ),
 				'separator' => 'none',
+				'dynamic' => [
+					'active' => true,
+				],
 				'rows' => 10,
 				'show_label' => false,
 			]
@@ -214,6 +223,9 @@ class Flip_Box extends Base_Widget {
 				'type' => Controls_Manager::TEXT,
 				'default' => __( 'This is the heading', 'elementor-pro' ),
 				'placeholder' => __( 'Enter your title', 'elementor-pro' ),
+				'dynamic' => [
+					'active' => true,
+				],
 				'label_block' => true,
 			]
 		);
@@ -226,6 +238,9 @@ class Flip_Box extends Base_Widget {
 				'default' => __( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'elementor-pro' ),
 				'placeholder' => __( 'Enter your description', 'elementor-pro' ),
 				'separator' => 'none',
+				'dynamic' => [
+					'active' => true,
+				],
 				'rows' => 10,
 				'show_label' => false,
 			]
@@ -237,6 +252,9 @@ class Flip_Box extends Base_Widget {
 				'label' => __( 'Button Text', 'elementor-pro' ),
 				'type' => Controls_Manager::TEXT,
 				'default' => __( 'Click Here', 'elementor-pro' ),
+				'dynamic' => [
+					'active' => true,
+				],
 				'separator' => 'before',
 			]
 		);
@@ -246,6 +264,9 @@ class Flip_Box extends Base_Widget {
 			[
 				'label' => __( 'Link', 'elementor-pro' ),
 				'type' => Controls_Manager::URL,
+				'dynamic' => [
+					'active' => true,
+				],
 				'placeholder' => __( 'https://your-link.com', 'elementor-pro' ),
 			]
 		);
@@ -1273,7 +1294,7 @@ class Flip_Box extends Base_Widget {
 	}
 
 	protected function render() {
-		$settings = $this->get_settings();
+		$settings = $this->get_settings_for_display();
 		$wrapper_tag = 'div';
 		$button_tag = 'a';
 		$this->add_render_attribute( 'button', 'class', [

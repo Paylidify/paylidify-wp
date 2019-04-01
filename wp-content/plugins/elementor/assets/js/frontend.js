@@ -1,4 +1,4 @@
-/*! elementor - v2.5.5 - 11-03-2019 */
+/*! elementor - v2.5.11 - 31-03-2019 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -899,14 +899,17 @@ var Frontend = function (_elementorModules$Vie) {
 	}, {
 		key: 'getDefaultElements',
 		value: function getDefaultElements() {
-			return {
+			var defaultElements = {
 				window: window,
 				$window: jQuery(window),
 				$document: jQuery(document),
 				$head: jQuery(document.head),
 				$body: jQuery(document.body),
-				$deviceMode: jQuery('#elementor-device-mode')
+				$deviceMode: jQuery('<span>', { id: 'elementor-device-mode', class: 'elementor-screen-only' })
 			};
+			defaultElements.$body.append(defaultElements.$deviceMode);
+
+			return defaultElements;
 		}
 	}, {
 		key: 'bindEvents',
@@ -1092,48 +1095,29 @@ var Frontend = function (_elementorModules$Vie) {
 		// Based on underscore function
 
 	}, {
-		key: 'throttle',
-		value: function throttle(func, wait) {
-			var timeout = void 0,
-			    context = void 0,
-			    args = void 0,
-			    result = void 0,
-			    previous = 0;
-
-			var later = function later() {
-				previous = Date.now();
-				timeout = null;
-				result = func.apply(context, args);
-
-				if (!timeout) {
-					context = args = null;
-				}
-			};
+		key: 'debounce',
+		value: function debounce(func, wait) {
+			var timeout = void 0;
 
 			return function () {
-				var now = Date.now(),
-				    remaining = wait - (now - previous);
+				var context = this,
+				    args = arguments;
 
-				context = this;
-				args = arguments;
+				var later = function later() {
+					timeout = null;
 
-				if (remaining <= 0 || remaining > wait) {
-					if (timeout) {
-						clearTimeout(timeout);
-						timeout = null;
-					}
+					func.apply(context, args);
+				};
 
-					previous = now;
-					result = func.apply(context, args);
+				var callNow = !timeout;
 
-					if (!timeout) {
-						context = args = null;
-					}
-				} else if (!timeout) {
-					timeout = setTimeout(later, remaining);
+				clearTimeout(timeout);
+
+				timeout = setTimeout(later, wait);
+
+				if (callNow) {
+					func.apply(context, args);
 				}
-
-				return result;
 			};
 		}
 	}, {
@@ -1712,7 +1696,7 @@ var Shapes = elementorModules.frontend.handlers.Base.extend({
 		    shapeType = self.getElementSettings(baseSettingKey),
 		    $svgContainer = this.elements['$' + side + 'Container'];
 
-		$svgContainer.empty().attr('data-shape', shapeType);
+		$svgContainer.attr('data-shape', shapeType);
 
 		if (!shapeType) {
 			return;
@@ -1727,7 +1711,7 @@ var Shapes = elementorModules.frontend.handlers.Base.extend({
 		var svgURL = self.getSvgURL(shapeType, fileName);
 
 		jQuery.get(svgURL, function (data) {
-			$svgContainer.append(data.childNodes[0]);
+			$svgContainer.empty().append(data.childNodes[0]);
 		});
 
 		this.setNegative(side);

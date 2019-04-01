@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.4.8 - 11-03-2019 */
+/*! elementor-pro - v2.5.3 - 31-03-2019 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -82,23 +82,23 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 55);
+/******/ 	return __webpack_require__(__webpack_require__.s = 56);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 55:
+/***/ 56:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var modules = {
-	widget_template_edit_button: __webpack_require__(56),
-	forms_integrations: __webpack_require__(58),
-	AssetsManager: __webpack_require__(60),
-	RoleManager: __webpack_require__(65),
-	ThemeBuilder: __webpack_require__(67)
+	widget_template_edit_button: __webpack_require__(57),
+	forms_integrations: __webpack_require__(59),
+	AssetsManager: __webpack_require__(61),
+	RoleManager: __webpack_require__(66),
+	ThemeBuilder: __webpack_require__(68)
 };
 
 window.elementorProAdmin = {
@@ -116,20 +116,20 @@ jQuery(function () {
 
 /***/ }),
 
-/***/ 56:
+/***/ 57:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	var EditButton = __webpack_require__(57);
+	var EditButton = __webpack_require__(58);
 	this.editButton = new EditButton();
 };
 
 /***/ }),
 
-/***/ 57:
+/***/ 58:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -163,14 +163,14 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ 58:
+/***/ 59:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	var ApiValidations = __webpack_require__(59);
+	var ApiValidations = __webpack_require__(60);
 
 	this.dripButton = new ApiValidations('drip_api_token');
 	this.getResponse = new ApiValidations('getresponse_api_key');
@@ -182,7 +182,7 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ 59:
+/***/ 60:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -259,22 +259,22 @@ module.exports = function (key, fieldID) {
 
 /***/ }),
 
-/***/ 60:
+/***/ 61:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	var FontManager = __webpack_require__(61),
-	    TypekitAdmin = __webpack_require__(64);
+	var FontManager = __webpack_require__(62),
+	    TypekitAdmin = __webpack_require__(65);
 	this.fontManager = new FontManager();
 	this.typekit = new TypekitAdmin();
 };
 
 /***/ }),
 
-/***/ 61:
+/***/ 62:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -284,8 +284,8 @@ module.exports = function () {
 	var self = this;
 
 	self.fields = {
-		upload: __webpack_require__(62),
-		repeater: __webpack_require__(63)
+		upload: __webpack_require__(63),
+		repeater: __webpack_require__(64)
 	};
 
 	self.selectors = {
@@ -421,7 +421,7 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ 62:
+/***/ 63:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -578,7 +578,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 63:
+/***/ 64:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -737,7 +737,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 64:
+/***/ 65:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -813,20 +813,20 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ 65:
+/***/ 66:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	var AdvancedRoleManager = __webpack_require__(66);
+	var AdvancedRoleManager = __webpack_require__(67);
 	this.advancedRoleManager = new AdvancedRoleManager();
 };
 
 /***/ }),
 
-/***/ 66:
+/***/ 67:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -866,20 +866,20 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ 67:
+/***/ 68:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = function () {
-	var CreateTemplateDialog = __webpack_require__(68);
+	var CreateTemplateDialog = __webpack_require__(69);
 	this.createTemplateDialog = new CreateTemplateDialog();
 };
 
 /***/ }),
 
-/***/ 68:
+/***/ 69:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

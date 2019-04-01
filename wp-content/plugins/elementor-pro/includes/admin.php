@@ -58,7 +58,7 @@ class Admin {
 		 */
 		$locale_settings = apply_filters( 'elementor_pro/admin/localize_settings', $locale_settings );
 
-		wp_localize_script(
+		Utils::print_js_config(
 			'elementor-pro-admin',
 			'ElementorProConfig',
 			$locale_settings

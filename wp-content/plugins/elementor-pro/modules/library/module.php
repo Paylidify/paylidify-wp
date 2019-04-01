@@ -76,7 +76,7 @@ class Module extends Module_Base {
 			if ( $document ) {
 				$results[] = [
 					'id' => $post->ID,
-					'text' => $post->post_title . ' (' . $document->get_title() . ')',
+					'text' => $post->post_title . ' (' . $document->get_post_type_title() . ')',
 				];
 			}
 		}
@@ -98,7 +98,7 @@ class Module extends Module_Base {
 		foreach ( $query->posts as $post ) {
 			$document = Plugin::elementor()->documents->get( $post->ID );
 			if ( $document ) {
-				$results[ $post->ID ] = $post->post_title . ' (' . $document->get_title() . ')';
+				$results[ $post->ID ] = $post->post_title . ' (' . $document->get_post_type_title() . ')';
 			}
 		}
 

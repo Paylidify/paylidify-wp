@@ -157,7 +157,7 @@ class Recaptcha_Handler {
 	 * @param $widget Widget_Base
 	 */
 	public function render_field( $item, $item_index, $widget ) {
-		$recaptcha_html = '<div class="elementor-field" id="form-field-' . $item['_id'] . '">';
+		$recaptcha_html = '<div class="elementor-field" id="form-field-' . $item['custom_id'] . '">';
 
 		if ( self::is_enabled() ) {
 			$this->enqueue_scripts();

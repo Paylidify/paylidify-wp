@@ -334,6 +334,10 @@ class Admin {
 				return;
 			}
 
+			if ( 'lifetime' === $license_data['expires'] ) {
+				return;
+			}
+
 			$expires_time = strtotime( $license_data['expires'] );
 			$notification_expires_time = strtotime( '-28 days', $expires_time );
 

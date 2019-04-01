@@ -1,4 +1,4 @@
-/*! elementor - v2.5.5 - 11-03-2019 */
+/*! elementor - v2.5.11 - 31-03-2019 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -610,7 +610,7 @@ var Module = function Module() {
 		var instanceSettings = instanceParams[0];
 
 		if (instanceSettings) {
-			$.extend(settings, instanceSettings);
+			$.extend(true, settings, instanceSettings);
 		}
 	};
 

@@ -28,9 +28,13 @@ class Utils {
 			'show_in_nav_menus' => true,
 		];
 
+		// Keep for backwards compatibility
 		if ( ! empty( $args['post_type'] ) ) {
 			$post_type_args['name'] = $args['post_type'];
+			unset( $args['post_type'] );
 		}
+
+		$post_type_args = wp_parse_args( $post_type_args, $args );
 
 		$_post_types = get_post_types( $post_type_args, 'objects' );
 
