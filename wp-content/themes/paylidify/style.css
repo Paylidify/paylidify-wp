@@ -922,8 +922,8 @@ body > .elementor-location-header:after {
   content: "";
   display: block;
   position: absolute;
-  top: -23em;
-  left: -20%;
+  top: -24em;
+  left: -30%;
   height: 800px;
   width: 2000px;
   background: #effcff;
