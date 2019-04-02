@@ -42,15 +42,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
-@font-face {
-  font-family: Ubuntu;
-  src: url("fonts/Ubuntu-Regular.ttf"); }
-@font-face {
-  font-family: UbuntuBold;
-  src: url("fonts/Ubuntu-Bold.ttf"); }
-@font-face {
-  font-family: UbuntuLight;
-  src: url("fonts/Ubuntu-Light.ttf"); }
 .box-shadow-boxes {
   box-shadow: 8px 15px 25px rgba(200, 200, 200, 0.6), 0px 5px 25px rgba(200, 200, 200, 0.2); }
 
@@ -427,7 +418,6 @@ textarea,
 p,
 .elementor-widget-text-editor {
   color: #81868e;
-  font-family: UbuntuLight, sans-serif;
   font-size: calc(14px + (20 - 16) * ((100vw - 300px) / (1600 - 300)));
   line-height: calc(1.4em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300))); }
 
