@@ -1,4 +1,4 @@
-body > [data-elementor-type="post"] {
+body, body > [data-elementor-type="post"] {
 	overflow: hidden;
 	position: relative;
 }

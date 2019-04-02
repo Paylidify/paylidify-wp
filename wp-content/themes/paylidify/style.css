@@ -922,8 +922,8 @@ body > .elementor-location-header:after {
   content: "";
   display: block;
   position: absolute;
-  top: -19em;
-  left: -50%;
+  top: -23em;
+  left: -20%;
   height: 800px;
   width: 2000px;
   background: #effcff;
@@ -1145,7 +1145,7 @@ body > .elementor-location-header .elementor-sticky--active {
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
-body > [data-elementor-type="post"] {
+body, body > [data-elementor-type="post"] {
   overflow: hidden;
   position: relative; }
 
