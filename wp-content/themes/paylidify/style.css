@@ -1145,7 +1145,11 @@ body > .elementor-location-header .elementor-sticky--active {
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
-body, body > [data-elementor-type="post"] {
+body {
+  overflow-x: hidden;
+  position: relative; }
+
+body > [data-elementor-type="post"] {
   overflow: hidden;
   position: relative; }
 
