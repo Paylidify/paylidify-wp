@@ -1,5 +1,14 @@
 body > .elementor-location-header:after {
-	@include blue-angled-background(-24em, 800px, -30%);
+	content: "";
+	display: block;
+	position: absolute;
+	top: -18em;
+	height: 800px;
+	width: 100%;
+	background: $color__light-blue;
+	z-index: -10;
+	-webkit-clip-path: polygon(0 0, 2000px 0, 2000px 50%, 0 100%);
+	clip-path: polygon(0 0, 2000px 0, 2000px 50%, 0 100%);
 }
 
 body.page-careers .elementor-location-header:after {

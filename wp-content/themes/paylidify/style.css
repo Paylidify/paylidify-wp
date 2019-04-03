@@ -922,13 +922,13 @@ body > .elementor-location-header:after {
   content: "";
   display: block;
   position: absolute;
-  top: -24em;
-  left: -30%;
+  top: -18em;
   height: 800px;
-  width: 2000px;
+  width: 100%;
   background: #effcff;
   z-index: -10;
-  transform: rotate(-12deg); }
+  -webkit-clip-path: polygon(0 0, 2000px 0, 2000px 50%, 0 100%);
+  clip-path: polygon(0 0, 2000px 0, 2000px 50%, 0 100%); }
 
 body.page-careers .elementor-location-header:after {
   content: none; }

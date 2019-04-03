@@ -29,12 +29,12 @@
 }
 
 // Light blue angled background
-@mixin blue-angled-background($top: -19em, $height: 500px, $left: -50%) {
+@mixin blue-angled-background($top: -19em, $height: 500px) {
 	content: "";
 	display: block;
 	position: absolute;
 	top: $top;
-	left: $left;
+	left: -50%;
 	height: $height;
 	width: 2000px;
 	background: $color__light-blue;
