@@ -946,12 +946,12 @@ body > .elementor-location-header .elementor-sticky--active {
   body > .elementor-location-header .elementor-sticky--active ul.elementor-nav-menu > li:last-child a.elementor-item {
     color: #fff !important; }
 
-[data-elementor-device-mode="desktop"] .elementor-location-header ul.elementor-nav-menu > li:last-child {
+body[data-elementor-device-mode="desktop"] > .elementor-location-header ul.elementor-nav-menu > li:last-child {
   margin-left: 1.5em;
   line-height: 2;
   padding: 0;
   border-radius: 100px; }
-  [data-elementor-device-mode="desktop"] .elementor-location-header ul.elementor-nav-menu > li:last-child a {
+  body[data-elementor-device-mode="desktop"] > .elementor-location-header ul.elementor-nav-menu > li:last-child a {
     border: none;
     border-color: #ccc #ccc #bbb;
     border-radius: 100px;
@@ -959,13 +959,15 @@ body > .elementor-location-header .elementor-sticky--active {
     color: #fff !important;
     padding: .5em 2.5em !important;
     line-height: 2.25; }
-    [data-elementor-device-mode="desktop"] .elementor-location-header ul.elementor-nav-menu > li:last-child a:visited {
+    body[data-elementor-device-mode="desktop"] > .elementor-location-header ul.elementor-nav-menu > li:last-child a:visited {
       color: #fff; }
-    [data-elementor-device-mode="desktop"] .elementor-location-header ul.elementor-nav-menu > li:last-child a:hover {
+    body[data-elementor-device-mode="desktop"] > .elementor-location-header ul.elementor-nav-menu > li:last-child a:hover {
       border-color: #ccc #bbb #aaa;
       background: #00476e; }
-    [data-elementor-device-mode="desktop"] .elementor-location-header ul.elementor-nav-menu > li:last-child a:active, [data-elementor-device-mode="desktop"] .elementor-location-header ul.elementor-nav-menu > li:last-child a:focus {
+    body[data-elementor-device-mode="desktop"] > .elementor-location-header ul.elementor-nav-menu > li:last-child a:active, body[data-elementor-device-mode="desktop"] > .elementor-location-header ul.elementor-nav-menu > li:last-child a:focus {
       border-color: #aaa #bbb #bbb; }
+  body[data-elementor-device-mode="desktop"] > .elementor-location-header ul.elementor-nav-menu > li:last-child:last-child a.elementor-item {
+    color: #fff !important; }
 
 .site-main .comment-navigation,
 .site-main .posts-navigation,

@@ -40,8 +40,7 @@ body > .elementor-location-header .elementor-sticky--active {
 	}
 }
 
-
-[data-elementor-device-mode="desktop"] .elementor-location-header ul.elementor-nav-menu > li:last-child {
+body[data-elementor-device-mode="desktop"] > .elementor-location-header ul.elementor-nav-menu > li:last-child {
 	margin-left: 1.5em;
 	line-height: 2;
 	padding: 0;
@@ -68,6 +67,12 @@ body > .elementor-location-header .elementor-sticky--active {
 		&:active,
 		&:focus {
 			border-color: $color__button-border-focus;
+		}
+	}
+
+	&:last-child {
+		a.elementor-item {
+			color: #fff !important;
 		}
 	}
 }
