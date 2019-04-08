@@ -2816,3 +2816,25 @@
 
 2019-04-03 01:18:46	Logged in as administrator. Redirection aborted.
 
+2019-04-08 20:03:49	Visitor IP: ::1
+2019-04-08 20:03:49	Lookup by BIN database.
+2019-04-08 20:03:49	Country Code: Invalid IP address.
+2019-04-08 20:03:49	Country Name: Invalid IP address.
+2019-04-08 20:03:49	No redirection rule is matched.
+
+2019-04-08 20:03:49	Country [Invalid IP address.] is listed in [-CA] for redirection.
+2019-04-08 20:03:49	Current URL: http://paylidifydev.wpengine.com/
+2019-04-08 20:03:49	Redirected To: http://paylidifydev.wpengine.com/us-en/
+
+2019-04-08 20:04:02	Visitor IP: 127.0.0.1
+2019-04-08 20:04:02	Lookup by BIN database.
+2019-04-08 20:04:02	Country Code: -
+2019-04-08 20:04:02	Country Name: -
+2019-04-08 20:04:02	No redirection rule is matched.
+
+2019-04-08 20:04:02	Country [-] is listed in [-CA] for redirection.
+2019-04-08 20:04:02	Current URL: http://paylidifydev.wpengine.com/wp-content/uploads/2019/03/favicon.ico
+2019-04-08 20:04:02	No redirection rule is matched.
+
+2019-04-08 20:04:02	No redirection rule is matched.
+

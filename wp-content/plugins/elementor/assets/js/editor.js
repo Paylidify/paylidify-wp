@@ -1,4 +1,4 @@
-/*! elementor - v2.5.11 - 31-03-2019 */
+/*! elementor - v2.5.12 - 08-04-2019 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -1372,6 +1372,8 @@ BaseElementView = BaseContainer.extend({
 
 	onDestroy: function onDestroy() {
 		this.controlsCSSParser.removeStyleFromDocument();
+
+		this.getEditModel().get('settings').validators = {};
 
 		elementor.channels.data.trigger('element:destroy', this.model);
 	}
@@ -7748,9 +7750,11 @@ module.exports = Marionette.Behavior.extend({
 			return;
 		}
 
+		var direction = elementorCommon.config.isRTL ? 'left' : 'right';
+
 		$tagsList.show().position({
-			my: 'right top',
-			at: 'right bottom+5',
+			my: direction + ' top',
+			at: direction + ' bottom+5',
 			of: this.ui.dynamicSwitcher
 		});
 	},
