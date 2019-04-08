@@ -946,7 +946,7 @@ body > .elementor-location-header .elementor-sticky--active {
   body > .elementor-location-header .elementor-sticky--active ul.elementor-nav-menu > li:last-child a.elementor-item {
     color: #fff !important; }
 
-body[data-elementor-device-mode="desktop"] > .elementor-location-header .elementor-sticky--active ul.elementor-nav-menu > li:last-child a.elementor-item {
+body[data-elementor-device-mode="mobile"] > .elementor-location-header .elementor-sticky--active ul.elementor-nav-menu > li:last-child a.elementor-item {
   color: #00476e !important; }
 
 [data-elementor-device-mode="desktop"] .elementor-location-header ul.elementor-nav-menu > li:last-child {
