@@ -40,7 +40,11 @@ body > .elementor-location-header .elementor-sticky--active {
 	}
 }
 
-body[data-elementor-device-mode="desktop"] > .elementor-location-header ul.elementor-nav-menu > li:last-child {
+body[data-elementor-device-mode="desktop"] > .elementor-location-header .elementor-sticky--active ul.elementor-nav-menu > li:last-child a.elementor-item {
+	color: $color__dark-blue !important;
+}
+
+[data-elementor-device-mode="desktop"] .elementor-location-header ul.elementor-nav-menu > li:last-child {
 	margin-left: 1.5em;
 	line-height: 2;
 	padding: 0;
@@ -67,12 +71,6 @@ body[data-elementor-device-mode="desktop"] > .elementor-location-header ul.eleme
 		&:active,
 		&:focus {
 			border-color: $color__button-border-focus;
-		}
-	}
-
-	&:last-child {
-		a.elementor-item {
-			color: #fff !important;
 		}
 	}
 }
