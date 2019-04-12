@@ -1,13 +1,10 @@
- <?php
-
+<?php
 /**
  * Plugin Name: Elementor Paylidify Elements
  * Description: Custom elements added to Elementor
  * Plugin URI: http://paylidify.com
  * Version: 0.0.1
  */
-
-
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
@@ -266,5 +263,5 @@ final class Elementor_Paylidify_Elements {
 	}
 
 }
-
 Elementor_Paylidify_Elements::instance();
+?>
