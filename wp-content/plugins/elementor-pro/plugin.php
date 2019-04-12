@@ -338,6 +338,13 @@ class Plugin {
 		self::elementor()->common->add_template( __DIR__ . '/includes/templates/editor.php' );
 	}
 
+	/**
+	 * @param \Elementor\Core\Base\Document $document
+	 */
+	public function on_document_save_version( $document ) {
+		$document->update_meta( '_elementor_pro_version', ELEMENTOR_PRO_VERSION );
+	}
+
 	private function get_responsive_templates_path() {
 		return ELEMENTOR_PRO_ASSETS_PATH . 'css/templates/';
 	}
@@ -355,6 +362,7 @@ class Plugin {
 		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'enqueue_styles' ] );
 
 		add_filter( 'elementor/core/responsive/get_stylesheet_templates', [ $this, 'get_responsive_stylesheet_templates' ] );
+		add_action( 'elementor/document/save_version', [ $this, 'on_document_save_version' ] );
 	}
 
 	/**

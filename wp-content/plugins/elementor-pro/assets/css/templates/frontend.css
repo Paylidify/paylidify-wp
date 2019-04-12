@@ -4001,7 +4001,8 @@ ul.elementor-nav-menu--dropdown a, ul.elementor-nav-menu--dropdown a:hover, ul.e
 .elementor-popup-modal {
   display: flex;
   pointer-events: none;
-  background-color: transparent; }
+  background-color: transparent;
+  user-select: auto; }
   .elementor-popup-modal .dialog-header, .elementor-popup-modal .dialog-buttons-wrapper {
     display: none; }
   .elementor-popup-modal .dialog-close-button {

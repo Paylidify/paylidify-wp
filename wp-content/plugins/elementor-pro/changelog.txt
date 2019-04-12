@@ -1,5 +1,15 @@
 # Elementor Pro - by Elementor.com
 
+#### 2.5.5 - 2019-04-08
+* Tweak: Allow text selection inside a Popup
+* Fix: Added backwards compatibility for `tax_query` in Query Control ([#7751](https://github.com/elementor/elementor/issues/7751))
+* Fix: Missing arguments for `widget_title` filter ([#7745](https://github.com/elementor/elementor/issues/7745))
+
+#### 2.5.4 - 2019-04-03
+* Fix: Move Query from using `term_id` to `term_taxonomy_id` ([#7653](https://github.com/elementor/elementor/issues/7653))
+* Fix: Offset manipulation hook removal in Query control
+* Fix: Missing form field `ID` in some edge cases ([#7711](https://github.com/elementor/elementor/issues/7711), [#7660](https://github.com/elementor/elementor/issues/7660))
+
 #### 2.5.3 - 2019-03-31
 * Tweak: Updated Google Calendar dynamic tag URL ([#7673](https://github.com/elementor/elementor/issues/7673))
 * Fix: Missing form field names ([#7651](https://github.com/elementor/elementor/issues/7651))

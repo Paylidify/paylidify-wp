@@ -460,7 +460,6 @@ class Upgrades {
 		return self::_update_widget_settings( 'woocommerce-products', $updater, $changes );
 	}
 
-
 	/**
 	 * @param $updater
 	 *
@@ -539,6 +538,61 @@ class Upgrades {
 		return $updater->should_run_again( $post_ids );
 	}
 
+	public static function _v_2_5_4_posts( $updater ) {
+		$merge_taxonomies = self::taxonomies_mapping( 'posts_', 'posts_include_term_ids' );
+
+		$changes = [
+			[
+				'callback' => [ 'ElementorPro\Core\Upgrade\Upgrades', '_convert_term_id_to_term_taxonomy_id' ],
+				'control_ids' => $merge_taxonomies,
+				'prefix' => 'posts_',
+				'new_id' => 'include_term_ids',
+			],
+		];
+
+		return self::_update_widget_settings( 'posts', $updater, $changes );
+	}
+
+	public static function _v_2_5_4_portfolio( $updater ) {
+		$merge_taxonomies = self::taxonomies_mapping( 'posts_', 'posts_include_term_ids' );
+
+		$changes = [
+			[
+				'callback' => [ 'ElementorPro\Core\Upgrade\Upgrades', '_convert_term_id_to_term_taxonomy_id' ],
+				'control_ids' => $merge_taxonomies,
+				'prefix' => 'posts_',
+				'new_id' => 'include_term_ids',
+			],
+		];
+
+		return self::_update_widget_settings( 'portfolio', $updater, $changes );
+	}
+
+	public static function _v_2_5_4_products( $updater ) {
+		$merge_taxonomies = self::taxonomies_mapping( 'query_', 'query_include_term_ids' );
+		$changes = [
+			[
+				'callback' => [ 'ElementorPro\Core\Upgrade\Upgrades', '_convert_term_id_to_term_taxonomy_id' ],
+				'control_ids' => $merge_taxonomies,
+				'prefix' => 'query_',
+				'new_id' => 'include_term_ids',
+			],
+		];
+
+		return self::_update_widget_settings( 'woocommerce-products', $updater, $changes );
+	}
+
+	public static function _v_2_5_4_form( $updater ) {
+		$changes = [
+			[
+				'callback' => [ 'ElementorPro\Core\Upgrade\Upgrades', '_missing_form_custom_id_settings' ],
+				'control_ids' => [],
+			],
+		];
+
+		return self::_update_widget_settings( 'form', $updater, $changes );
+	}
+
 	/**
 	 * $changes is an array of arrays in the following format:
 	 * [
@@ -588,6 +642,10 @@ class Upgrades {
 					'widget_id' => $widget_id,
 					'control_ids' => $change['control_ids'],
 				];
+				if ( isset( $change['prefix'] ) ) {
+					$args['prefix'] = $change['prefix'];
+					$args['new_id'] = $change['new_id'];
+				}
 				$data = Plugin::elementor()->db->iterate_data( $data, $change['callback'], $args );
 				if ( ! $do_update ) {
 					continue;
@@ -678,6 +736,93 @@ class Upgrades {
 				}
 				$args['do_update'] = true;
 			}
+		}
+
+		return $element;
+	}
+
+	/**
+	 * Possible scenarios:
+	 * 1) custom_id is not empty --> do nothing
+	 * 2) Existing _id: Empty or Missing custom_id --> create custom_id and set the value to the value of _id
+	 * 3) Missing _id: Empty or Missing custom_id --> generate a unique key and set it as custom_id value
+	 * @param $element
+	 * @param $args
+	 *
+	 * @return mixed
+	 */
+	public static function _missing_form_custom_id_settings( $element, $args ) {
+		$widget_id = $args['widget_id'];
+
+		if ( empty( $element['widgetType'] ) || $widget_id !== $element['widgetType'] ) {
+			return $element;
+		}
+
+		$random_id = (int) substr( time(), -5 );
+		//form_fields loop:
+		foreach ( $element['settings']['form_fields'] as &$repeater_item ) {
+			if ( ! empty( $repeater_item['custom_id'] ) ) { // Scenario 1
+				continue;
+			}
+
+			if ( ! empty( $repeater_item['_id'] ) ) { // Scenario 2
+				$repeater_item['custom_id'] = $repeater_item['_id'];
+			} else { // Scenario 3
+				$repeater_item['custom_id'] = 'field_' . $random_id;
+				$random_id++;
+			}
+
+			$args['do_update'] = true;
+		}
+
+		return $element;
+	}
+
+	/**
+	 * @param $element
+	 * @param $args
+	 *
+	 * @return mixed
+	 */
+	public static function _convert_term_id_to_term_taxonomy_id( $element, $args ) {
+		$widget_id = $args['widget_id'];
+		$changes = $args['control_ids'];
+		$prefix = $args['prefix'];
+		$new_id = $prefix . $args['new_id'];
+
+		if ( empty( $element['widgetType'] ) || $widget_id !== $element['widgetType'] ) {
+			return $element;
+		}
+
+		// Exit if new is empty (should not happen)
+		if ( empty( $element['settings'][ $new_id ] ) ) {
+			return $element;
+		}
+
+		// 1) Convert each term-id to the equivalent term_taxonomy_id
+		$term_taxonomy_ids = [];
+		$old_term_ids = [];
+		foreach ( $changes as $old => $new ) {
+			if ( ! empty( $element['settings'][ $old ] ) ) {
+				$start = strlen( $prefix );
+				$end = -strlen( '_ids' );
+				$taxonomy = substr( $old, $start, $end );
+				foreach ( $element['settings'][ $old ] as $term_id ) {
+					$old_term_ids[] = $term_id;
+					$term_obj = get_term( $term_id, $taxonomy, OBJECT );
+					if ( $term_obj && ! is_wp_error( $term_obj ) ) {
+						$term_taxonomy_ids[] = $term_obj->term_taxonomy_id;
+					}
+				}
+			}
+		}
+
+		// 2) Check if the widget's settings were changed after the u/g to 2.5.0
+		$diff = array_diff( $element['settings'][ $new_id ], array_unique( $old_term_ids ) );
+		if ( empty( $diff ) ) { // Nothing was changed
+			$element['settings'][ $new_id . '_backup' ] = $element['settings'][ $new_id ];
+			$element['settings'][ $new_id ] = $term_taxonomy_ids;
+			$args['do_update'] = true;
 		}
 
 		return $element;

@@ -32,7 +32,8 @@ class Elementor_Library extends \WP_Widget {
 
 		if ( ! empty( $instance['title'] ) ) {
 			/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
-			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
+			$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+			echo $args['before_title'] . $title . $args['after_title'];
 		}
 
 		if ( ! empty( $instance['template_id'] ) && 'publish' === get_post_status( $instance['template_id'] ) ) {

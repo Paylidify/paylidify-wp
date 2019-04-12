@@ -4,7 +4,7 @@ Donate link: http://www.ip2location.com
 Tags: ip2location, country redirection, geolocation, targeted content, ip address, 301, 302, country, ipv4, ipv6
 Requires at least: 2.0
 Tested up to: 5.0.1
-Stable tag: 1.13.10
+Stable tag: 1.14.1
 
 Redirects visitors to a blog page or a predefined URL based on their country geolocated using IP address.
 
@@ -31,7 +31,7 @@ Please visit us at [http://www.ip2location.com](http://www.ip2location.com "http
 
 == Frequently Asked Questions ==
 = Do I need to download the BIN file after the plugin installation? =
-Yes, the plugin only provide you an outdated sample BIN file.
+Yes, please download the latest DB1 BIN file for a quick test from https://lite.ip2location.com/database/ip-country
 
 = Where can I download the BIN file? =
 You can download the free LITE edition at [http://lite.ip2location.com](http://lite.ip2location.com "http://lite.ip2location.com") or commercial edition at [http://www.ip2location.com](http://www.ip2location.com "http://www.ip2location.com"). Decompress the downloaded .BIN file and upload it to `wp-content/plugins/ip2location-redirection`.
@@ -56,6 +56,8 @@ Send us email at support@ip2location.com
 1. Redirect visitor from Nigeria to http://google.com.
 
 == Changelog ==
+* 1.14.1 Fixed IP2Location API check credit interface.
+* 1.14.0 Upgraded IP2Location API to v2.
 * 1.13.10 Fixed database file detection in both Windows and Linux environment.
 * 1.13.9 Prevent redirection when IP2Location database is missing or corrupted.
 * 1.13.8 BIN database no longer shipped together to prevent local copy being overwritten.

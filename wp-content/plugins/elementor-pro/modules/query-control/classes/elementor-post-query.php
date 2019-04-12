@@ -63,8 +63,8 @@ class Elementor_Post_Query {
 		$query = new \WP_Query( $this->query_args );
 
 		remove_action( 'pre_get_posts', [ $this, 'pre_get_posts_query_filter' ] );
-		remove_action( 'pre_get_posts', [ $this, 'fix_query_offset' ] );
-		remove_filter( 'found_posts', [ $this, 'fix_query_found_posts' ] );
+		remove_action( 'pre_get_posts', [ $this, 'fix_query_offset' ], 1 );
+		remove_filter( 'found_posts', [ $this, 'fix_query_found_posts' ], 1 );
 
 		Module::add_to_avoid_list( wp_list_pluck( $query->posts, 'ID' ) );
 
@@ -214,10 +214,14 @@ class Elementor_Post_Query {
 		}
 
 		$terms = [];
+
+		// Switch to term_id in order to get all term children (sub-categories):
 		foreach ( $settings_terms as $id ) {
 			$term_data = get_term_by( 'term_taxonomy_id', $id );
-			$taxonomy = $term_data->taxonomy;
-			$terms[ $taxonomy ][] = $id;
+			if ( false !== $term_data ) {
+				$taxonomy = $term_data->taxonomy;
+				$terms[ $taxonomy ][] = $id;
+			}
 		}
 		$this->insert_tax_query( $terms, $exclude );
 	}
@@ -227,7 +231,7 @@ class Elementor_Post_Query {
 		foreach ( $terms as $taxonomy => $ids ) {
 			$query = [
 				'taxonomy' => $taxonomy,
-				'field' => 'term_id',
+				'field' => 'term_taxonomy_id',
 				'terms' => $ids,
 			];
 

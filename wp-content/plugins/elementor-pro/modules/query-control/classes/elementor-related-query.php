@@ -102,10 +102,10 @@ class Elementor_Related_Query extends Elementor_Post_Query {
 		$taxonomies = $this->get_widget_settings( 'related_taxonomies' );
 		$terms = [];
 		if ( is_string( $taxonomies ) ) {
-			$terms[ $taxonomies ] = wp_get_post_terms( $this->related_post_id, $taxonomies, [ 'fields' => 'ids' ] );
+			$terms[ $taxonomies ] = wp_get_post_terms( $this->related_post_id, $taxonomies, [ 'fields' => 'tt_ids' ] );
 		} else {
 			foreach ( $taxonomies as $taxonomy ) {
-				$terms[ $taxonomy ] = wp_get_post_terms( $this->related_post_id, $taxonomy, [ 'fields' => 'ids' ] );
+				$terms[ $taxonomy ] = wp_get_post_terms( $this->related_post_id, $taxonomy, [ 'fields' => 'tt_ids' ] );
 			}
 		}
 

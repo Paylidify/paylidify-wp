@@ -203,7 +203,7 @@ class Module extends Module_Base {
 			case 'taxonomy':
 				$terms = get_terms(
 					[
-						'include' => $ids,
+						'term_taxonomy_id' => $ids,
 						'hide_empty' => false,
 					]
 				);
@@ -295,7 +295,7 @@ class Module extends Module_Base {
 		$test_term = $term;
 		$names = [];
 		while ( $test_term->parent > 0 ) {
-			$test_term = get_term_by( 'term_taxonomy_id', $test_term->parent, $test_term->taxonomy );
+			$test_term = get_term_by( 'term_taxonomy_id', $test_term->parent );
 			if ( ! $test_term ) {
 				break;
 			}

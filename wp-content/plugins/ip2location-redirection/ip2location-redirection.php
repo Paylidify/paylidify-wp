@@ -3,7 +3,7 @@
  * Plugin Name: IP2Location Redirection
  * Plugin URI: http://ip2location.com/tutorials/wordpress-ip2location-redirection
  * Description: Redirect visitors by their country.
- * Version: 1.13.10
+ * Version: 1.14.1
  * Author: IP2Location
  * Author URI: http://www.ip2location.com.
  */
@@ -329,7 +329,7 @@ class IP2LocationRedirection
 
 						$request = new WP_Http();
 
-						$response = $request->request('http://api.ip2location.com/?' . http_build_query([
+						$response = $request->request('http://api.ip2location.com/v2/?' . http_build_query([
 							'key'   => $api_key,
 							'check' => 1,
 						]), ['timeout' => 3]);
@@ -339,18 +339,22 @@ class IP2LocationRedirection
 							<div id="message" class="error">
 								<p><strong>ERROR</strong>: Error when accessing IP2Location web service gateway.</p>
 							</div>';
-						} elseif (!preg_match('/^[0-9]+$/', $response['body'])) {
-							$web_service_status .= '
-							<div id="message" class="error">
-								<p><strong>ERROR</strong>: Invalid API key.</p>
-							</div>';
 						} else {
-							update_option('ip2location_redirection_api_key', $api_key);
+							$json = json_decode($response['body']);
 
-							$web_service_status = '
-							<div id="message" class="updated">
-								<p>IP2Location Web Service API key saved.</p>
-							</div>';
+							if (!preg_match('/^[0-9]+$/', $json->response)) {
+								$web_service_status .= '
+								<div id="message" class="error">
+									<p><strong>ERROR</strong>: Invalid API key.</p>
+								</div>';
+							} else {
+								update_option('ip2location_redirection_api_key', $api_key);
+
+								$web_service_status = '
+								<div id="message" class="updated">
+									<p>IP2Location Web Service API key saved.</p>
+								</div>';
+							}
 						}
 					}
 
@@ -494,20 +498,22 @@ class IP2LocationRedirection
 
 										$request = new WP_Http();
 
-										$response = $request->request('http://api.ip2location.com/?' . http_build_query([
+										$response = $request->request('http://api.ip2location.com/v2/?' . http_build_query([
 											'key'   => $api_key,
 											'check' => 1,
 										]), ['timeout' => 3]);
 
 										if ((!isset($response->errors)) && ((in_array('200', $response['response'])))) {
-											if (preg_match('/^[0-9]+$/', $response['body'])) {
+											$json = json_decode($response['body']);
+
+											if (preg_match('/^[0-9]+$/', $json->response)) {
 												echo '
 												<tr>
 													<th scope="row">
 														<label for="available_credit">Available Credit</label>
 													</th>
 													<td>
-														' . number_format($response['body'], 0, '', ',') . '
+														' . number_format($json->response, 0, '', ',') . '
 													</td>
 												</tr>';
 											}
@@ -1194,7 +1200,7 @@ class IP2LocationRedirection
 				$this->write_debug_log('Lookup by Web service.');
 
 				$request = new WP_Http();
-				$response = $request->request('http://api.ip2location.com/?' . http_build_query([
+				$response = $request->request('http://api.ip2location.com/v2/?' . http_build_query([
 					'key' => get_option('ip2location_redirection_api_key'),
 					'ip'  => $ip,
 				]), ['timeout' => 3]);
@@ -1208,9 +1214,11 @@ class IP2LocationRedirection
 					];
 				}
 
+				$json = json_decode($response['body']);
+
 				// Store result into session for later use.
-				$_SESSION[$ip . '_country_code'] = $response['body'];
-				$_SESSION[$ip . '_country_name'] = $this->get_country_name($response['body']);
+				$_SESSION[$ip . '_country_code'] = $json->country_code;
+				$_SESSION[$ip . '_country_name'] = $this->get_country_name($json->country_code);
 
 				$this->write_debug_log('Country Code: ' . $_SESSION[$ip . '_country_code']);
 				$this->write_debug_log('Country Name: ' . $_SESSION[$ip . '_country_name']);

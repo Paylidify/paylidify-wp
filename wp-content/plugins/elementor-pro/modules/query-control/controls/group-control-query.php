@@ -313,6 +313,7 @@ class Group_Control_Query extends Group_Control_Base {
 					'current_query',
 				],
 			],
+			'description' => __( 'Setting a ‘Before’ date will show all the posts published until the chosen date (inclusive).', 'elementor-pro' ),
 		];
 
 		$fields['date_after'] = [
@@ -331,7 +332,7 @@ class Group_Control_Query extends Group_Control_Base {
 					'current_query',
 				],
 			],
-			'description' => __( 'Before & After dates are inclusive', 'elementor-pro' ),
+			'description' => __( 'Setting an ‘After’ date will show all the posts published since the chosen date (inclusive).', 'elementor-pro' ),
 		];
 
 		$fields['orderby'] = [
