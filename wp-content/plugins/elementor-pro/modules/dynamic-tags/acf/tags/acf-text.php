@@ -130,6 +130,7 @@ class ACF_Text extends Tag {
 			'google_map',
 			'date_picker',
 			'time_picker',
+			'date_time_picker',
 			'color_picker',
 		];
 	}

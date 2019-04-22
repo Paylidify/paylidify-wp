@@ -3,8 +3,10 @@ namespace ElementorPro\Modules\Popup;
 
 use Elementor\Core\Common\Modules\Ajax\Module as Ajax;
 use Elementor\Core\Documents_Manager;
+use Elementor\Core\DynamicTags\Manager as DynamicTagsManager;
 use Elementor\TemplateLibrary\Source_Local;
 use ElementorPro\Base\Module_Base;
+use ElementorPro\Modules\ThemeBuilder\Classes\Locations_Manager;
 use ElementorPro\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -47,17 +49,11 @@ class Module extends Module_Base {
 		$theme_builder->get_locations_manager()->add_doc_to_location( Document::get_property( 'location' ), $popup_id );
 	}
 
-	/**
-	 * @param Documents_Manager $documents_manager
-	 */
-	public function register_documents( $documents_manager ) {
+	public function register_documents( Documents_Manager $documents_manager ) {
 		$documents_manager->register_document_type( self::DOCUMENT_TYPE, Document::get_class_full_name() );
 	}
 
-	/**
-	 * @param \ElementorPro\Modules\ThemeBuilder\Classes\Locations_Manager $location_manager
-	 */
-	public function register_location( $location_manager ) {
+	public function register_location( Locations_Manager $location_manager ) {
 		$location_manager->register_location(
 			'popup',
 			[
@@ -73,10 +69,7 @@ class Module extends Module_Base {
 		elementor_theme_do_location( 'popup' );
 	}
 
-	/**
-	 * @param \Elementor\Core\DynamicTags\Manager $dynamic_tags
-	 */
-	public function register_tag( $dynamic_tags ) {
+	public function register_tag( DynamicTagsManager $dynamic_tags ) {
 		$dynamic_tags->register_tag( __NAMESPACE__ . '\Tag' );
 	}
 

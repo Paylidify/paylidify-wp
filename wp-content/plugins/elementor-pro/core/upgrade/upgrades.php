@@ -1,6 +1,8 @@
 <?php
 namespace ElementorPro\Core\Upgrade;
 
+use Elementor\Core\Base\Document;
+use Elementor\Core\Upgrade\Updater;
 use ElementorPro\Plugin;
 use Elementor\Modules\History\Revisions_Manager;
 
@@ -247,5 +249,582 @@ class Upgrades {
 		} // End Section
 
 		return $editor_data;
+	}
+
+	public static function _v_2_5_0_form( $updater ) {
+		$changes = [
+			[
+				'callback' => [ 'ElementorPro\Core\Upgrade\Upgrades', '_rename_repeater_settings' ],
+				'control_ids' => [
+					'form_fields' => [
+						'_id' => 'custom_id',
+					],
+				],
+			],
+		];
+
+		return self::_update_widget_settings( 'form', $updater, $changes );
+	}
+
+	public static function _v_2_5_0_woocommerce_menu_cart( $updater ) {
+		$changes = [
+			[
+				'callback' => [ 'ElementorPro\Core\Upgrade\Upgrades', '_rename_widget_settings' ],
+				'control_ids' => [
+					'checkout_button_border_color' => 'checkout_border_color',
+					'view_cart_button_border_color' => 'view_cart_border_color',
+				],
+			],
+			[
+				'callback' => [ 'ElementorPro\Core\Upgrade\Upgrades', '_slider_to_border_settings' ],
+				'control_ids' => [
+					'checkout_button_border_width' => [
+						'new' => 'checkout_border_width',
+						'add' => 'checkout_border_border',
+					],
+					'view_cart_button_border_width' => [
+						'new' => 'view_cart_border_width',
+						'add' => 'view_cart_border_border',
+					],
+				],
+			],
+		];
+
+		return self::_update_widget_settings( 'woocommerce-menu-cart', $updater, $changes );
+	}
+
+	public static function _slider_to_border_settings( $element, $args ) {
+		$widget_id = $args['widget_id'];
+		$changes = $args['control_ids'];
+
+		if ( empty( $element['widgetType'] ) || $widget_id !== $element['widgetType'] ) {
+			return $element;
+		}
+
+		foreach ( $changes as $old => $new ) {
+			if ( ! empty( $element['settings'][ $old ] ) && ! isset( $element['settings'][ $new['new'] ] ) ) {
+				$new_border_width = [
+					'unit' => $element['settings'][ $old ]['unit'],
+					'top' => $element['settings'][ $old ]['size'],
+					'bottom' => $element['settings'][ $old ]['size'],
+					'left' => $element['settings'][ $old ]['size'],
+					'right' => $element['settings'][ $old ]['size'],
+					'isLinked' => true,
+				];
+				$element['settings'][ $new ['new'] ] = $new_border_width;
+				$element['settings'][ $new ['add'] ] = 'solid';
+				$args['do_update'] = true;
+			}
+		}
+		return $element;
+	}
+
+	/**
+	 * @param $element
+	 * @param $args
+	 *
+	 * @return mixed
+	 */
+	public static function _rename_repeater_settings( $element, $args ) {
+		$widget_id = $args['widget_id'];
+		$changes = $args['control_ids'];
+
+		if ( empty( $element['widgetType'] ) || $widget_id !== $element['widgetType'] ) {
+			return $element;
+		}
+
+		foreach ( $changes as $change_key => $change ) {
+			foreach ( $change as $old => $new ) {
+				foreach ( $element['settings'][ $change_key ] as &$repeater ) {
+					if ( ! empty( $repeater[ $old ] ) && ! isset( $repeater[ $new ] ) ) {
+						$repeater[ $new ] = $repeater[ $old ];
+						$args['do_update'] = true;
+					}
+				}
+			}
+		}
+
+		return $element;
+	}
+
+	private static function taxonomies_mapping( $prefix, $map_to ) {
+		$taxonomy_filter_args = [
+			'show_in_nav_menus' => true,
+		];
+
+		$taxonomies = get_taxonomies( $taxonomy_filter_args );
+
+		$mapping = [];
+
+		foreach ( $taxonomies as $taxonomy ) {
+			$mapping[ $prefix . $taxonomy . '_ids' ] = $map_to;
+		}
+
+		return $mapping;
+	}
+
+	public static function _v_2_5_0_posts( $updater ) {
+		$add_taxonomies = self::taxonomies_mapping( 'posts_', [ 'posts_include' => 'terms' ] );
+		$merge_taxonomies = self::taxonomies_mapping( 'posts_', 'posts_include_term_ids' );
+
+		$changes = [
+			[
+				'callback' => [ 'ElementorPro\Core\Upgrade\Upgrades', '_rename_widget_settings' ],
+				'control_ids' => [
+					'orderby' => 'posts_orderby',
+					'order' => 'posts_order',
+					'offset' => 'posts_offset',
+					'exclude' => 'posts_exclude',
+					'exclude_ids' => 'posts_exclude_ids',
+					'posts_query_id' => 'posts_posts_query_id',
+					'avoid_duplicates' => 'posts_avoid_duplicates',
+					'posts_authors' => 'posts_include_authors',
+				],
+			],
+			[
+				'callback' => [ 'ElementorPro\Core\Upgrade\Upgrades', '_add_widget_settings_to_array' ],
+				'control_ids' => array_merge( $add_taxonomies, [
+					'posts_authors' => [ 'posts_include' => 'authors' ],
+				] ),
+			],
+			[
+				'callback' => [ 'ElementorPro\Core\Upgrade\Upgrades', '_merge_widget_settings' ],
+				'control_ids' => $merge_taxonomies,
+			],
+		];
+
+		return self::_update_widget_settings( 'posts', $updater, $changes );
+	}
+
+	public static function _v_2_5_0_portfolio( $updater ) {
+		$add_taxonomies = self::taxonomies_mapping( 'posts_', [ 'posts_include' => 'terms' ] );
+		$merge_taxonomies = self::taxonomies_mapping( 'posts_', 'posts_include_term_ids' );
+
+		$changes = [
+			[
+				'callback' => [ 'ElementorPro\Core\Upgrade\Upgrades', '_rename_widget_settings' ],
+				'control_ids' => [
+					'orderby' => 'posts_orderby',
+					'order' => 'posts_order',
+					'offset' => 'posts_offset',
+					'exclude' => 'posts_exclude',
+					'exclude_ids' => 'posts_exclude_ids',
+					'posts_query_id' => 'posts_posts_query_id',
+					'avoid_duplicates' => 'posts_avoid_duplicates',
+					'posts_authors' => 'posts_include_authors',
+				],
+			],
+			[
+				'callback' => [ 'ElementorPro\Core\Upgrade\Upgrades', '_add_widget_settings_to_array' ],
+				'control_ids' => array_merge( $add_taxonomies, [
+					'posts_authors' => [ 'posts_include' => 'authors' ],
+				] ),
+			],
+			[
+				'callback' => [ 'ElementorPro\Core\Upgrade\Upgrades', '_merge_widget_settings' ],
+				'control_ids' => $merge_taxonomies,
+			],
+		];
+
+		return self::_update_widget_settings( 'portfolio', $updater, $changes );
+	}
+
+	public static function _v_2_5_0_products( $updater ) {
+		$add_taxonomies = self::taxonomies_mapping( 'query_', [ 'query_include' => 'terms' ] );
+		$merge_taxonomies = self::taxonomies_mapping( 'query_', 'query_include_term_ids' );
+		$changes = [
+			[
+				'callback' => [ 'ElementorPro\Core\Upgrade\Upgrades', '_rename_widget_settings' ],
+				'control_ids' => [
+					'orderby' => 'query_orderby',
+					'order' => 'query_order',
+					'exclude' => 'query_exclude',
+					'exclude_ids' => 'query_exclude_ids',
+					'query_authors' => 'query_include_authors',
+					'query_product_tag_ids' => 'query_include_term_ids',
+					'query_product_cat_ids' => 'query_include_term_ids',
+				],
+			],
+			[
+				'callback' => [ 'ElementorPro\Core\Upgrade\Upgrades', '_add_widget_settings_to_array' ],
+				'control_ids' => array_merge( $add_taxonomies, [
+					'query_authors' => [ 'query_include' => 'authors' ],
+				] ),
+			],
+			[
+				'callback' => [ 'ElementorPro\Core\Upgrade\Upgrades', '_merge_widget_settings' ],
+				'control_ids' => $merge_taxonomies,
+			],
+		];
+
+		return self::_update_widget_settings( 'woocommerce-products', $updater, $changes );
+	}
+
+	/**
+	 * @param $updater
+	 *
+	 * @return bool Should run again.
+	 */
+	public static function _v_2_5_0_sitemap( $updater ) {
+		$changes = [
+			[
+				'callback' => [ 'ElementorPro\Core\Upgrade\Upgrades', '_rename_widget_settings' ],
+				'control_ids' => [
+					'exclude' => 'sitemap_exclude',
+					'exclude_ids' => 'sitemap_exclude_ids',
+				],
+			],
+		];
+
+		return self::_update_widget_settings( 'sitemap', $updater, $changes );
+	}
+
+	/**
+	 * @param Updater $updater
+	 *
+	 * @return bool
+	 */
+	public static function _v_2_5_0_popup_border_radius( $updater ) {
+		global $wpdb;
+
+		$post_ids = $updater->query_col(
+			"SELECT pm1.post_id
+					FROM {$wpdb->postmeta} AS pm1
+					LEFT JOIN {$wpdb->postmeta} AS pm2 ON (pm1.post_id = pm2.post_id)
+					WHERE pm1.meta_key = '_elementor_template_type' 
+					AND pm1.meta_value = 'popup' 
+					AND pm2.`meta_key` = '" . Document::PAGE_META_KEY . "' 
+					AND pm2.`meta_value` LIKE '%border_radius%';"
+		);
+
+		if ( empty( $post_ids ) ) {
+			return false;
+		}
+
+		foreach ( $post_ids as $post_id ) {
+			// Clear WP cache for next step.
+			$document = Plugin::elementor()->documents->get( $post_id );
+
+			if ( ! $document ) {
+				continue;
+			}
+
+			$page_settings = $document->get_settings();
+
+			// Check if there isn't 'border_radius' setting or if it has already been upgraded
+			if ( empty( $page_settings['border_radius']['size'] ) ) {
+				continue;
+			}
+
+			$border_radius = $page_settings['border_radius'];
+
+			$new_border_radius = [
+				'unit' => $border_radius['unit'],
+				'top' => $border_radius['size'],
+				'bottom' => $border_radius['size'],
+				'left' => $border_radius['size'],
+				'right' => $border_radius['size'],
+				'isLinked' => true,
+			];
+
+			$page_settings['border_radius'] = $new_border_radius;
+
+			// TODO: `$document->update_settings`.
+			$document->update_meta( Document::PAGE_META_KEY, $page_settings );
+
+			wp_cache_flush();
+		} // End foreach().
+
+		return $updater->should_run_again( $post_ids );
+	}
+
+	public static function _v_2_5_4_posts( $updater ) {
+		$merge_taxonomies = self::taxonomies_mapping( 'posts_', 'posts_include_term_ids' );
+
+		$changes = [
+			[
+				'callback' => [ 'ElementorPro\Core\Upgrade\Upgrades', '_convert_term_id_to_term_taxonomy_id' ],
+				'control_ids' => $merge_taxonomies,
+				'prefix' => 'posts_',
+				'new_id' => 'include_term_ids',
+			],
+		];
+
+		return self::_update_widget_settings( 'posts', $updater, $changes );
+	}
+
+	public static function _v_2_5_4_portfolio( $updater ) {
+		$merge_taxonomies = self::taxonomies_mapping( 'posts_', 'posts_include_term_ids' );
+
+		$changes = [
+			[
+				'callback' => [ 'ElementorPro\Core\Upgrade\Upgrades', '_convert_term_id_to_term_taxonomy_id' ],
+				'control_ids' => $merge_taxonomies,
+				'prefix' => 'posts_',
+				'new_id' => 'include_term_ids',
+			],
+		];
+
+		return self::_update_widget_settings( 'portfolio', $updater, $changes );
+	}
+
+	public static function _v_2_5_4_products( $updater ) {
+		$merge_taxonomies = self::taxonomies_mapping( 'query_', 'query_include_term_ids' );
+		$changes = [
+			[
+				'callback' => [ 'ElementorPro\Core\Upgrade\Upgrades', '_convert_term_id_to_term_taxonomy_id' ],
+				'control_ids' => $merge_taxonomies,
+				'prefix' => 'query_',
+				'new_id' => 'include_term_ids',
+			],
+		];
+
+		return self::_update_widget_settings( 'woocommerce-products', $updater, $changes );
+	}
+
+	public static function _v_2_5_4_form( $updater ) {
+		$changes = [
+			[
+				'callback' => [ 'ElementorPro\Core\Upgrade\Upgrades', '_missing_form_custom_id_settings' ],
+				'control_ids' => [],
+			],
+		];
+
+		return self::_update_widget_settings( 'form', $updater, $changes );
+	}
+
+	/**
+	 * $changes is an array of arrays in the following format:
+	 * [
+	 *   'control_ids' => array of control ids
+	 *   'callback' => user callback to manipulate the control_ids
+	 * ]
+	 *
+	 * @param       $widget_id
+	 * @param       $updater
+	 * @param array $changes
+	 *
+	 * @return bool
+	 */
+	public static function _update_widget_settings( $widget_id, $updater, $changes ) {
+		global $wpdb;
+
+		$post_ids = $updater->query_col(
+			'SELECT `post_id` 
+					FROM `' . $wpdb->postmeta . '` 
+					WHERE `meta_key` = "_elementor_data" 
+					AND `meta_value` LIKE \'%"widgetType":"' . $widget_id . '"%\';'
+		);
+
+		if ( empty( $post_ids ) ) {
+			return false;
+		}
+
+		foreach ( $post_ids as $post_id ) {
+			$do_update = false;
+
+			$document = Plugin::elementor()->documents->get( $post_id );
+
+			if ( ! $document ) {
+				continue;
+			}
+
+			$data = $document->get_elements_data();
+
+			if ( empty( $data ) ) {
+				continue;
+			}
+
+			// loop thru callbacks & array
+			foreach ( $changes as $change ) {
+				$args = [
+					'do_update' => &$do_update,
+					'widget_id' => $widget_id,
+					'control_ids' => $change['control_ids'],
+				];
+				if ( isset( $change['prefix'] ) ) {
+					$args['prefix'] = $change['prefix'];
+					$args['new_id'] = $change['new_id'];
+				}
+				$data = Plugin::elementor()->db->iterate_data( $data, $change['callback'], $args );
+				if ( ! $do_update ) {
+					continue;
+				}
+
+				// We need the `wp_slash` in order to avoid the unslashing during the `update_metadata`
+				$json_value = wp_slash( wp_json_encode( $data ) );
+
+				update_metadata( 'post', $post_id, '_elementor_data', $json_value );
+			}
+		} // End foreach().
+
+		return $updater->should_run_again( $post_ids );
+	}
+
+	/**
+	 * @param $element
+	 * @param $args
+	 *
+	 * @return mixed
+	 */
+	public static function _rename_widget_settings( $element, $args ) {
+		$widget_id = $args['widget_id'];
+		$changes = $args['control_ids'];
+
+		if ( empty( $element['widgetType'] ) || $widget_id !== $element['widgetType'] ) {
+			return $element;
+		}
+
+		foreach ( $changes as $old => $new ) {
+			if ( ! empty( $element['settings'][ $old ] ) && ! isset( $element['settings'][ $new ] ) ) {
+				$element['settings'][ $new ] = $element['settings'][ $old ];
+				$args['do_update'] = true;
+			}
+		}
+
+		return $element;
+	}
+
+	/**
+	 * @param $element
+	 * @param $args
+	 *
+	 * @return mixed
+	 */
+	public static function _add_widget_settings_to_array( $element, $args ) {
+		$widget_id = $args['widget_id'];
+		$changes = $args['control_ids'];
+
+		if ( empty( $element['widgetType'] ) || $widget_id !== $element['widgetType'] ) {
+			return $element;
+		}
+
+		foreach ( $changes as $old_key => $added_key ) {
+			if ( ! empty( $element['settings'][ $old_key ] ) ) {
+				foreach ( $added_key as $control_id => $val ) {
+					if ( ! in_array( $val, $element['settings'][ $control_id ], true ) ) {
+						$element['settings'][ $control_id ][] = $val;
+						$args['do_update'] = true;
+					}
+				}
+			}
+		}
+
+		return $element;
+	}
+
+	/**
+	 * @param $element
+	 * @param $args
+	 *
+	 * @return mixed
+	 */
+	public static function _merge_widget_settings( $element, $args ) {
+		$widget_id = $args['widget_id'];
+		$changes = $args['control_ids'];
+
+		if ( empty( $element['widgetType'] ) || $widget_id !== $element['widgetType'] ) {
+			return $element;
+		}
+
+		foreach ( $changes as $old => $new ) {
+			if ( ! empty( $element['settings'][ $old ] ) ) {
+				if ( ! isset( $element['settings'][ $new ] ) ) {
+					$element['settings'][ $new ] = $element['settings'][ $old ];
+				} else {
+					$element['settings'][ $new ] = array_unique( array_merge( $element['settings'][ $old ], $element['settings'][ $new ] ) );
+				}
+				$args['do_update'] = true;
+			}
+		}
+
+		return $element;
+	}
+
+	/**
+	 * Possible scenarios:
+	 * 1) custom_id is not empty --> do nothing
+	 * 2) Existing _id: Empty or Missing custom_id --> create custom_id and set the value to the value of _id
+	 * 3) Missing _id: Empty or Missing custom_id --> generate a unique key and set it as custom_id value
+	 * @param $element
+	 * @param $args
+	 *
+	 * @return mixed
+	 */
+	public static function _missing_form_custom_id_settings( $element, $args ) {
+		$widget_id = $args['widget_id'];
+
+		if ( empty( $element['widgetType'] ) || $widget_id !== $element['widgetType'] ) {
+			return $element;
+		}
+
+		$random_id = (int) substr( time(), -5 );
+		//form_fields loop:
+		foreach ( $element['settings']['form_fields'] as &$repeater_item ) {
+			if ( ! empty( $repeater_item['custom_id'] ) ) { // Scenario 1
+				continue;
+			}
+
+			if ( ! empty( $repeater_item['_id'] ) ) { // Scenario 2
+				$repeater_item['custom_id'] = $repeater_item['_id'];
+			} else { // Scenario 3
+				$repeater_item['custom_id'] = 'field_' . $random_id;
+				$random_id++;
+			}
+
+			$args['do_update'] = true;
+		}
+
+		return $element;
+	}
+
+	/**
+	 * @param $element
+	 * @param $args
+	 *
+	 * @return mixed
+	 */
+	public static function _convert_term_id_to_term_taxonomy_id( $element, $args ) {
+		$widget_id = $args['widget_id'];
+		$changes = $args['control_ids'];
+		$prefix = $args['prefix'];
+		$new_id = $prefix . $args['new_id'];
+
+		if ( empty( $element['widgetType'] ) || $widget_id !== $element['widgetType'] ) {
+			return $element;
+		}
+
+		// Exit if new is empty (should not happen)
+		if ( empty( $element['settings'][ $new_id ] ) ) {
+			return $element;
+		}
+
+		// 1) Convert each term-id to the equivalent term_taxonomy_id
+		$term_taxonomy_ids = [];
+		$old_term_ids = [];
+		foreach ( $changes as $old => $new ) {
+			if ( ! empty( $element['settings'][ $old ] ) ) {
+				$start = strlen( $prefix );
+				$end = -strlen( '_ids' );
+				$taxonomy = substr( $old, $start, $end );
+				foreach ( $element['settings'][ $old ] as $term_id ) {
+					$old_term_ids[] = $term_id;
+					$term_obj = get_term( $term_id, $taxonomy, OBJECT );
+					if ( $term_obj && ! is_wp_error( $term_obj ) ) {
+						$term_taxonomy_ids[] = $term_obj->term_taxonomy_id;
+					}
+				}
+			}
+		}
+
+		// 2) Check if the widget's settings were changed after the u/g to 2.5.0
+		$diff = array_diff( $element['settings'][ $new_id ], array_unique( $old_term_ids ) );
+		if ( empty( $diff ) ) { // Nothing was changed
+			$element['settings'][ $new_id . '_backup' ] = $element['settings'][ $new_id ];
+			$element['settings'][ $new_id ] = $term_taxonomy_ids;
+			$args['do_update'] = true;
+		}
+
+		return $element;
 	}
 }

@@ -210,7 +210,7 @@ class Form_Record {
 	private function set_fields() {
 		foreach ( $this->form_settings['form_fields'] as $form_field ) {
 			$field = [
-				'id' => $form_field['_id'],
+				'id' => $form_field['custom_id'],
 				'type' => $form_field['field_type'],
 				'title' => $form_field['field_label'],
 				'value' => '',
@@ -224,8 +224,8 @@ class Form_Record {
 				$field['max_files'] = isset( $form_field['max_files'] ) ? $form_field['max_files'] : '';
 			}
 
-			if ( isset( $this->sent_data[ $form_field['_id'] ] ) ) {
-				$field['raw_value'] = $this->sent_data[ $form_field['_id'] ];
+			if ( isset( $this->sent_data[ $form_field['custom_id'] ] ) ) {
+				$field['raw_value'] = $this->sent_data[ $form_field['custom_id'] ];
 
 				$value = $field['raw_value'];
 
@@ -235,7 +235,7 @@ class Form_Record {
 
 				$field['value'] = $this->sanitize_field( $field, $value );
 			}
-			$this->fields[ $form_field['_id'] ] = $field;
+			$this->fields[ $form_field['custom_id'] ] = $field;
 		}
 	}
 

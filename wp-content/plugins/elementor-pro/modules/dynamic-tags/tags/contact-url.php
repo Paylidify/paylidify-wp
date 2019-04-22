@@ -327,7 +327,7 @@ class Contact_URL extends Tag {
 				$dates = $this->date_to_iso( $settings['event_start_date'] ) . '/' . $this->date_to_iso( $settings['event_end_date'] );
 			}
 		}
-		$link = 'http://www.google.com/calendar/render?action=TEMPLATE&';
+		$link = 'https://www.google.com/calendar/render?action=TEMPLATE&';
 		$build_parts = [
 			'text' => empty( $settings['event_title'] ) ? '' : $this->escape_space_in_url( $settings['event_title'] ),
 			'details' => empty( $settings['event_description'] ) ? '' : $this->escape_space_in_url( $settings['event_description'] ),

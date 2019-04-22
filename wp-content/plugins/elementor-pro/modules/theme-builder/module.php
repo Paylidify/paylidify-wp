@@ -5,6 +5,7 @@ use Elementor\Core\Base\Document;
 use Elementor\Elements_Manager;
 use Elementor\TemplateLibrary\Source_Local;
 use ElementorPro\Base\Module_Base;
+use ElementorPro\Classes\Utils;
 use ElementorPro\Modules\ThemeBuilder\Classes;
 use ElementorPro\Modules\ThemeBuilder\Documents\Single;
 use ElementorPro\Modules\ThemeBuilder\Documents\Theme_Document;
@@ -112,8 +113,8 @@ class Module extends Module_Base {
 				'display_conditions' => __( 'Display Conditions', 'elementor-pro' ),
 				'choose' => __( 'Choose', 'elementor-pro' ),
 				'add_condition' => __( 'Add Condition', 'elementor-pro' ),
-				'conditions_title' => sprintf( __( 'Where Do You Want to Display Your %s?', 'elementor-pro' ), $document::get_title() ),
-				'conditions_description' => sprintf( __( 'Set the conditions that determine where your %s is used throughout your site.<br />For example, choose \'Entire Site\' to display the template across your site.', 'elementor-pro' ), $document::get_title() ),
+				'conditions_title' => sprintf( __( 'Where Do You Want to Display Your %s?', 'elementor-pro' ), $document->get_post_type_title() ),
+				'conditions_description' => sprintf( __( 'Set the conditions that determine where your %s is used throughout your site.<br />For example, choose \'Entire Site\' to display the template across your site.', 'elementor-pro' ), $document->get_post_type_title() ),
 				'conditions_publish_screen_description' => __( 'Apply current template to these pages.', 'elementor-pro' ),
 				'save_and_close' => __( 'Save & Close', 'elementor-pro' ),
 			],
@@ -186,12 +187,11 @@ class Module extends Module_Base {
 	}
 
 	public function print_post_type_field() {
-		$post_types = get_post_types( [
+		$post_types = Utils::get_public_post_types( [
 			'exclude_from_search' => false,
-		], 'objects' );
+		] );
 
 		unset( $post_types['product'] );
-
 		if ( empty( $post_types ) ) {
 			return;
 		}
@@ -207,12 +207,13 @@ class Module extends Module_Base {
 					</option>
 					<?php
 
-					foreach ( $post_types as $post_type => $post_type_config ) {
+					foreach ( $post_types as $post_type => $label ) {
 						$doc_type = Plugin::elementor()->documents->get_document_type( $post_type );
 						$doc_name = ( new $doc_type() )->get_name();
 
 						if ( 'post' === $doc_name || 'page' === $doc_name ) {
-							echo sprintf( '<option value="%1$s">%2$s</option>', $post_type, $post_type_config->labels->singular_name );
+							$post_type_object = get_post_type_object( $post_type );
+							echo sprintf( '<option value="%1$s">%2$s</option>', $post_type, $post_type_object->labels->singular_name );
 						}
 					}
 

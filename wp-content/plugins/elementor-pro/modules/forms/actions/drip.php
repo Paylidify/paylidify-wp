@@ -220,7 +220,9 @@ class Drip extends Integration_Base {
 		];
 
 		if ( isset( $form_settings['tags'] ) && ! empty( $form_settings['tags'] ) ) {
-			$subscriber['tags'] = explode( ',', $form_settings['tags'] );
+			$tags = $record->replace_setting_shortcodes( $form_settings['tags'] );
+
+			$subscriber['tags'] = explode( ',', $tags );
 		}
 
 		$custom_fields = [];

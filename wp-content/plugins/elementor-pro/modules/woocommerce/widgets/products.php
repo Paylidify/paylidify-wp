@@ -3,9 +3,9 @@ namespace ElementorPro\Modules\Woocommerce\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Controls_Stack;
-use ElementorPro\Modules\QueryControl\Controls\Group_Control_Posts;
-use ElementorPro\Modules\QueryControl\Module;
+use ElementorPro\Modules\QueryControl\Controls\Group_Control_Query;
 use ElementorPro\Modules\Woocommerce\Classes\Products_Renderer;
+use ElementorPro\Modules\Woocommerce\Classes\Current_Query_Renderer;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -35,12 +35,6 @@ class Products extends Products_Base {
 		];
 	}
 
-	public function on_export( $element ) {
-		$element = Group_Control_Posts::on_export_remove_setting_from_element( $element, 'query' );
-
-		return $element;
-	}
-
 	protected function register_query_controls() {
 		$this->start_controls_section(
 			'section_query',
@@ -51,10 +45,11 @@ class Products extends Products_Base {
 		);
 
 		$this->add_group_control(
-			Group_Control_Posts::get_type(),
+			Group_Control_Query::get_type(),
 			[
-				'name' => 'query',
+				'name' => Products_Renderer::QUERY_CONTROL_NAME,
 				'post_type' => 'product',
+				'presets' => [ 'full' ],
 				'fields_options' => [
 					'post_type' => [
 						'default' => 'product',
@@ -66,75 +61,44 @@ class Products extends Products_Base {
 							'by_id' => _x( 'Manual Selection', 'Posts Query Control', 'elementor-pro' ),
 						],
 					],
-					'product_cat_ids' => [
-						'condition' => [
-							'post_type!' => [
-								'current_query',
-								'by_id',
-							],
+					'orderby' => [
+						'default' => 'date',
+						'options' => [
+							'date' => __( 'Date', 'elementor-pro' ),
+							'title' => __( 'Title', 'elementor-pro' ),
+							'price' => __( 'Price', 'elementor-pro' ),
+							'popularity' => __( 'Popularity', 'elementor-pro' ),
+							'rating' => __( 'Rating', 'elementor-pro' ),
+							'rand' => __( 'Random', 'elementor-pro' ),
+							'menu_order' => __( 'Menu Order', 'elementor-pro' ),
 						],
 					],
-					'product_tag_ids' => [
-						'condition' => [
-							'post_type!' => [
-								'current_query',
-								'by_id',
-							],
+					'exclude' => [
+						'options' => [
+							'current_post' => __( 'Current Post', 'elementor-pro' ),
+							'manual_selection' => __( 'Manual Selection', 'elementor-pro' ),
+							'terms' => __( 'Term', 'elementor-pro' ),
+						],
+					],
+					'include' => [
+						'options' => [
+							'terms' => __( 'Term', 'elementor-pro' ),
 						],
 					],
 				],
 				'exclude' => [
+					'posts_per_page',
+					'exclude_authors',
 					'authors',
+					'offset',
+					'related_fallback',
+					'related_ids',
+					'query_id',
+					'avoid_duplicates',
+					'ignore_sticky_posts',
 				],
 			]
 		);
-
-		$this->add_control(
-			'advanced',
-			[
-				'label' => __( 'Advanced', 'elementor-pro' ),
-				'type' => Controls_Manager::HEADING,
-			]
-		);
-
-		$this->add_control(
-			'orderby',
-			[
-				'label' => __( 'Order by', 'elementor-pro' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'date',
-				'options' => [
-					'date' => __( 'Date', 'elementor-pro' ),
-					'title' => __( 'Title', 'elementor-pro' ),
-					'price' => __( 'Price', 'elementor-pro' ),
-					'popularity' => __( 'Popularity', 'elementor-pro' ),
-					'rating' => __( 'Rating', 'elementor-pro' ),
-					'rand' => __( 'Random', 'elementor-pro' ),
-					'menu_order' => __( 'Menu Order', 'elementor-pro' ),
-				],
-				'condition' => [
-					'query_post_type!' => 'current_query',
-				],
-			]
-		);
-
-		$this->add_control(
-			'order',
-			[
-				'label' => __( 'Order', 'elementor-pro' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'desc',
-				'options' => [
-					'asc' => __( 'ASC', 'elementor-pro' ),
-					'desc' => __( 'DESC', 'elementor-pro' ),
-				],
-				'condition' => [
-					'query_post_type!' => 'current_query',
-				],
-			]
-		);
-
-		Module::add_exclude_controls( $this );
 
 		$this->end_controls_section();
 	}
@@ -157,6 +121,7 @@ class Products extends Products_Base {
 				'max' => 12,
 				'default' => 4,
 				'required' => true,
+				'render_type' => 'template',
 				'device_args' => [
 					Controls_Stack::RESPONSIVE_TABLET => [
 						'required' => false,
@@ -227,6 +192,15 @@ class Products extends Products_Base {
 		parent::_register_controls();
 	}
 
+	protected function get_shortcode_object( $settings ) {
+		if ( 'current_query' === $settings[ Products_Renderer::QUERY_CONTROL_NAME . '_post_type' ] ) {
+			$type = 'current_query';
+			return new Current_Query_Renderer( $settings, $type );
+		}
+		$type = 'products';
+		return new Products_Renderer( $settings, $type );
+	}
+
 	protected function render() {
 
 		if ( WC()->session ) {
@@ -240,7 +214,7 @@ class Products extends Products_Base {
 
 		$settings = $this->get_settings();
 
-		$shortcode = new Products_Renderer( $settings, 'products' );
+		$shortcode = $this->get_shortcode_object( $settings );
 
 		$content = $shortcode->get_content();
 

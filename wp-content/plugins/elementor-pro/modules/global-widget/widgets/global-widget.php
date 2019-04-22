@@ -135,14 +135,14 @@ class Global_Widget extends Base_Widget {
 
 		$original_widget_type = $this->get_original_element_instance()->get_data( 'widgetType' );
 
+		$this->set_render_attribute( '_wrapper', 'data-widget_type', $original_widget_type . '.' . ( $skin_type ? $skin_type : 'default' ) );
+
 		$this->add_render_attribute( '_wrapper', [
 			'class' => [
 				'elementor-global-' . $this->get_data( 'templateID' ),
 				'elementor-widget-' . $original_widget_type,
 			],
 		] );
-
-		$this->set_render_attribute( '_wrapper', 'data-element_type', $original_widget_type . '.' . ( $skin_type ? $skin_type : 'default' ) );
 	}
 
 	private function get_template_content() {

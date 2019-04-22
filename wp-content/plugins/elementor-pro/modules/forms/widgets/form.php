@@ -395,9 +395,9 @@ class Form extends Form_Base {
 		);
 
 		$repeater->add_control(
-			'_id',
+			'custom_id',
 			[
-				'label' => __( 'Custom ID', 'elementor-pro' ),
+				'label' => __( 'ID', 'elementor-pro' ),
 				'type' => Controls_Manager::TEXT,
 				'description' => __( 'Please make sure the ID is unique and not used elsewhere in this form. This field allows <code>A-z 0-9</code> & underscore chars without spaces.', 'elementor-pro' ),
 				'render_type' => 'none',
@@ -442,14 +442,14 @@ class Form extends Form_Base {
 				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
-						'_id' => 'name',
+						'custom_id' => 'name',
 						'field_type' => 'text',
 						'field_label' => __( 'Name', 'elementor-pro' ),
 						'placeholder' => __( 'Name', 'elementor-pro' ),
 						'width' => '100',
 					],
 					[
-						'_id' => 'email',
+						'custom_id' => 'email',
 						'field_type' => 'email',
 						'required' => 'true',
 						'field_label' => __( 'Email', 'elementor-pro' ),
@@ -457,7 +457,7 @@ class Form extends Form_Base {
 						'width' => '100',
 					],
 					[
-						'_id' => 'message',
+						'custom_id' => 'message',
 						'field_type' => 'textarea',
 						'field_label' => __( 'Message', 'elementor-pro' ),
 						'placeholder' => __( 'Message', 'elementor-pro' ),

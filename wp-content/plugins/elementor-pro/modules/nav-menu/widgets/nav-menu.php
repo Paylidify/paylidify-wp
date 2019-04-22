@@ -552,7 +552,6 @@ class Nav_Menu extends Widget_Base {
 			'hr',
 			[
 				'type' => Controls_Manager::DIVIDER,
-				'style' => 'thick',
 			]
 		);
 

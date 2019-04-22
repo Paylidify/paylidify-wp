@@ -321,11 +321,12 @@ class Document extends Theme_Section_Document {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'entrance_animation',
 			[
 				'label' => __( 'Entrance Animation', 'elementor-pro' ),
 				'type' => Controls_Manager::ANIMATION,
+				'label_block' => true,
 				'frontend_available' => true,
 				'separator' => 'before',
 			]
@@ -387,16 +388,10 @@ class Document extends Theme_Section_Document {
 			'border_radius',
 			[
 				'label' => __( 'Border Radius', 'elementor-pro' ),
-				'type' => Controls_Manager::SLIDER,
+				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
-				'range' => [
-					'px' => [
-						'min' => 0,
-						'max' => 200,
-					],
-				],
 				'selectors' => [
-					'{{WRAPPER}} .dialog-widget-content' => 'border-radius: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .dialog-widget-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
 				],
 			]
 		);
@@ -697,6 +692,17 @@ class Document extends Theme_Section_Document {
 			]
 		);
 
+		$this->add_control(
+			'open_selector',
+			[
+				'label' => __( 'Open By Selector', 'elementor-pro' ),
+				'type' => Controls_Manager::TEXT,
+				'placeholder' => __( '#id, .class', 'elementor-pro' ),
+				'description' => __( 'In order to open a popup on selector click, please set your Popup Conditions', 'elementor-pro' ),
+				'frontend_available' => true,
+			]
+		);
+
 		$this->add_responsive_control(
 			'margin',
 			[
@@ -741,7 +747,6 @@ class Document extends Theme_Section_Document {
 		$config = parent::get_remote_library_config();
 
 		$config['type'] = 'popup';
-		$config['category'] = '';
 		$config['autoImportSettings'] = true;
 
 		return $config;

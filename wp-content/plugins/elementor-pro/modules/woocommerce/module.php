@@ -134,6 +134,7 @@ class Module extends Module_Base {
 	public function get_widgets() {
 		return [
 			'Archive_Products',
+			'Archive_Products_Deprecated',
 			'Archive_Description',
 			'Products',
 			'Products_Deprecated',

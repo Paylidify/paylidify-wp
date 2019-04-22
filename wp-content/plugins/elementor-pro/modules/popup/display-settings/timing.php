@@ -67,6 +67,18 @@ class Timing extends Base {
 			]
 		);
 
+		$this->add_settings_group_control(
+			'count',
+			[
+				'type' => Controls_Manager::SELECT,
+				'label' => __( 'Count', 'elementor-pro' ),
+				'options' => [
+					'' => __( 'On Open', 'elementor-pro' ),
+					'close' => __( 'On Close', 'elementor-pro' ),
+				],
+			]
+		);
+
 		$this->end_settings_group();
 
 		$this->start_settings_group( 'url', __( 'When arriving from specific URL', 'elementor-pro' ) );

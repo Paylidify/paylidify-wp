@@ -22,6 +22,8 @@ final class Manager {
 			'role-manager',
 			'global-widget',
 			'assets-manager',
+			'popup',
+			'motion-fx',
 
 			// Modules with Widgets.
 			'theme-builder',
@@ -45,7 +47,6 @@ final class Manager {
 			'sticky',
 			'wp-cli',
 			'link-actions',
-			'popup',
 		];
 
 		foreach ( $modules as $module_name ) {
