@@ -18,6 +18,10 @@ wp-content/wp-cache-config.php
 wp-content/cache/*
 wp-content/cache/supercache/*
 
+# plugins, all but ours
+wp-content/plugins/*
+!wp-content/plugins/elementor-paylidify-elements
+
 # wpengine specific
 .smushit-status
 .gitattributes
