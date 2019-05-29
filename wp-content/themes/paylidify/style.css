@@ -436,12 +436,7 @@ h1, h2, h3, h4, h5, h6,
   margin-bottom: 1em; }
 
 h1,
-.page .elementor-widget-heading h1.elementor-heading-title {
-  font-family: Ubuntu, sans-serif;
-  font-weight: 400;
-  font-size: 2.65em;
-  color: #00476e; }
-
+.page .elementor-widget-heading h1.elementor-heading-title,
 h2,
 .page .elementor-widget-heading h2.elementor-heading-title {
   font-family: Ubuntu, sans-serif;
