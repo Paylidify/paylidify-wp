@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /wp-admin/
+Disallow: /developer-library/
+Disallow: /author/wpengine/
+Allow: /wp-admin/admin-ajax.php
+
+
+Sitemap: https://paylidify.com/sitemap_index.xml
