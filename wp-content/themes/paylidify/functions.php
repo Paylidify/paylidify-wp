@@ -213,3 +213,16 @@ function add_slug_body_class( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'add_slug_body_class' );
+
+function change_language_locale( $locale ){
+	global $wp;
+	$current_url = home_url( $wp->request );
+
+	if (strpos($current_url, 'ca-en') !== false) {
+		return 'en_CA';
+
+	} else {
+		return 'en_US';
+	}
+}
+add_filter( 'locale', 'change_language_locale' );
